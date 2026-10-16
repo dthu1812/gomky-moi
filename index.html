@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GỐM KÝ – Workshop làm gốm thủ công tại Hà Nội</title>
+
+  <!-- Google Fonts: Duy nhất "Be Vietnam Pro" (500, 600, 700, 800) & fallback "Poppins" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================= */
+    /* 0. HỆ THỐNG BIẾN THIẾT KẾ (DÙNG CHUNG TOÀN WEBSITE)                       */
+    /* ========================================================================= */
+    :root {
+      --color-bg: #FDF6EC;             /* Nền trang kem */
+      --color-menu: #E9DDCB;           /* Thanh menu be */
+      --color-primary: #8E3B1F;        /* Nâu đỏ đất nung (tiêu đề, nút chính) */
+      --color-btn-hover: #9A4524;      /* Nâu nút hover */
+      --color-text: #3A2A22;           /* Chữ thân bài */
+      --color-accent-orange: #E9964A;  /* Cam nhạt (hoạ tiết lá, viền) */
+      --color-dark-orange: #C0613F;    /* Cam đậm (nhấn slogan) */
+      --color-star: #F5B301;           /* Vàng sao đánh giá */
+      --color-card-bg: #FBEFE0;        /* Nền card kem nhạt */
+      --color-icon-circle: #F6DCC8;    /* Vòng icon nền đào */
+
+      --font-main: 'Be Vietnam Pro', 'Poppins', Arial, sans-serif;
+      --container-max-width: 1200px;
+    }
+
+    /* Thiết lập nền tảng: CHỈ BẢN DESKTOP, KHÔNG RESPONSIVE */
+    html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 1100px;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    /* Khung chứa nội dung trung tâm 1200px */
+    .page-container {
+      width: 1200px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Khoảng cách giữa các khối lớn 64px - 80px */
+    .section-spacing {
+      margin-top: 72px;
+    }
+
+    /* ========================================================================= */
+    /* 1. KHỐI DÙNG CHUNG: NÚT BẤM (BUTTONS)                                     */
+    /* ========================================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      font-family: var(--font-main);
+      border: none;
+      outline: none;
+      transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Nút chính: Viên thuốc bo 999px, nền nâu đỏ, chữ trắng 18px 600 */
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(142, 59, 31, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(142, 59, 31, 0.32);
+    }
+
+    /* Nút phụ: Nền trắng, chữ nâu đỏ 700, bo tròn */
+    .btn-secondary {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(58, 42, 34, 0.12);
+    }
+
+    .btn-secondary:hover {
+      background-color: #FDF6EC;
+      color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(58, 42, 34, 0.18);
+    }
+
+    .btn-arrow {
+      stroke-width: 2.5px;
+      transition: transform 0.25s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ========================================================================= */
+    /* 2. KHỐI DÙNG CHUNG: THANH MENU ĐIỀU HƯỚNG (HEADER NAVIGATION)             */
+    /* (Sao chép nguyên khối này sang dich-vu.html, blog.html, dat-lich.html)     */
+    /* ========================================================================= */
+    .header-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 84px;
+      background-color: var(--color-menu);
+      box-shadow: 0 2px 12px rgba(58, 42, 34, 0.06);
+    }
+
+    .nav-inner {
+      width: 1200px;
+      max-width: 1200px;
+      height: 84px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Logo bên trái: Giữ tỉ lệ thật, trong suốt hòa vào nền menu */
+    .nav-logo-link {
+      display: flex;
+      align-items: center;
+      height: 84px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .nav-logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: contrast(1.15) saturate(1.1);
+      transition: transform 0.25s ease;
+    }
+
+    .nav-logo-link:hover .nav-logo-img {
+      transform: scale(1.02);
+    }
+
+    /* Danh sách menu */
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      display: inline-block;
+    }
+
+    .nav-link {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+      padding: 10px 4px;
+      position: relative;
+      display: inline-block;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-primary);
+    }
+
+    /* Mục active: Đậm + gạch chân dày 3px màu nâu đỏ */
+    .nav-link.active {
+      font-weight: 700;
+      color: var(--color-primary);
+      border-bottom: 3px solid var(--color-primary);
+    }
+
+    /* ========================================================================= */
+    /* 3. QUẢN LÝ SLOT ẢNH & PLACEHOLDER                                         */
+    /* ========================================================================= */
+    .image-slot-container {
+      position: relative;
+      background-color: var(--color-menu);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-slot-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .slot-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-menu);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-primary);
+      border: 2px dashed rgba(142, 59, 31, 0.35);
+      border-radius: inherit;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .slot-placeholder .slot-tag {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(253, 246, 236, 0.85);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 59, 31, 0.2);
+    }
+
+    /* ========================================================================= */
+    /* B. KHỐI HERO (CAO 600px, ẢNH NỀN, BẢNG CHỮ PHÍA TRÁI NGƯỢC CHỦ THỂ)      */
+    /* ========================================================================= */
+    .hero-banner {
+      width: 100%;
+      height: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 14px 40px rgba(58, 42, 34, 0.1);
+      margin-top: 36px;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center; /* Hướng về chủ thể bàn xoay gốm bên phải */
+      z-index: 1;
+    }
+
+    /* Bảng chữ ~46% khối bên trái, nền kem 0.92 mờ dần sang phải */
+    .hero-text-card {
+      position: relative;
+      z-index: 2;
+      width: 540px; /* ~46% của 1160px net */
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(253, 246, 236, 0.96) 0%,
+        rgba(253, 246, 236, 0.93) 80%,
+        rgba(253, 246, 236, 0.5) 94%,
+        rgba(253, 246, 236, 0) 100%
+      );
+      padding: 46px 60px 46px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Nhành lá cam SVG ở góc bảng chữ */
+    .hero-leaf-deco {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      width: 90px;
+      height: 90px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* Logo trên đầu bảng chữ */
+    .hero-brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .hero-brand-logo {
+      height: 72px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: contrast(1.15) saturate(1.1);
+    }
+
+    /* Slogan H1: 60px, 800, line-height 1.2, 4 dòng */
+    .hero-slogan {
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: var(--color-primary);
+      text-align: left;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-slogan .slogan-line {
+      display: block;
+    }
+
+    .hero-slogan .slogan-accent {
+      color: var(--color-dark-orange);
+    }
+
+    /* 2 dòng mô tả dưới slogan */
+    .hero-desc-group {
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    .hero-btn {
+      font-size: 19px;
+      padding: 18px 40px;
+    }
+
+    /* ========================================================================= */
+    /* C. 4 ĐIỂM NỔI BẬT (4 CARDS NGANG BẰNG NHAU, VÒNG TRÒN NỀN ĐÀO)            */
+    /* ========================================================================= */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .highlight-card {
+      background-color: var(--color-card-bg);
+      border-radius: 20px;
+      padding: 36px 20px 32px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(58, 42, 34, 0.1);
+    }
+
+    /* Vòng tròn nền đào ~110px và 2 nhành lá nhỏ hai bên */
+    .highlight-icon-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .flank-leaf {
+      width: 24px;
+      height: 48px;
+      opacity: 0.65;
+    }
+
+    .highlight-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background-color: var(--color-icon-circle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(142, 59, 31, 0.08);
+    }
+
+    .highlight-circle svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .highlight-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.35;
+    }
+
+    /* ========================================================================= */
+    /* D. VỀ GỐM KÝ (2 CỘT BẰNG NHAU: BÀI VIẾT + ẢNH SLOT ABOUT_IMG)            */
+    /* ========================================================================= */
+    .about-section {
+      background-color: var(--color-bg);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+    }
+
+    .about-leaf-deco {
+      position: absolute;
+      top: -24px;
+      left: -32px;
+      width: 120px;
+      height: 120px;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 1;
+      padding-right: 16px;
+    }
+
+    .about-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .about-desc {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: 32px;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 420px;
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(58, 42, 34, 0.08);
+      overflow: hidden;
+    }
+
+    /* ========================================================================= */
+    /* E. DỊCH VỤ TẠI GỐM KÝ (TIÊU ĐỀ 30px, 2 CARD VUÔNG CẠNH NHAU BO 24px)     */
+    /* ========================================================================= */
+    .section-header-left {
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .section-title-left {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-text);
+      letter-spacing: 0.5px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .service-card {
+      width: 100%;
+      height: 560px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(58, 42, 34, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(58, 42, 34, 0.14);
+    }
+
+    /* Lớp phủ ảnh nền bao phủ toàn card */
+    .service-card .service-bg-slot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Gradient tối nhẹ từ dưới lên trên ảnh thật */
+    .service-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(26, 16, 12, 0.88) 0%,
+        rgba(26, 16, 12, 0.55) 45%,
+        rgba(26, 16, 12, 0.1) 75%,
+        transparent 100%
+      );
+      z-index: 2;
+    }
+
+    .service-content {
+      position: relative;
+      z-index: 3;
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .service-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-subtitle {
+      font-size: 20px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Trường hợp chưa có ảnh (slot placeholder nền be): đổi chữ sang màu nâu đậm */
+    .service-card.is-placeholder .service-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(233, 221, 203, 0.95) 0%,
+        rgba(233, 221, 203, 0.7) 50%,
+        transparent 100%
+      );
+    }
+
+    .service-card.is-placeholder .service-title {
+      color: var(--color-primary);
+      text-shadow: none;
+    }
+
+    .service-card.is-placeholder .service-subtitle {
+      color: var(--color-text);
+      text-shadow: none;
+    }
+
+    .service-card.is-placeholder .btn-secondary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    .service-card.is-placeholder .btn-secondary:hover {
+      background-color: var(--color-btn-hover);
+    }
+
+    /* ========================================================================= */
+    /* F. HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN (4 BƯỚC NGANG, MŨI TÊN SVG)  */
+    /* ========================================================================= */
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title-center {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-text);
+      letter-spacing: 0.5px;
+    }
+
+    .journey-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .journey-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 220px;
+      text-align: center;
+    }
+
+    .journey-img-box {
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.08);
+      background-color: var(--color-menu);
+    }
+
+    /* Huy hiệu số tròn nâu đỏ chữ trắng ở góc dưới trái */
+    .step-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      z-index: 5;
+    }
+
+    /* Nhành lá nhỏ trang trí góc ảnh bước */
+    .step-leaf-deco {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 38px;
+      height: 38px;
+      opacity: 0.6;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .step-label {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    /* Nhãn "Tùy chọn" bước 4 */
+    .step-optional-pill {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-text);
+      background-color: var(--color-accent-orange);
+      padding: 4px 12px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* Mũi tên giữa các bước */
+    .journey-arrow {
+      margin-top: 96px; /* Căn thẳng hàng với tâm ảnh 220px */
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========================================================================= */
+    /* G. CẢM NHẬN TỪ KHÁCH HÀNG (3 CARD NGANG: ẢNH TRÊN 3:2, HỘP KEM DƯỚI)       */
+    /* ========================================================================= */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(58, 42, 34, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: var(--color-card-bg);
+      height: 100%;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(58, 42, 34, 0.12);
+    }
+
+    /* Ảnh khách hàng tỉ lệ 3:2 bo góc trên */
+    .testimonial-photo-slot {
+      width: 100%;
+      height: 240px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      overflow: hidden;
+    }
+
+    /* Hộp kem bo góc dưới chứa nhận xét và 5 sao */
+    .testimonial-body {
+      padding: 28px 24px 32px 24px;
+      background-color: var(--color-card-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      text-align: center;
+    }
+
+    .star-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .star-rating svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--color-star);
+    }
+
+    .testimonial-quote {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.65;
+    }
+
+    /* Khoảng trống cuối trang trước footer */
+    .page-bottom-space {
+      height: 40px;
+    }
+
+    /* ========================================================================= */
+    /* H. KHỐI DÙNG CHUNG: CHÂN TRANG (FOOTER)                                   */
+    /* ========================================================================= */
+    .site-footer {
+      width: 100%;
+      background-color: var(--color-menu);
+      border-top: 1px solid rgba(142, 59, 31, 0.15);
+      margin-top: 60px;
+      padding: 44px 0 28px 0;
+      color: var(--color-text);
+    }
+
+    .footer-inner {
+      width: 1200px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .footer-logo-link {
+      display: inline-block;
+      height: 60px;
+    }
+
+    .footer-logo-img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      filter: contrast(1.15) saturate(1.1);
+    }
+
+    .footer-brand-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .footer-brand-slogan {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text);
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background-color: rgba(142, 59, 31, 0.12);
+      margin-bottom: 26px;
+    }
+
+    .footer-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .footer-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-info-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: #FDF6EC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-primary);
+      box-shadow: 0 2px 6px rgba(58, 42, 34, 0.06);
+    }
+
+    .footer-info-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .footer-info-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .footer-info-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-info-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a.footer-info-value:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .footer-bottom-line {
+      border-top: 1px solid rgba(142, 59, 31, 0.1);
+      padding-top: 18px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #6B5547;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================= -->
+  <!-- 2. KHỐI DÙNG CHUNG: THANH MENU ĐIỀU HƯỚNG                               -->
+  <!-- ======================================================================= -->
+  <header class="header-nav">
+    <div class="nav-inner">
+      <!-- Logo bên trái: Slot LOGO_ICON -->
+      <a href="index.html" data-link="home" class="nav-logo-link" title="Gốm Ký - Workshop làm gốm thủ công">
+        <img src="assets/LOGO_ICON.png" alt="Logo Gốm Ký" class="nav-logo-img" onerror="this.onerror=null; this.src='assets/LOGO_ICON.jpg';">
+      </a>
+
+      <!-- Menu căn đều: Trang chủ (active), Dịch Vụ, Blog, Đặt lịch -->
+      <nav>
+        <ul class="nav-menu-list">
+          <li class="nav-item">
+            <a href="index.html" data-link="home" class="nav-link active" data-text="menu.home">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="dich-vu.html" data-link="services" class="nav-link" data-text="menu.services">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" data-link="blog" class="nav-link" data-text="menu.blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="dat-lich.html" data-link="booking" class="nav-link" data-text="menu.booking">Đặt lịch</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- TOÀN BỘ NỘI DUNG TRANG CHỦ (TỐI ĐA 1200px, CĂN GIỮA)                     -->
+  <!-- ======================================================================= -->
+  <main class="page-container">
+
+    <!-- B. KHỐI HERO (600px, ẢNH NỀN HERO_BG, BẢNG CHỮ BÊN TRÁI) -->
+    <section class="hero-banner">
+      <!-- Ảnh nền slot HERO_BG phủ kín -->
+      <img src="assets/HERO_BG.jpg" alt="Workshop Gốm Ký" class="hero-bg-img" onerror="this.onerror=null; this.src='assets/HERO_BG.png';">
+
+      <!-- Bảng chữ phía ngược chủ thể (phía trái) -->
+      <div class="hero-text-card">
+        <!-- Nhành lá cam SVG ở góc bảng chữ -->
+        <svg class="hero-leaf-deco" viewBox="0 0 100 100" fill="none" stroke="#E9964A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 85 Q45 50 85 15"/>
+          <path d="M42 52 Q30 36 44 28 Q52 40 42 52"/>
+          <path d="M58 38 Q70 24 78 34 Q68 46 58 38"/>
+          <path d="M70 24 Q74 10 84 12 Q85 24 70 24"/>
+          <path d="M28 66 Q15 62 18 50 Q30 54 28 66"/>
+        </svg>
+
+        <!-- Logo trên đầu bảng chữ (LOGO_ICON đã có sẵn chữ GỐM KÝ nên không lặp chữ) -->
+        <div class="hero-brand-badge">
+          <img src="assets/LOGO_ICON.png" alt="Gốm Ký" class="hero-brand-logo" onerror="this.onerror=null; this.src='assets/LOGO_ICON.jpg';">
+        </div>
+
+        <!-- Slogan H1: 60px, weight 800, line-height 1.2, 4 dòng -->
+        <h1 class="hero-slogan">
+          <span class="slogan-line" data-text="hero.sloganLine1">Chạm đất</span>
+          <span class="slogan-line" data-text="hero.sloganLine2">bằng tay,</span>
+          <span class="slogan-line" data-text="hero.sloganLine3">để gốm kể</span>
+          <span class="slogan-line slogan-accent" data-text="hero.sloganLine4">thay lời bạn</span>
+        </h1>
+
+        <!-- 2 dòng mô tả dưới slogan -->
+        <div class="hero-desc-group">
+          <p class="hero-desc" data-text="hero.desc1">Workshop làm gốm thủ công tại Hà Nội</p>
+          <p class="hero-desc" data-text="hero.desc2">Trải nghiệm sáng tạo - Thư giãn - Cá nhân hoá</p>
+        </div>
+
+        <!-- Nút chính cỡ lớn -->
+        <a href="dat-lich.html" data-link="booking" class="btn btn-primary hero-btn">
+          <span data-text="hero.ctaBtn">Đặt lịch ngay</span>
+          <svg class="btn-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- C. 4 ĐIỂM NỔI BẬT -->
+    <section class="section-spacing">
+      <div class="highlights-grid">
+
+        <!-- Điểm 1: Trải nghiệm sáng tạo (bóng đèn có lá) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <!-- Nhành lá trái -->
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <!-- Vòng tròn đào -->
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M12 2v1"/>
+                <path d="M12 7a4 4 0 0 0-4 4c0 2.2 1.4 3.5 2 5h4c.6-1.5 2-2.8 2-5a4 4 0 0 0-4-4z"/>
+                <path d="M12 11c1-1.5 3-1.5 3.5 0c.5 1.5-.5 2.5-3.5 2"/>
+              </svg>
+            </div>
+            <!-- Nhành lá phải -->
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.0.line1">Trải nghiệm</span><br>
+            <span data-text="highlights.0.line2">sáng tạo</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 2: Không gian thư giãn (tách trà bốc khói) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                <path d="M2 8h16v7a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.1.line1">Không gian</span><br>
+            <span data-text="highlights.1.line2">thư giãn</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 3: Hướng dẫn tận tình (chiếc lá/cây non) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22V12"/>
+                <path d="M12 12C12 7 7 4 2 5c0 5 3 10 10 10z"/>
+                <path d="M12 15c0-4 4-7 9-6c0 4-3 8-9 8z"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.2.line1">Hướng dẫn</span><br>
+            <span data-text="highlights.2.line2">tận tình</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 4: Sản phẩm độc nhất (bình gốm) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3h8"/>
+                <path d="M9 3v2c0 2-3 4-3 7c0 4 3 6 6 6s6-2 6-6c0-3-3-5-3-7V3"/>
+                <path d="M8 18h8v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2z"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#E9964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.3.line1">Sản phẩm</span><br>
+            <span data-text="highlights.3.line2">độc nhất</span>
+          </h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- D. VỀ GỐM KÝ (2 CỘT BẰNG NHAU) -->
+    <section class="section-spacing about-section">
+      <div class="about-grid">
+        <!-- Hoạ tiết nhành lá cam góc khối -->
+        <svg class="about-leaf-deco" viewBox="0 0 100 100" fill="none" stroke="#E9964A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 85 Q45 50 85 15"/>
+          <path d="M42 52 Q30 36 44 28 Q52 40 42 52"/>
+          <path d="M58 38 Q70 24 78 34 Q68 46 58 38"/>
+          <path d="M28 66 Q15 62 18 50 Q30 54 28 66"/>
+        </svg>
+
+        <!-- Cột trái: Văn bản giới thiệu -->
+        <div class="about-content">
+          <h2 class="about-title" data-text="about.title">Về Gốm Ký</h2>
+          <p class="about-desc" data-text="about.desc">Gốm Ký là xưởng nghệ thuật thủ công tại Hà Nội chuyên về trải nghiệm làm gốm và vẽ gốm trong không gian ấm cúng, mộc mạc. Chúng mình tin rằng mỗi sản phẩm gốm không chỉ là một món đồ, mà còn là câu chuyện, cảm xúc và dấu ấn riêng của bạn.</p>
+          <a href="blog.html" data-link="blog" class="btn btn-primary">
+            <span data-text="about.btn">Tìm hiểu thêm</span>
+            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Cột phải: Slot ABOUT_IMG -->
+        <div class="about-image-wrapper image-slot-container" data-slot="ABOUT_IMG">
+          <img src="assets/ABOUT_IMG.jpg" alt="Về Gốm Ký" onerror="this.onerror=null; this.src='assets/SV_HERO.jpg';">
+        </div>
+      </div>
+    </section>
+
+    <!-- E. DỊCH VỤ TẠI GỐM KÝ (2 CARD VUÔNG CẠNH NHAU) -->
+    <section class="section-spacing">
+      <div class="section-header-left">
+        <h2 class="section-title-left" data-text="services.sectionTitle">DỊCH VỤ TẠI GỐM KÝ</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1: Nặn gốm -->
+        <div class="service-card" data-service-card="SERVICE_NAN">
+          <div class="service-bg-slot image-slot-container" data-slot="SERVICE_NAN">
+            <img src="assets/SERVICE_NAN.jpg" alt="Nặn gốm" onerror="this.onerror=null; this.src='assets/SV_TYPE_SONUNG.jpg';">
+          </div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <h3 class="service-title" data-text="services.items.0.title">Nặn gốm</h3>
+            <p class="service-subtitle" data-text="services.items.0.subtitle">Tạo hình từ đất sét</p>
+            <a href="dich-vu.html" data-link="services" class="btn btn-secondary">
+              <span data-text="services.items.0.btn">Xem chi tiết</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Vẽ gốm -->
+        <div class="service-card" data-service-card="SERVICE_VE">
+          <div class="service-bg-slot image-slot-container" data-slot="SERVICE_VE">
+            <img src="assets/SERVICE_VE.jpg" alt="Vẽ gốm" onerror="this.onerror=null; this.src='assets/SV_TYPE_MENTHO.jpg';">
+          </div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <h3 class="service-title" data-text="services.items.1.title">Vẽ gốm</h3>
+            <p class="service-subtitle" data-text="services.items.1.subtitle">Tô màu trên sản phẩm có sẵn</p>
+            <a href="dich-vu.html" data-link="services" class="btn btn-secondary">
+              <span data-text="services.items.1.btn">Xem chi tiết</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- F. HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN (4 BƯỚC NGANG) -->
+    <section class="section-spacing">
+      <div class="section-header-center">
+        <h2 class="section-title-center" data-text="journey.sectionTitle">HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN</h2>
+      </div>
+
+      <div class="journey-row">
+
+        <!-- Bước 1: Nặn/Chọn sản phẩm -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_1">
+            <img src="assets/STEP_1.jpg" alt="Nặn/Chọn sản phẩm" onerror="this.onerror=null; this.src='assets/SV_NAN_STEP_1.png';">
+            <div class="step-badge">1</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#E9964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.0.title">Nặn/Chọn sản phẩm</p>
+        </div>
+
+        <!-- Mũi tên 1 -> 2 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 2: Vẽ & tô màu -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_2">
+            <img src="assets/STEP_2.jpg" alt="Vẽ & tô màu" onerror="this.onerror=null; this.src='assets/SV_VE_STEP_3.png';">
+            <div class="step-badge">2</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#E9964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.1.title">Vẽ & tô màu</p>
+        </div>
+
+        <!-- Mũi tên 2 -> 3 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 3: Nung & tráng men -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_3">
+            <img src="assets/STEP_3.jpg" alt="Nung & tráng men" onerror="this.onerror=null; this.src='assets/SV_NAN_STEP_4.png';">
+            <div class="step-badge">3</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#E9964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.2.title">Nung & tráng men</p>
+        </div>
+
+        <!-- Mũi tên 3 -> 4 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 4: Cá nhân hoá (Tùy chọn) -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_4">
+            <img src="assets/STEP_4.jpg" alt="Cá nhân hoá" onerror="this.onerror=null; this.src='assets/SV_PERSONAL_1.png';">
+            <div class="step-badge">4</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#E9964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.3.title">Cá nhân hoá</p>
+          <span class="step-optional-pill" data-text="journey.steps.3.badge">Tùy chọn</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- G. CẢM NHẬN TỪ KHÁCH HÀNG (3 CARD ĐỒNG ĐỀU) -->
+    <section class="section-spacing">
+      <div class="section-header-center">
+        <h2 class="section-title-center" data-text="testimonials.sectionTitle">CẢM NHẬN TỪ KHÁCH HÀNG</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Khách hàng 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-photo-slot image-slot-container" data-slot="CUSTOMER_1">
+            <img src="assets/CUSTOMER_1.jpg" alt="Khách hàng 1" onerror="this.onerror=null; this.src='assets/SV_PERSONAL_2.png';">
+          </div>
+          <div class="testimonial-body">
+            <div class="star-rating">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote" data-text="testimonials.reviews.0">"Hôm cuối tuần mình cùng team đã làm gốm ở đây, không gian siêu chill, nhân viên thì 10 điểmmm"</p>
+          </div>
+        </div>
+
+        <!-- Khách hàng 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-photo-slot image-slot-container" data-slot="CUSTOMER_2">
+            <img src="assets/CUSTOMER_2.jpg" alt="Khách hàng 2" onerror="this.onerror=null; this.src='assets/SV_PERSONAL_3.png';">
+          </div>
+          <div class="testimonial-body">
+            <div class="star-rating">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote" data-text="testimonials.reviews.1">"Cảm giác được thực sự là dành thời gian cho mình luôn, cứ mải làm quên mất mình có điện thoại luôn"</p>
+          </div>
+        </div>
+
+        <!-- Khách hàng 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-photo-slot image-slot-container" data-slot="CUSTOMER_3">
+            <img src="assets/CUSTOMER_3.jpg" alt="Khách hàng 3" onerror="this.onerror=null; this.src='assets/SV_NAN_STEP_5.png';">
+          </div>
+          <div class="testimonial-body">
+            <div class="star-rating">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="testimonial-quote" data-text="testimonials.reviews.2">"Vui thật luôn mn ạ, siêu rcm cho mn đi với bạn 1 lânnnn"</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Khoảng đệm đáy trang trước footer -->
+    <div class="page-bottom-space"></div>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- H. KHỐI DÙNG CHUNG: CHÂN TRANG (FOOTER)                                   -->
+  <!-- ======================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- Thương hiệu Gốm Ký -->
+      <div class="footer-brand">
+        <a href="index.html" data-link="home" class="footer-logo-link" title="Gốm Ký - Workshop làm gốm thủ công">
+          <img src="assets/LOGO_ICON.png" alt="Logo Gốm Ký" class="footer-logo-img" onerror="this.onerror=null; this.src='assets/LOGO_ICON.jpg';">
+        </a>
+        <div class="footer-brand-info">
+          <h3 class="footer-brand-title">GỐM KÝ</h3>
+          <p class="footer-brand-slogan">Workshop làm gốm thủ công tại Hà Nội</p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Lưới thông tin liên hệ 4 cột -->
+      <div class="footer-info-grid">
+        <!-- 1. Hotline -->
+        <div class="footer-info-item">
+          <div class="footer-info-icon" title="Hotline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div class="footer-info-text">
+            <span class="footer-info-label">Hotline</span>
+            <a href="tel:0913006989" class="footer-info-value">0913006989</a>
+          </div>
+        </div>
+
+        <!-- 2. Email -->
+        <div class="footer-info-item">
+          <div class="footer-info-icon" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="footer-info-text">
+            <span class="footer-info-label">Email</span>
+            <a href="mailto:gomkypottery@gmail.com" class="footer-info-value">gomkypottery@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- 3. Vị trí -->
+        <div class="footer-info-item">
+          <div class="footer-info-icon" title="Vị trí">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="footer-info-text">
+            <span class="footer-info-label">Vị trí</span>
+            <span class="footer-info-value">79 Hồ Tùng Mậu, Hà Nội</span>
+          </div>
+        </div>
+
+        <!-- 4. Facebook -->
+        <div class="footer-info-item">
+          <div class="footer-info-icon" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </div>
+          <div class="footer-info-text">
+            <span class="footer-info-label">Facebook</span>
+            <a href="https://www.facebook.com/share/1bsVa12Wsm/?mibextid=wwXIfr" target="_blank" rel="noopener" class="footer-info-value">Gốm Ký - Workshop Làm Gốm</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dòng bản quyền -->
+      <div class="footer-bottom-line">
+        <p>© 2026 Gốm Ký. Chạm đất bằng tay, để gốm kể thay lời bạn.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================= -->
+  <!-- JAVASCRIPT: QUẢN LÝ LIÊN KẾT, NỘI DUNG CHỮ, SLOT ẢNH & POSTMESSAGE     -->
+  <!-- ======================================================================= -->
+  <script>
+    /* 1. KHAI BÁO CẤU HÌNH ĐIỀU HƯỚNG & PREVIEW */
+    const PREVIEW = true;
+    const LINKS = {
+      home: "index.html",
+      services: "dich-vu.html",
+      blog: "blog.html",
+      booking: "dat-lich.html"
+    };
+
+    /* 2. KHAI BÁO OBJECT SLOT ẢNH */
+    const IMAGES = {
+      LOGO_ICON: "assets/LOGO_ICON.png",
+      HERO_BG: "assets/HERO_BG.jpg",
+      ABOUT_IMG: "assets/ABOUT_IMG.jpg",
+      SERVICE_NAN: "assets/SERVICE_NAN.jpg",
+      SERVICE_VE: "assets/SERVICE_VE.jpg",
+      STEP_1: "assets/STEP_1.jpg",
+      STEP_2: "assets/STEP_2.jpg",
+      STEP_3: "assets/STEP_3.jpg",
+      STEP_4: "assets/STEP_4.jpg",
+      CUSTOMER_1: "assets/CUSTOMER_1.jpg",
+      CUSTOMER_2: "assets/CUSTOMER_2.jpg",
+      CUSTOMER_3: "assets/CUSTOMER_3.jpg"
+    };
+
+    /* 3. KHAI BÁO TOÀN BỘ CHỮ HIỂN THỊ (ĐÚNG CHÍNH TẢ & DẤU) */
+    const TEXT = {
+      menu: {
+        home: "Trang chủ",
+        services: "Dịch vụ",
+        blog: "Blog",
+        booking: "Đặt lịch"
+      },
+      hero: {
+        brand: "GỐM KÝ",
+        brandSubtitle: "WORKSHOP LÀM GỐM",
+        sloganLine1: "Chạm đất",
+        sloganLine2: "bằng tay,",
+        sloganLine3: "để gốm kể",
+        sloganLine4: "thay lời bạn",
+        desc1: "Workshop làm gốm thủ công tại Hà Nội",
+        desc2: "Trải nghiệm sáng tạo - Thư giãn - Cá nhân hoá",
+        ctaBtn: "Đặt lịch ngay"
+      },
+      highlights: [
+        { line1: "Trải nghiệm", line2: "sáng tạo" },
+        { line1: "Không gian", line2: "thư giãn" },
+        { line1: "Hướng dẫn", line2: "tận tình" },
+        { line1: "Sản phẩm", line2: "độc nhất" }
+      ],
+      about: {
+        title: "Về Gốm Ký",
+        desc: "Gốm Ký là xưởng nghệ thuật thủ công tại Hà Nội chuyên về trải nghiệm làm gốm và vẽ gốm trong không gian ấm cúng, mộc mạc. Chúng mình tin rằng mỗi sản phẩm gốm không chỉ là một món đồ, mà còn là câu chuyện, cảm xúc và dấu ấn riêng của bạn.",
+        btn: "Tìm hiểu thêm"
+      },
+      services: {
+        sectionTitle: "DỊCH VỤ TẠI GỐM KÝ",
+        items: [
+          {
+            title: "Nặn gốm",
+            subtitle: "Tạo hình từ đất sét",
+            btn: "Xem chi tiết"
+          },
+          {
+            title: "Vẽ gốm",
+            subtitle: "Tô màu trên sản phẩm có sẵn",
+            btn: "Xem chi tiết"
+          }
+        ]
+      },
+      journey: {
+        sectionTitle: "HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN",
+        steps: [
+          { num: "1", title: "Nặn/Chọn sản phẩm" },
+          { num: "2", title: "Vẽ & tô màu" },
+          { num: "3", title: "Nung & tráng men" },
+          { num: "4", title: "Cá nhân hoá", badge: "Tùy chọn" }
+        ]
+      },
+      testimonials: {
+        sectionTitle: "CẢM NHẬN TỪ KHÁCH HÀNG",
+        reviews: [
+          "Hôm cuối tuần mình cùng team đã làm gốm ở đây, không gian siêu chill, nhân viên thì 10 điểmmm",
+          "Cảm giác được thực sự là dành thời gian cho mình luôn, cứ mải làm quên mất mình có điện thoại luôn",
+          "Vui thật luôn mn ạ, siêu rcm cho mn đi với bạn 1 lânnnn"
+        ]
+      }
+    };
+
+    /* 4. HÀM NẠP VĂN BẢN TỪ OBJECT TEXT VÀO DOM */
+    function applyTextContent() {
+      document.querySelectorAll('[data-text]').forEach(el => {
+        const path = el.getAttribute('data-text').split('.');
+        let val = TEXT;
+        for (const key of path) {
+          if (val && val[key] !== undefined) {
+            val = val[key];
+          } else {
+            val = null;
+            break;
+          }
+        }
+        if (typeof val === 'string') {
+          el.textContent = val;
+        }
+      });
+    }
+
+    /* 5. HÀM THIẾT LẬP LIÊN KẾT NỘI BỘ VỚI TARGET THEO PREVIEW */
+    function applyLinks() {
+      document.querySelectorAll('a[data-link]').forEach(a => {
+        const linkKey = a.getAttribute('data-link');
+        if (LINKS[linkKey]) {
+          a.href = LINKS[linkKey];
+          a.target = PREVIEW ? "_self" : "_top";
+        }
+      });
+    }
+
+    /* 6. HÀM QUẢN LÝ VÀ QUÉT SLOT ẢNH */
+    function initImageSlots() {
+      // Các ảnh đã được nạp trực tiếp qua thẻ img trong HTML tĩnh kèm cơ chế fallback thông minh.
+      document.querySelectorAll('.image-slot-container img').forEach(img => {
+        img.addEventListener('load', () => {
+          const parentServiceCard = img.closest('.service-card');
+          if (parentServiceCard) {
+            parentServiceCard.classList.remove('is-placeholder');
+          }
+          sendHeight();
+        });
+      });
+    }
+
+    /* Render placeholder chuẩn tỷ lệ và màu #E9DDCB */
+    function renderPlaceholder(container, slotName) {
+      container.classList.add('is-placeholder');
+      container.innerHTML = `
+        <div class="slot-placeholder">
+          <span class="slot-tag">${slotName}</span>
+        </div>
+      `;
+      // Nếu là card dịch vụ, cập nhật class để đổi màu chữ nâu đậm đọc rõ
+      const parentServiceCard = container.closest('.service-card');
+      if (parentServiceCard) {
+        parentServiceCard.classList.add('is-placeholder');
+      }
+      sendHeight();
+    }
+
+    /* 7. ĐỒNG BỘ CHIỀU CAO CHO KHUNG CHA (GOOGLE SITES IFRAME) */
+    function sendHeight() {
+      if (window.parent) {
+        window.parent.postMessage({
+          type: 'resize',
+          height: document.documentElement.scrollHeight
+        }, '*');
+      }
+    }
+
+    /* 8. KHỞI CHẠY KHI TẢI TRANG */
+    window.addEventListener('DOMContentLoaded', () => {
+      applyTextContent();
+      applyLinks();
+      initImageSlots();
+      sendHeight();
+    });
+
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // Lắng nghe thay đổi kích thước DOM để gửi lại chiều cao tự động
+    if (typeof ResizeObserver !== 'undefined') {
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+    }
+  </script>
+</body>
+</html>
