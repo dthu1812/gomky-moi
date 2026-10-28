@@ -1,0 +1,3698 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GỐM KÝ – Workshop làm gốm thủ công tại Hà Nội</title>
+
+  <!-- Google Fonts: Duy nhất "Be Vietnam Pro" (500, 600, 700, 800) & fallback "Poppins" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================= */
+    /* 0. HỆ THỐNG BIẾN THIẾT KẾ: BẢNG MÀU CHỦ ĐẠO NÂU - VÀNG - BE (THEO FOOTER)  */
+    /* ========================================================================= */
+    :root {
+      /* NHÓM NÂU: Nâu gốm thủ công, đất nung, nâu ấm sang trọng */
+      --color-primary: #8E3B1F;        /* Nâu đỏ đất nung đặc trưng */
+      --color-brown-dark: #3B2418;     /* Nâu đậm đất nung (nền footer, tiêu đề đậm) */
+      --color-brown-medium: #5A3422;   /* Nâu ấm gốm (nửa dưới footer, nút back-to-top) */
+      --color-btn-hover: #732D15;      /* Nâu nút hover */
+      --color-text: #3A2A22;           /* Chữ thân bài nâu cà phê đậm */
+      --color-muted: #6B5345;          /* Nâu xám đất cho phụ đề */
+      --color-tag-brown: #5A3422;      /* Nền tag nâu phân mục */
+
+      /* NHÓM VÀNG: Vàng mật ong, vàng hoàng kim từ chân trang */
+      --color-gold: #F5B63B;           /* Vàng hoàng kim ấm áp chuẩn footer */
+      --color-gold-hover: #E09E22;     /* Vàng đậm hơn khi hover */
+      --color-gold-soft: rgba(245, 182, 59, 0.16);  /* Nền vàng nhạt */
+      --color-gold-border: rgba(245, 182, 59, 0.45);/* Viền vàng mờ */
+      --color-star: #F5B63B;           /* Vàng sao đánh giá */
+      --color-accent-orange: #F5B63B;  /* Đồng bộ hoạ tiết lá và icon sang vàng ấm */
+      --color-dark-orange: #8E3B1F;    /* Chuyển cam đậm sang nâu đỏ đất nung */
+
+      /* NHÓM BE: Nền be kem gốm mộc mạc, thanh lịch */
+      --color-bg: #FDF6EC;             /* Nền trang be kem ấm */
+      --color-menu: #E9DDCB;           /* Thanh menu be gốm */
+      --color-card-bg: #FBEFE0;        /* Nền card kem nhạt */
+      --color-icon-circle: #F5E5D0;    /* Vòng icon be vàng ấm */
+      --color-cream-light: #FFF9F2;    /* Be kem sáng ngà */
+      --color-cream-text: #FFF3E2;     /* Chữ kem ngà sáng footer */
+      --color-line: rgba(245, 182, 59, 0.3); /* Viền phân cách mờ */
+
+      /* Biến dùng lại & bổ sung */
+      --primary: var(--color-primary);
+      --primary-soft: #FBEFE0;         /* Nền dải số liệu kem ấm */
+      --honey: #F5B63B;                /* Vàng mật ong chuẩn footer */
+      --jade: #8E3B1F;                 /* Nâu đất nung */
+      --clay: #8E3B1F;                 /* Màu đất nung */
+      --teal: #8E3B1F;                 /* Nâu gốm cho icon */
+      --muted: #6B5345;                /* Màu chữ phụ đề */
+      --line: rgba(245, 182, 59, 0.25);/* Viền card nhận xét */
+
+      --font-main: 'Be Vietnam Pro', 'Poppins', Arial, sans-serif;
+      --container-max-width: 1200px;
+
+      /* Biến giao diện thanh điều hướng mới */
+      --nav-bg: #5E3A2A;
+      --nav-text: #FFFFFF;
+      --nav-text-dim: rgba(255, 255, 255, 0.86);
+      --nav-height: 120px;
+    }
+
+    /* Thiết lập nền tảng: HỖ TRỢ ĐA THIẾT BỊ (RESPONSIVE) */
+    html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 0;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    /* Khung chứa nội dung trung tâm 1200px (co giãn theo màn hình) */
+    .page-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    /* Khoảng cách giữa các khối lớn 64px - 80px */
+    .section-spacing {
+      margin-top: 72px;
+    }
+
+    /* ========================================================================= */
+    /* 1. KHỐI DÙNG CHUNG: NÚT BẤM (BUTTONS)                                     */
+    /* ========================================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      font-family: var(--font-main);
+      border: none;
+      outline: none;
+      transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Nút chính: Viên thuốc bo 999px, nền nâu đỏ, chữ trắng 18px 600 */
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(142, 59, 31, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(142, 59, 31, 0.32);
+    }
+
+    /* Nút phụ: Nền trắng, chữ nâu đỏ 700, bo tròn */
+    .btn-secondary {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(58, 42, 34, 0.12);
+    }
+
+    .btn-secondary:hover {
+      background-color: #FDF6EC;
+      color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(58, 42, 34, 0.18);
+    }
+
+    .btn-arrow {
+      stroke-width: 2.5px;
+      transition: transform 0.25s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ========================================================================= */
+    /* 2. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   */
+    /* ========================================================================= */
+    .site-header {
+      width: 100%;
+      height: 120px;
+      background-color: var(--nav-bg, #5E3A2A);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      box-sizing: border-box;
+    }
+
+    .nav-inner-wide {
+      width: 100%;
+      height: 120px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      gap: 24px;
+    }
+
+    /* 1. LOGO: Khung bo góc 16px, 104x96px, nền #FFF7EE, padding 4px */
+    .nav-logo-box {
+      width: 104px;
+      height: 96px;
+      background-color: #FFF7EE;
+      border-radius: 16px;
+      padding: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .nav-logo-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* 2. MENU CĂN GIỮA: Chữ 22px 700, gap 48px, active trắng + gạch 3px */
+    .nav-center-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      display: inline-block;
+    }
+
+    .nav-link {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--nav-text-dim, rgba(255, 255, 255, 0.86));
+      padding: 10px 0;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      color: #FFFFFF;
+    }
+
+    .nav-link:hover::after {
+      opacity: 1;
+    }
+
+    /* Mục đang chọn: chữ trắng, gạch chân trắng dày 3px, cách chữ 8px, bo tròn */
+    .nav-link.active {
+      color: #FFFFFF !important;
+      text-shadow: none;
+    }
+
+    .nav-link.active::after {
+      opacity: 1;
+      background-color: #FFFFFF;
+    }
+
+    /* 3. NÚT BÊN PHẢI */
+    .nav-right-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-btn-booking {
+      background-color: #FFF7EE;
+      color: var(--nav-bg, #5E3A2A);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .nav-btn-booking:hover {
+      background-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Nút Zalo / Facebook trên thanh khi EMBEDDED = true */
+    .nav-contact-quick {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.is-embedded .nav-contact-quick {
+      display: flex;
+    }
+
+    .contact-btn-mini {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-btn-mini:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .contact-btn-mini.btn-zalo {
+      background-color: #0068FF;
+    }
+
+    .contact-btn-mini.btn-facebook {
+      background-color: #1877F2;
+    }
+
+    .contact-btn-mini .zalo-text {
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Nút hamburger mở menu mobile */
+    .nav-toggle-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      outline: none;
+    }
+
+    .nav-toggle-btn .bar {
+      width: 20px;
+      height: 2px;
+      background-color: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .nav-toggle-btn.is-active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar {
+      background-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========================================================================= */
+    /* 3. QUẢN LÝ SLOT ẢNH & PLACEHOLDER                                         */
+    /* ========================================================================= */
+    .image-slot-container {
+      position: relative;
+      background-color: var(--color-menu);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-slot-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .slot-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-menu);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-primary);
+      border: 2px dashed rgba(142, 59, 31, 0.35);
+      border-radius: inherit;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .slot-placeholder .slot-tag {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(253, 246, 236, 0.85);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 59, 31, 0.2);
+    }
+
+    /* ========================================================================= */
+    /* B. KHỐI HERO TRÀN NGANG (HERO FULLWIDTH CONTAINER)                        */
+    /* ========================================================================= */
+    .hero-fullwidth {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      line-height: 0;
+      margin-top: 0;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+
+    .hero-fullwidth-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0;
+      transform: scale(1.03);
+      animation: heroEntryZoom 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes heroEntryZoom {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .hero-slot-placeholder {
+      width: 100%;
+      aspect-ratio: 1879 / 837;
+      background-color: #E9DDCB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      border: 2px dashed rgba(142, 59, 31, 0.35);
+      box-sizing: border-box;
+      line-height: normal;
+    }
+
+    .hero-slot-placeholder .slot-tag {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(253, 246, 236, 0.85);
+      padding: 8px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 59, 31, 0.2);
+    }
+
+    /* Vùng bấm cho nút Đặt lịch ngay trong ảnh */
+    .hero-click-area {
+      position: absolute;
+      left: 17.9%;
+      top: 78.4%;
+      width: 13.9%;
+      height: 8.4%;
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      display: block;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 5;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hero-click-area:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-click-area:focus-visible {
+      outline: 3px solid #F5B63B;
+      outline-offset: 2px;
+    }
+
+    /* Chế độ kiểm tra toạ độ khi URL có ?debug=1 hoặc hash #debug */
+    body.is-debug .hero-click-area {
+      border: 2px solid #E74C3C;
+      background: rgba(231, 76, 60, 0.2) !important;
+      z-index: 10;
+    }
+
+    .stats-bar-section {
+      margin-top: 56px;
+      width: 100%;
+    }
+
+    /* ========================================================================= */
+    /* C. 4 ĐIỂM NỔI BẬT (4 CARDS NGANG BẰNG NHAU, VÒNG TRÒN NỀN ĐÀO)            */
+    /* ========================================================================= */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .highlight-card {
+      background-color: var(--color-card-bg);
+      border-radius: 20px;
+      padding: 36px 20px 32px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(58, 42, 34, 0.1);
+    }
+
+    /* Vòng tròn nền đào ~110px và 2 nhành lá nhỏ hai bên */
+    .highlight-icon-cluster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .flank-leaf {
+      width: 24px;
+      height: 48px;
+      opacity: 0.65;
+    }
+
+    .highlight-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background-color: var(--color-icon-circle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 6px rgba(142, 59, 31, 0.08);
+    }
+
+    .highlight-circle svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .highlight-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.35;
+    }
+
+    /* ========================================================================= */
+    /* D. VỀ GỐM KÝ (2 CỘT BẰNG NHAU: BÀI VIẾT + TRÌNH CHIẾU TỰ ĐỘNG 3 ẢNH 4:3)  */
+    /* ========================================================================= */
+    .about-section {
+      background-color: var(--color-bg);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+    }
+
+    .about-leaf-deco {
+      position: absolute;
+      top: -24px;
+      left: -32px;
+      width: 120px;
+      height: 120px;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 1;
+      padding-right: 16px;
+    }
+
+    .about-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .about-desc {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: 32px;
+    }
+
+    /* Khung ảnh 4:3 bo góc 20px, overflow hidden (~660x495px) */
+    .about-slider-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(58, 42, 34, 0.08);
+      overflow: hidden;
+      background-color: var(--color-menu);
+    }
+
+    .about-slides-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+      overflow: hidden;
+    }
+
+    .about-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+
+    .about-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center center;
+    }
+
+    /* Hiệu ứng Ken Burns nhẹ: scale 1 đến 1.06 trong 5s */
+    .about-slide.is-active img {
+      animation: kenBurnsZoom 5s ease-out forwards;
+    }
+
+    @keyframes kenBurnsZoom {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.06);
+      }
+    }
+
+    /* 3 chấm tròn chuyển ảnh ở góc dưới giữa, chấm đang chọn dài ra dạng viên thuốc màu #F5B63B */
+    .about-slider-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .about-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .about-dot.is-active {
+      width: 28px;
+      background-color: #F5B63B;
+    }
+
+    /* Hai nút mũi tên tròn trắng mờ ở hai mép trái/phải */
+    .about-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: var(--color-primary);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    .about-slider-arrow:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .about-slider-prev {
+      left: 16px;
+    }
+
+    .about-slider-next {
+      right: 16px;
+    }
+
+    /* ========================================================================= */
+    /* E. DỊCH VỤ TẠI GỐM KÝ (TIÊU ĐỀ 30px, 2 CARD VUÔNG CẠNH NHAU BO 24px)     */
+    /* ========================================================================= */
+    .section-header-left {
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .section-title-left {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-text);
+      letter-spacing: 0.5px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .service-card {
+      width: 100%;
+      height: 560px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(58, 42, 34, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(58, 42, 34, 0.14);
+    }
+
+    /* Lớp phủ ảnh nền bao phủ toàn card */
+    .service-card .service-bg-slot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Gradient tối nhẹ từ dưới lên trên ảnh thật */
+    .service-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(26, 16, 12, 0.88) 0%,
+        rgba(26, 16, 12, 0.55) 45%,
+        rgba(26, 16, 12, 0.1) 75%,
+        transparent 100%
+      );
+      z-index: 2;
+    }
+
+    .service-content {
+      position: relative;
+      z-index: 3;
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .service-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-subtitle {
+      font-size: 20px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Trường hợp chưa có ảnh (slot placeholder nền be): đổi chữ sang màu nâu đậm */
+    .service-card.is-placeholder .service-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(233, 221, 203, 0.95) 0%,
+        rgba(233, 221, 203, 0.7) 50%,
+        transparent 100%
+      );
+    }
+
+    .service-card.is-placeholder .service-title {
+      color: var(--color-primary);
+      text-shadow: none;
+    }
+
+    .service-card.is-placeholder .service-subtitle {
+      color: var(--color-text);
+      text-shadow: none;
+    }
+
+    .service-card.is-placeholder .btn-secondary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+    }
+
+    .service-card.is-placeholder .btn-secondary:hover {
+      background-color: var(--color-btn-hover);
+    }
+
+    /* ========================================================================= */
+    /* F. HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN (4 BƯỚC NGANG, MŨI TÊN SVG)  */
+    /* ========================================================================= */
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title-center {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-text);
+      letter-spacing: 0.5px;
+    }
+
+    .journey-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .journey-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 220px;
+      text-align: center;
+    }
+
+    .journey-img-box {
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.08);
+      background-color: var(--color-menu);
+    }
+
+    /* Huy hiệu số tròn nâu đỏ chữ trắng ở góc dưới trái */
+    .step-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      z-index: 5;
+    }
+
+    /* Nhành lá nhỏ trang trí góc ảnh bước */
+    .step-leaf-deco {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 38px;
+      height: 38px;
+      opacity: 0.6;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .step-label {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    /* Nhãn "Tùy chọn" bước 4 */
+    .step-optional-pill {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #5A3422;
+      background-color: #FEF3DC;
+      border: 1px solid #F5B63B;
+      padding: 4px 12px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* Mũi tên giữa các bước */
+    .journey-arrow {
+      margin-top: 96px; /* Căn thẳng hàng với tâm ảnh 220px */
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========================================================================= */
+    /* G. CẢM NHẬN TỪ KHÁCH HÀNG (BĂNG CHUYỀN CHẠY LIÊN TỤC - MARQUEE)           */
+    /* ========================================================================= */
+    .testimonials-section {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .testimonials-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .testimonials-badge-line {
+      width: 44px;
+      height: 2px;
+      background-color: var(--honey, #F5B63B);
+      border-radius: 2px;
+    }
+
+    .testimonials-badge {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary, #8E3B1F);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .testimonials-title {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--color-text, #3A2A22);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .testimonials-subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--muted, #6B5345);
+      line-height: 1.5;
+    }
+
+    /* Băng chuyền Marquee */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      padding: 16px 0 24px 0;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: marqueeContinuous 50s linear infinite;
+    }
+
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeContinuous {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Card nhận xét: 360px, nền trắng, viền mảnh 1px --line, bo góc 20px, đổ bóng nhẹ, padding 22px */
+    .marquee-card {
+      width: 360px;
+      flex: 0 0 360px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--line, rgba(245, 182, 59, 0.25));
+      border-radius: 20px;
+      box-shadow: 0 4px 18px rgba(58, 42, 34, 0.05);
+      padding: 22px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .marquee-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(58, 42, 34, 0.12);
+    }
+
+    /* a) Ảnh 3:2 phía trên */
+    .marquee-photo-box {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      background-color: var(--color-menu);
+    }
+
+    .marquee-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .marquee-card:hover .marquee-photo-box img {
+      transform: scale(1.04);
+    }
+
+    /* b) Dải 5 sao vàng đặc */
+    .marquee-star-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .marquee-star-row svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--honey, #F5B63B);
+    }
+
+    /* c) Lời nhận xét: 500, 17px, line-height 1.7, căn giữa, tối đa 5 dòng */
+    .marquee-quote {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--color-text, #3A2A22);
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    /* Nút dưới băng chuyền: Đọc thêm trên blog */
+    .testimonials-bottom-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 36px;
+    }
+
+    /* Khoảng trống cuối trang trước footer */
+    .page-bottom-space {
+      height: 40px;
+    }
+
+    /* ========================================================================= */
+    /* H. KHỐI DÙNG CHUNG: CHÂN TRANG MỚI (UNIFIED SITE FOOTER)                  */
+    /* Gradient #3B2418 -> #5A3422, bo góc trên 28px, cách trên 72px            */
+    /* ========================================================================= */
+    .site-footer {
+      width: 100%;
+      background: linear-gradient(180deg, #3B2418 0%, #5A3422 100%);
+      border-top: 1px solid rgba(245, 182, 59, 0.2);
+      border-radius: 28px 28px 0 0;
+      margin-top: 72px;
+      padding: 64px 0 28px 0;
+      color: #FFF3E2;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .footer-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* --- BẢNG THÔNG BÁO PHÁP LÝ QUAN TRỌNG --- */
+    .footer-legal-banner {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(245, 182, 59, 0.35);
+      border-radius: 14px;
+      padding: 18px 28px;
+      margin-bottom: 48px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .footer-legal-icon {
+      width: 22px;
+      height: 22px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+    }
+
+    .footer-legal-text {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #EBD5C0;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-legal-strong {
+      color: #F5B63B;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- HÀNG 3 CỘT (Tỉ lệ 1.4 : 1 : 1.2, gap 56px) --- */
+    .footer-grid-3col {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    /* --- CỘT 1: THƯƠNG HIỆU --- */
+    .footer-col-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #FAF7F2;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      border: 2px solid rgba(245, 182, 59, 0.4);
+      flex-shrink: 0;
+    }
+
+    .footer-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .footer-brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 34px;
+      font-weight: 800;
+      color: #FFF3E2;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    .footer-brand-tagline {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F5B63B;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .footer-brand-about {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #EBD5C0;
+      margin: 0 0 24px 0;
+    }
+
+    /* Cụm nút mạng xã hội tròn 48px */
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      text-decoration: none;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social-btn:hover {
+      background: #F5B63B;
+      border-color: #F5B63B;
+      color: #3B2418;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(245, 182, 59, 0.35);
+    }
+
+    .footer-social-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .footer-social-btn.btn-social-zalo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- TIÊU ĐỀ CHUNG CHO CỘT 2 & 3 --- */
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #F5B63B;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+
+    .footer-title-bar {
+      width: 36px;
+      height: 3px;
+      background-color: #F5B63B;
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+
+    /* --- CỘT 2: KHÁM PHÁ --- */
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav-link {
+      font-size: 17px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.6;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: #F5B63B;
+      transform: translateX(4px);
+    }
+
+    .footer-nav-bullet {
+      width: 14px;
+      height: 14px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+      opacity: 0.85;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-nav-link:hover .footer-nav-bullet {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    /* --- CỘT 3: LIÊN HỆ & GIỜ HOẠT ĐỘNG --- */
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-contact-icon {
+      width: 20px;
+      height: 20px;
+      color: #F5B63B;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #F5B63B;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-contact-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    a.footer-contact-value:hover {
+      color: #F5B63B;
+      text-decoration: underline;
+    }
+
+    /* Giờ hoạt động & Huy hiệu trạng thái */
+    .footer-hours-block {
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 18px;
+    }
+
+    .footer-hours-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F5B63B;
+      margin-bottom: 6px;
+    }
+
+    .footer-hours-time {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      margin-bottom: 12px;
+    }
+
+    .footer-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-status-badge.status-open {
+      background: rgba(74, 222, 128, 0.15);
+      color: #BBF7D0;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .footer-status-badge.status-closed {
+      background: rgba(255, 255, 255, 0.08);
+      color: #D6C3B2;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot-open {
+      background: #4ADE80;
+      box-shadow: 0 0 8px #4ADE80;
+      animation: pulseGlow 1.8s infinite;
+    }
+
+    .status-dot-closed {
+      background: #9CA3AF;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 6px #4ADE80;
+      }
+      50% {
+        transform: scale(1.25);
+        opacity: 0.75;
+        box-shadow: 0 0 12px #4ADE80;
+      }
+    }
+
+    /* --- ĐÁY FOOTER: ĐƯỜNG KẺ & BẢN QUYỀN --- */
+    .footer-bottom-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 0 24px 0;
+      border: none;
+    }
+
+    .footer-bottom-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-copyright {
+      font-size: 15px;
+      font-weight: 500;
+      color: #D6C3B2;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer-disclaimer {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(214, 195, 178, 0.72);
+      margin: 0;
+    }
+
+    /* --- NÚT CUỘN LÊN ĐẦU TRANG (BACK TO TOP) --- */
+    .btn-back-to-top {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: #5A3422;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+      z-index: 99;
+      outline: none;
+    }
+
+    .btn-back-to-top:hover {
+      background-color: #F5B63B;
+      color: #3B2418;
+      border-color: #F5B63B;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(245, 182, 59, 0.45);
+    }
+
+    .btn-back-to-top svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn-back-to-top.is-fixed {
+      position: fixed;
+      right: 26px;
+      bottom: 164px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    .btn-back-to-top.is-fixed.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .btn-back-to-top.is-embedded-inline {
+      position: absolute;
+      top: 36px;
+      right: 24px;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-footer,
+      .site-footer.reveal,
+      .btn-back-to-top,
+      .status-dot-open {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    /* ========================================================================= */
+    /* HIỆU ỨNG FADE-UP KHI CUỘN (.reveal)                                       */
+    /* ========================================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Các phần tử con trong cùng hàng lệch nhau 0.12s */
+    .reveal .highlight-card,
+    .reveal .service-card,
+    .reveal .journey-step,
+    .reveal .testimonial-card {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-revealed .highlight-card,
+    .reveal.is-revealed .service-card,
+    .reveal.is-revealed .journey-step,
+    .reveal.is-revealed .testimonial-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal .highlight-card:nth-child(1),
+    .reveal .service-card:nth-child(1),
+    .reveal .journey-step:nth-of-type(1),
+    .reveal .testimonial-card:nth-child(1) {
+      transition-delay: 0s;
+    }
+
+    .reveal .highlight-card:nth-child(2),
+    .reveal .service-card:nth-child(2),
+    .reveal .journey-step:nth-of-type(2),
+    .reveal .testimonial-card:nth-child(2) {
+      transition-delay: 0.12s;
+    }
+
+    .reveal .highlight-card:nth-child(3),
+    .reveal .journey-step:nth-of-type(3),
+    .reveal .testimonial-card:nth-child(3) {
+      transition-delay: 0.24s;
+    }
+
+    .reveal .highlight-card:nth-child(4),
+    .reveal .journey-step:nth-of-type(4) {
+      transition-delay: 0.36s;
+    }
+
+    /* ========================================================================= */
+    /* 2. THANH SỐ LIỆU (STATS BAR - 2 Ô BẰNG NHAU, ĐƯỜNG KẺ DỌC MẢNH)           */
+    /* ========================================================================= */
+    .stats-bar-section {
+      margin-top: 32px;
+      width: 100%;
+    }
+
+    .stats-bar-container {
+      width: 100%;
+      min-height: 120px;
+      background-color: var(--primary-soft, #FBEFE0);
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 20px 48px;
+      box-sizing: border-box;
+      box-shadow: 0 6px 20px rgba(58, 42, 34, 0.06);
+      border: 1px solid rgba(245, 182, 59, 0.35);
+    }
+
+    .stats-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      padding: 10px 24px;
+    }
+
+    .stats-col:first-child {
+      border-right: 1px solid rgba(142, 59, 31, 0.15);
+    }
+
+    .stats-icon-wrap {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stats-icon-wrap svg {
+      width: 44px;
+      height: 44px;
+      display: block;
+    }
+
+    .stats-text-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .stats-number-wrap {
+      font-family: var(--font-main);
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--primary, #8E3B1F);
+      display: flex;
+      align-items: baseline;
+    }
+
+    .stats-counter {
+      display: inline-block;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stats-suffix {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--primary, #8E3B1F);
+      margin-left: 2px;
+    }
+
+    .stats-label {
+      font-family: var(--font-main);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text, #3A2A22);
+      margin-top: 4px;
+    }
+
+    /* ========================================================================= */
+    /* NÚT LIÊN HỆ NHANH (QUICK CONTACT)                                         */
+    /* ========================================================================= */
+    /* 1. Nhánh EMBEDDED = false: Fixed góc phải dưới */
+    .quick-contact-fixed {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    body.is-embedded .quick-contact-fixed {
+      display: none !important;
+    }
+
+    .quick-contact-btn {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .quick-contact-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .quick-contact-btn.btn-zalo {
+      background-color: #0068FF;
+      animation: pulseZalo 3.6s ease-in-out infinite;
+    }
+
+    .quick-contact-btn.btn-facebook {
+      background-color: #1877F2;
+      animation: pulseFacebook 3.6s ease-in-out 1.8s infinite;
+    }
+
+    @keyframes pulseZalo {
+      0%, 100% {
+        box-shadow: 0 4px 14px rgba(0, 104, 255, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(0, 104, 255, 0), 0 6px 18px rgba(0, 104, 255, 0.5);
+      }
+    }
+
+    @keyframes pulseFacebook {
+      0%, 100% {
+        box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(24, 119, 242, 0), 0 6px 18px rgba(24, 119, 242, 0.5);
+      }
+    }
+
+    .quick-contact-label {
+      position: absolute;
+      right: 68px;
+      top: 50%;
+      transform: translateY(-50%) translateX(6px);
+      background: rgba(58, 42, 34, 0.92);
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    .quick-contact-btn:hover .quick-contact-label {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .zalo-text {
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    /* ========================================================================= */
+    /* TÔN TRỌNG PREFERS-REDUCED-MOTION                                          */
+    /* ========================================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .hero-fullwidth-img {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .marquee-container {
+        overflow-x: auto !important;
+      }
+
+      .marquee-track {
+        animation: none !important;
+      }
+
+      .reveal,
+      .reveal .highlight-card,
+      .reveal .service-card,
+      .reveal .journey-step {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .quick-contact-btn {
+        animation: none !important;
+      }
+    }
+
+    /* ========================================================================= */
+    /* RESPONSIVE DESIGN (TABLET & MOBILE)                                       */
+    /* ========================================================================= */
+
+    /* Tablet & Small Desktop (dưới 992px) */
+    @media (max-width: 992px) {
+      .site-header {
+        height: 72px;
+      }
+
+      .nav-inner-wide {
+        height: 72px;
+        padding: 0 16px;
+        gap: 12px;
+      }
+
+      .nav-logo-box {
+        width: 56px;
+        height: 52px;
+        border-radius: 10px;
+        padding: 2px;
+      }
+
+      .nav-toggle-btn {
+        display: flex;
+      }
+
+      .nav-btn-booking {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 8px 18px;
+      }
+
+      .nav-center-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: #4A2B1D;
+        border-top: 1px solid rgba(245, 182, 59, 0.25);
+        border-bottom: 3px solid #F5B63B;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        padding: 8px 0 16px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-center-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-menu-list {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        display: block;
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link.active {
+        color: #F5B63B !important;
+        background-color: rgba(245, 182, 59, 0.14);
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .page-container {
+        padding: 0 16px;
+      }
+
+      .stats-bar-section {
+        margin-top: 24px;
+      }
+
+      .stats-bar-container {
+        grid-template-columns: 1fr;
+        padding: 18px 16px;
+        gap: 14px;
+        min-height: auto;
+      }
+
+      .stats-col {
+        padding: 8px 12px;
+        justify-content: flex-start;
+      }
+
+      .stats-col:first-child {
+        border-right: none;
+        border-bottom: 1px solid rgba(142, 59, 31, 0.15);
+        padding-bottom: 14px;
+      }
+
+      .stats-counter {
+        font-size: 30px;
+      }
+
+      .stats-suffix {
+        font-size: 24px;
+      }
+
+      .stats-label {
+        font-size: 15px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .about-slider-wrap {
+        height: 320px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .service-card {
+        height: 440px;
+      }
+
+      .journey-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 14px;
+        justify-items: center;
+      }
+
+      .journey-arrow-wrap {
+        display: none;
+      }
+
+      .journey-step {
+        width: 100%;
+        max-width: 160px;
+      }
+
+      .journey-img-box {
+        width: 100%;
+        max-width: 160px;
+        height: 160px;
+      }
+
+      .step-badge {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        bottom: 8px;
+        left: 8px;
+      }
+
+      .step-label {
+        font-size: 15px;
+        margin-top: 10px;
+      }
+
+      .marquee-card {
+        width: 290px;
+        padding: 18px 16px;
+      }
+
+      .section-spacing {
+        margin-top: 48px;
+      }
+
+      .section-title-center,
+      .section-title-left,
+      .about-title {
+        font-size: 24px;
+      }
+    }
+
+    /* Màn hình Mobile (dưới 768px) */
+    @media (max-width: 768px) {
+      .site-footer {
+        margin-top: 48px;
+        padding: 36px 0 20px 0;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .footer-inner {
+        padding: 0 16px;
+      }
+
+      .footer-legal-banner {
+        flex-direction: column;
+        padding: 14px 16px;
+        gap: 8px;
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .footer-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 28px;
+      }
+
+      .footer-col-brand {
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-brand-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .footer-brand-about {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .footer-social-row {
+        justify-content: center;
+      }
+
+      .footer-col-title {
+        text-align: center;
+      }
+
+      .footer-title-bar {
+        margin: 0 auto 16px auto;
+      }
+
+      .footer-nav-list {
+        align-items: center;
+      }
+
+      .footer-contact-list {
+        align-items: center;
+      }
+
+      .footer-contact-item {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-hours-block {
+        text-align: center;
+      }
+
+      .btn-back-to-top.is-embedded-inline {
+        top: 18px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Màn hình Mobile nhỏ (dưới 480px) */
+    @media (max-width: 480px) {
+      .nav-btn-booking {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .highlight-card {
+        padding: 24px 16px;
+      }
+
+      .about-slider-wrap {
+        height: 240px;
+      }
+
+      .service-card {
+        height: 380px;
+      }
+
+      .service-content {
+        padding: 24px 18px;
+      }
+
+      .service-title {
+        font-size: 26px;
+      }
+
+      .journey-step {
+        max-width: 145px;
+      }
+
+      .journey-img-box {
+        max-width: 145px;
+        height: 145px;
+      }
+
+      .quick-contact-widget {
+        right: 12px;
+        bottom: 18px;
+        gap: 8px;
+      }
+
+      .quick-contact-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+      .quick-contact-label {
+        display: none !important;
+      }
+
+      .btn-back-to-top.is-fixed {
+        right: 12px;
+        bottom: 125px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GX7LX2K63"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6GX7LX2K63',{cookie_flags:'SameSite=None;Secure'});</script>
+</head>
+<body>
+
+  <!-- ======================================================================= -->
+  <!-- 1. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   -->
+  <!-- ======================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner-wide">
+      <!-- Cột trái: Khung Logo 104x96px -->
+      <a href="index.html" data-link="home" class="nav-logo-box" aria-label="Gốm Ký - Về trang chủ">
+        <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" class="nav-logo-img" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+      </a>
+
+      <!-- Cột giữa: 4 mục menu 22px bold -->
+      <nav class="nav-center-menu" aria-label="Menu chính">
+        <ul class="nav-menu-list">
+          <li class="nav-item">
+            <a href="index.html" data-link="home" class="nav-link active">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="dich-vu.html" data-link="services" class="nav-link">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" data-link="blog" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="dat-lich.html" data-link="booking" class="nav-link">Đặt lịch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Cột phải: Nút Đặt lịch ngay + Nút Zalo/FB khi nhúng -->
+      <div class="nav-right-col">
+        <div class="nav-contact-quick" id="navContactQuick">
+          <a id="navBtnZalo" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-zalo" aria-label="Nhắn Zalo" title="Nhắn Zalo">
+            <span class="zalo-text">Zalo</span>
+          </a>
+          <a id="navBtnFacebook" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-facebook" aria-label="Nhắn Fanpage" title="Nhắn Fanpage">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF">
+              <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.74-1.5 1.8-1.5H17.5V2.3c-.6-.08-1.7-.17-3.1-.17-3.2 0-5.4 1.95-5.4 5.5v2.37H6v4h3v9h5v-9z"/>
+            </svg>
+          </a>
+        </div>
+        <a href="dat-lich.html" data-link="booking" class="nav-btn-booking" id="navBtnBooking">Đặt lịch ngay</a>
+        <!-- Nút hamburger mở menu mobile -->
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Mở menu" type="button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- 2. KHỐI HERO MỚI (TRÀN 100% CHIỀU NGANG, VÙNG BẤM ĐẶT LỊCH)             -->
+  <!-- ======================================================================= -->
+  <section class="hero-fullwidth" id="heroSection">
+    <div class="hero-img-wrap" id="heroImgWrap">
+      <img src="assets/HERO_BG.jpg" alt="Workshop Gốm Ký" class="hero-fullwidth-img" id="heroImg" onerror="handleHeroImageError(this)">
+      <a href="dat-lich.html" data-link="booking" class="hero-click-area" id="heroClickArea" aria-label="Đặt lịch ngay"></a>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- TOÀN BỘ NỘI DUNG TRANG CHỦ (TỐI ĐA 1200px, CĂN GIỮA)                     -->
+  <!-- ======================================================================= -->
+  <main class="page-container">
+
+    <!-- THANH SỐ LIỆU (STATS BAR) -->
+    <section class="stats-bar-section reveal" id="statsBarSection">
+      <div class="stats-bar-container" id="statsBarContainer">
+        <!-- Nạp động từ mảng STATS -->
+      </div>
+    </section>
+
+    <!-- C. 4 ĐIỂM NỔI BẬT -->
+    <section class="section-spacing reveal">
+      <div class="highlights-grid">
+
+        <!-- Điểm 1: Trải nghiệm sáng tạo (bóng đèn có lá) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <!-- Nhành lá trái -->
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <!-- Vòng tròn đào -->
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M12 2v1"/>
+                <path d="M12 7a4 4 0 0 0-4 4c0 2.2 1.4 3.5 2 5h4c.6-1.5 2-2.8 2-5a4 4 0 0 0-4-4z"/>
+                <path d="M12 11c1-1.5 3-1.5 3.5 0c.5 1.5-.5 2.5-3.5 2"/>
+              </svg>
+            </div>
+            <!-- Nhành lá phải -->
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.0.line1">Trải nghiệm</span><br>
+            <span data-text="highlights.0.line2">sáng tạo</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 2: Không gian thư giãn (tách trà bốc khói) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                <path d="M2 8h16v7a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.1.line1">Không gian</span><br>
+            <span data-text="highlights.1.line2">thư giãn</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 3: Hướng dẫn tận tình (chiếc lá/cây non) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22V12"/>
+                <path d="M12 12C12 7 7 4 2 5c0 5 3 10 10 10z"/>
+                <path d="M12 15c0-4 4-7 9-6c0 4-3 8-9 8z"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.2.line1">Hướng dẫn</span><br>
+            <span data-text="highlights.2.line2">tận tình</span>
+          </h3>
+        </div>
+
+        <!-- Điểm 4: Sản phẩm độc nhất (bình gốm) -->
+        <div class="highlight-card">
+          <div class="highlight-icon-cluster">
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 44 C10 34 6 20 16 4"/>
+              <path d="M16 34 C10 31 8 25 14 23"/>
+              <path d="M10 20 C4 16 3 10 9 9"/>
+            </svg>
+            <div class="highlight-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8E3B1F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3h8"/>
+                <path d="M9 3v2c0 2-3 4-3 7c0 4 3 6 6 6s6-2 6-6c0-3-3-5-3-7V3"/>
+                <path d="M8 18h8v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2z"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </div>
+            <svg class="flank-leaf" viewBox="0 0 24 48" fill="none" stroke="#F5B63B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 44 C14 34 18 20 8 4"/>
+              <path d="M8 34 C14 31 16 25 10 23"/>
+              <path d="M14 20 C20 16 21 10 15 9"/>
+            </svg>
+          </div>
+          <h3 class="highlight-title">
+            <span data-text="highlights.3.line1">Sản phẩm</span><br>
+            <span data-text="highlights.3.line2">độc nhất</span>
+          </h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- D. VỀ GỐM KÝ (2 CỘT BẰNG NHAU: BÀI VIẾT + TRÌNH CHIẾU 3 ẢNH) -->
+    <section class="section-spacing about-section reveal">
+      <div class="about-grid">
+        <!-- Hoạ tiết nhành lá cam góc khối -->
+        <svg class="about-leaf-deco" viewBox="0 0 100 100" fill="none" stroke="#F5B63B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 85 Q45 50 85 15"/>
+          <path d="M42 52 Q30 36 44 28 Q52 40 42 52"/>
+          <path d="M58 38 Q70 24 78 34 Q68 46 58 38"/>
+          <path d="M28 66 Q15 62 18 50 Q30 54 28 66"/>
+        </svg>
+
+        <!-- Cột trái: Văn bản giới thiệu -->
+        <div class="about-content">
+          <h2 class="about-title" data-text="about.title">Về Gốm Ký</h2>
+          <p class="about-desc" data-text="about.desc">Gốm Ký là xưởng nghệ thuật thủ công tại Hà Nội chuyên về trải nghiệm làm gốm và vẽ gốm trong không gian ấm cúng, mộc mạc. Chúng mình tin rằng mỗi sản phẩm gốm không chỉ là một món đồ, mà còn là câu chuyện, cảm xúc và dấu ấn riêng của bạn.</p>
+          <a href="blog.html" data-link="blog" class="btn btn-primary">
+            <span data-text="about.btn">Tìm hiểu thêm</span>
+            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Cột phải: Khung ảnh trình chiếu 4:3 -->
+        <div class="about-slider-wrap" id="aboutSliderWrap">
+          <div class="about-slides-container" id="aboutSlidesContainer">
+            <!-- Nạp động qua JS từ các slot ABOUT_IMG, ABOUT_IMG_2, ABOUT_IMG_3 -->
+          </div>
+
+          <!-- Nút điều hướng trước/sau -->
+          <button class="about-slider-arrow about-slider-prev" id="aboutSlidePrev" aria-label="Ảnh trước" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="about-slider-arrow about-slider-next" id="aboutSlideNext" aria-label="Ảnh sau" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <!-- Dải chấm tròn chuyển ảnh -->
+          <div class="about-slider-dots" id="aboutSliderDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E. DỊCH VỤ TẠI GỐM KÝ (2 CARD VUÔNG CẠNH NHAU) -->
+    <section class="section-spacing reveal">
+      <div class="section-header-left">
+        <h2 class="section-title-left" data-text="services.sectionTitle">DỊCH VỤ TẠI GỐM KÝ</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1: Nặn gốm -->
+        <div class="service-card" data-service-card="SERVICE_NAN">
+          <div class="service-bg-slot image-slot-container" data-slot="SERVICE_NAN">
+            <img src="assets/SERVICE_NAN.jpg" alt="Nặn gốm" onerror="this.onerror=null; this.src='assets/SV_TYPE_SONUNG.jpg';">
+          </div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <h3 class="service-title" data-text="services.items.0.title">Nặn gốm</h3>
+            <p class="service-subtitle" data-text="services.items.0.subtitle">Tạo hình từ đất sét</p>
+            <a href="dich-vu.html" data-link="services" class="btn btn-secondary">
+              <span data-text="services.items.0.btn">Xem chi tiết</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Vẽ gốm -->
+        <div class="service-card" data-service-card="SERVICE_VE">
+          <div class="service-bg-slot image-slot-container" data-slot="SERVICE_VE">
+            <img src="assets/SERVICE_VE.jpg" alt="Vẽ gốm" onerror="this.onerror=null; this.src='assets/SV_TYPE_MENTHO.jpg';">
+          </div>
+          <div class="service-overlay"></div>
+          <div class="service-content">
+            <h3 class="service-title" data-text="services.items.1.title">Vẽ gốm</h3>
+            <p class="service-subtitle" data-text="services.items.1.subtitle">Tô màu trên sản phẩm có sẵn</p>
+            <a href="dich-vu.html" data-link="services" class="btn btn-secondary">
+              <span data-text="services.items.1.btn">Xem chi tiết</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- F. HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN (4 BƯỚC NGANG) -->
+    <section class="section-spacing reveal">
+      <div class="section-header-center">
+        <h2 class="section-title-center" data-text="journey.sectionTitle">HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN</h2>
+      </div>
+
+      <div class="journey-row">
+
+        <!-- Bước 1: Nặn/Chọn sản phẩm -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_1">
+            <img src="assets/STEP_1.jpg" alt="Nặn/Chọn sản phẩm" onerror="this.onerror=null; this.src='assets/SV_NAN_STEP_1.png';">
+            <div class="step-badge">1</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#F5B63B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.0.title">Nặn/Chọn sản phẩm</p>
+        </div>
+
+        <!-- Mũi tên 1 -> 2 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 2: Vẽ & tô màu -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_2">
+            <img src="assets/STEP_2.jpg" alt="Vẽ & tô màu" onerror="this.onerror=null; this.src='assets/SV_VE_STEP_3.png';">
+            <div class="step-badge">2</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#F5B63B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.1.title">Vẽ & tô màu</p>
+        </div>
+
+        <!-- Mũi tên 2 -> 3 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 3: Nung & tráng men -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_3">
+            <img src="assets/STEP_3.jpg" alt="Nung & tráng men" onerror="this.onerror=null; this.src='assets/SV_NAN_STEP_4.png';">
+            <div class="step-badge">3</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#F5B63B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.2.title">Nung & tráng men</p>
+        </div>
+
+        <!-- Mũi tên 3 -> 4 -->
+        <div class="journey-arrow">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A2A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="13 5 20 12 13 19"></polyline>
+          </svg>
+        </div>
+
+        <!-- Bước 4: Cá nhân hoá (Tùy chọn) -->
+        <div class="journey-step">
+          <div class="journey-img-box image-slot-container" data-slot="STEP_4">
+            <img src="assets/STEP_4.jpg" alt="Cá nhân hoá" onerror="this.onerror=null; this.src='assets/SV_PERSONAL_1.png';">
+            <div class="step-badge">4</div>
+            <svg class="step-leaf-deco" viewBox="0 0 40 40" fill="none" stroke="#F5B63B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 35 Q20 20 35 5"/>
+              <path d="M18 22 Q12 15 18 12 Q22 17 18 22"/>
+              <path d="M25 15 Q30 9 34 14 Q29 19 25 15"/>
+            </svg>
+          </div>
+          <p class="step-label" data-text="journey.steps.3.title">Cá nhân hoá</p>
+          <span class="step-optional-pill" data-text="journey.steps.3.badge">Tùy chọn</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- G. CẢM NHẬN TỪ KHÁCH HÀNG (BĂNG CHUYỀN CHẠY LIÊN TỤC - MARQUEE) -->
+    <section class="section-spacing testimonials-section reveal">
+      <div class="testimonials-header">
+        <div class="testimonials-badge-wrap">
+          <span class="testimonials-badge-line"></span>
+          <span class="testimonials-badge" data-text="testimonials.badge">KHÁCH HÀNG NÓI GÌ</span>
+          <span class="testimonials-badge-line"></span>
+        </div>
+        <h2 class="testimonials-title" data-text="testimonials.sectionTitle">Cảm nhận từ khách hàng</h2>
+        <p class="testimonials-subtitle" data-text="testimonials.subtitle">Những khoảnh khắc được chia sẻ sau buổi trải nghiệm tại Gốm Ký</p>
+      </div>
+
+      <!-- Băng chuyền marquee cuộn mượt bằng CSS thuần -->
+      <div class="marquee-container" id="marqueeContainer">
+        <div class="marquee-track" id="marqueeTrack">
+          <!-- Sẽ được nạp động từ mảng REVIEWS (nhân đôi để chạy vô hạn) -->
+        </div>
+      </div>
+
+      <!-- Nút phụ Đọc thêm trên blog -->
+      <div class="testimonials-bottom-action">
+        <a href="blog.html" data-link="blog" class="btn btn-secondary">
+          <span data-text="testimonials.btnBlog">Đọc thêm trên blog</span>
+          <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Khoảng đệm đáy trang trước footer -->
+    <div class="page-bottom-space"></div>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- H. KHỐI DÙNG CHUNG: CHÂN TRANG MỚI (UNIFIED SITE FOOTER)                  -->
+  <!-- ======================================================================= -->
+  <footer class="site-footer reveal" id="siteFooter">
+    <div class="footer-inner">
+
+      <!-- Nút cuộn lên đầu trang (Back to top) -->
+      <button type="button" class="btn-back-to-top" id="btnBackToTop" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+        <svg viewBox="0 0 24 24">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+
+      <!-- 1. BẢNG THÔNG BÁO PHÁP LÝ QUAN TRỌNG -->
+      <div class="footer-legal-banner">
+        <svg class="footer-legal-icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.8L20.2 19H3.8L12 5.8zM11 10h2v4h-2v-4zm0 6h2v2h-2v-2z"/>
+        </svg>
+        <p class="footer-legal-text">
+          <strong class="footer-legal-strong">THÔNG BÁO PHÁP LÝ QUAN TRỌNG:</strong>
+          ĐỀ TÀI PHỤC VỤ CHO HỌC PHẦN MARKETING SỐ CỦA SINH VIÊN, KHÔNG CÓ XUNG ĐỘT VỀ NỘI DUNG CŨNG NHƯ TRANH CHẤP VỚI CÁC THƯƠNG HIỆU, MỤC TIÊU PHI LỢI NHUẬN.
+        </p>
+      </div>
+
+      <!-- 2. HÀNG 3 CỘT (Tỉ lệ 1.4 : 1 : 1.2) -->
+      <div class="footer-grid-3col">
+        <!-- CỘT 1: THƯƠNG HIỆU -->
+        <div class="footer-col-brand">
+          <div class="footer-brand-header">
+            <div class="footer-logo-badge">
+              <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+            </div>
+            <div class="footer-brand-meta">
+              <h3 class="footer-brand-name">GỐM KÝ</h3>
+              <span class="footer-brand-tagline">Workshop làm gốm thủ công tại Hà Nội</span>
+            </div>
+          </div>
+          <p class="footer-brand-about">Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.</p>
+          <div class="footer-social-row">
+            <!-- Nút Facebook SVG -->
+            <a href="https://www.facebook.com/share/1DQc5YnPNU/" target="_blank" rel="noopener" class="footer-social-btn" id="footerSocialFacebook" aria-label="Fanpage Facebook Gốm Ký" title="Facebook Gốm Ký">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+              </svg>
+            </a>
+            <!-- Nút Zalo (chỉ hiển thị nếu FOOTER.zalo khác rỗng) -->
+            <a href="#" target="_blank" rel="noopener" class="footer-social-btn btn-social-zalo" id="footerSocialZalo" aria-label="Zalo Gốm Ký" title="Zalo Gốm Ký" style="display: none;">
+              <span>Zalo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CỘT 2: KHÁM PHÁ -->
+        <div class="footer-col-nav">
+          <h4 class="footer-col-title">KHÁM PHÁ</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="index.html" data-link="home" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Trang chủ</span>
+              </a>
+            </li>
+            <li>
+              <a href="dich-vu.html" data-link="services" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Dịch vụ</span>
+              </a>
+            </li>
+            <li>
+              <a href="blog.html" data-link="blog" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="dat-lich.html" data-link="booking" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Đặt lịch</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CỘT 3: LIÊN HỆ -->
+        <div class="footer-col-contact">
+          <h4 class="footer-col-title">LIÊN HỆ</h4>
+          <div class="footer-title-bar"></div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <a href="tel:0913006989" id="footerHotlineLink" class="footer-contact-value">Hotline: 0913006989</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <a href="mailto:gomkypottery@gmail.com" id="footerEmailLink" class="footer-contact-value">gomkypottery@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=79+H%E1%BB%93+T%C3%B9ng+M%E1%BA%ADu%2C+H%C3%A0+N%E1%BB%99i" target="_blank" rel="noopener" class="footer-contact-value">Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </div>
+              <a href="https://www.facebook.com/share/1DQc5YnPNU/" id="footerFanpageLink" target="_blank" rel="noopener" class="footer-contact-value">Gốm Ký - Workshop Làm Gốm</a>
+            </div>
+          </div>
+
+          <!-- Khối Giờ hoạt động & Trạng thái đóng/mở -->
+          <div class="footer-hours-block">
+            <div class="footer-hours-label">GIỜ HOẠT ĐỘNG</div>
+            <div class="footer-hours-time" id="footerHoursText">Thứ 2 - Chủ nhật: 9:00 - 21:00</div>
+            <div class="footer-status-badge status-open" id="footerStatusBadge">
+              <span class="status-dot status-dot-open"></span>
+              <span>Đang mở cửa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ĐƯỜNG PHÂN CÁCH & BẢN QUYỀN -->
+      <hr class="footer-bottom-divider">
+      <div class="footer-bottom-content">
+        <p class="footer-copyright">© 2026 Gốm Ký. Chạm đất bằng tay, để gốm kể thay lời bạn.</p>
+        <p class="footer-disclaimer">Dự án học thuật · Phi thương mại · Marketing số</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================================= -->
+  <!-- NÚT LIÊN HỆ NHANH CỐ ĐỊNH KHI EMBEDDED = false (position: fixed)       -->
+  <!-- ======================================================================= -->
+  <div class="quick-contact-fixed" id="quickContactFixed">
+    <!-- Nút Zalo (56px, nền #0068FF, chữ Zalo trắng đậm) -->
+    <a id="fixedBtnZalo" href="#" target="_blank" rel="noopener" class="quick-contact-btn btn-zalo" aria-label="Nhắn Zalo">
+      <span class="zalo-text">Zalo</span>
+      <span class="quick-contact-label">Nhắn Zalo</span>
+    </a>
+
+    <!-- Nút Facebook (56px, nền #1877F2, chữ f trắng SVG) -->
+    <a id="fixedBtnFacebook" href="#" target="_blank" rel="noopener" class="quick-contact-btn btn-facebook" aria-label="Nhắn Fanpage">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF">
+        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.74-1.5 1.8-1.5H17.5V2.3c-.6-.08-1.7-.17-3.1-.17-3.2 0-5.4 1.95-5.4 5.5v2.37H6v4h3v9h5v-9z"/>
+      </svg>
+      <span class="quick-contact-label">Nhắn Fanpage</span>
+    </a>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- JAVASCRIPT: QUẢN LÝ LIÊN KẾT, NỘI DUNG CHỮ, SLOT ẢNH & POSTMESSAGE     -->
+  <!-- ======================================================================= -->
+  <script>
+    /* 0. KHAI BÁO CẤU HÌNH LIÊN HỆ & SỐ LIỆU & CHẾ ĐỘ HIỂN THỊ */
+    const EMBEDDED = (window.self !== window.top);
+    const FOOTER = {
+      name: "GỐM KÝ",
+      tagline: "Workshop làm gốm thủ công tại Hà Nội",
+      about: "Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.",
+      hotline: "0913006989",
+      email: "gomkypottery@gmail.com",
+      address: "Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội",
+      hours: "Thứ 2 - Chủ nhật: 9:00 - 21:00",
+      facebook: "https://www.facebook.com/share/1DQc5YnPNU/",
+      zalo: ""
+    };
+    const CONTACT = { zalo: FOOTER.zalo, facebook: FOOTER.facebook, phone: FOOTER.hotline };
+    const STATS = [
+      { value:500, suffix:"+", label:"khách đã trải nghiệm", icon:"people" },
+      { value:200, suffix:"+", label:"đánh giá 5 sao", icon:"star" }
+    ];
+
+    /* 1. KHAI BÁO CẤU HÌNH ĐIỀU HƯỚNG & PREVIEW */
+    const PREVIEW = true;
+    const LINKS = {
+      home: "index.html",
+      services: "dich-vu.html",
+      blog: "blog.html",
+      booking: "dat-lich.html"
+    };
+
+    /* KHAI BÁO TOẠ ĐỘ VÙNG BẤM NÚT TRÊN HERO (%) */
+    const CLICK_AREAS = {
+      hero: { left: 17.9, top: 78.4, width: 13.9, height: 8.4 }
+    };
+
+    /* 2. KHAI BÁO OBJECT SLOT ẢNH DÙNG THỰC TẾ */
+    const IMAGES = {
+      LOGO_ICON: "assets/LOGO_ICON.png",
+      HERO_BG: "assets/HERO_BG.jpg",
+      ABOUT_IMG: "assets/ABOUT_IMG.jpg",
+      ABOUT_IMG_2: "assets/ABOUT_IMG_2.png",
+      ABOUT_IMG_3: "assets/ABOUT_IMG_3.png",
+      SERVICE_NAN: "assets/SERVICE_NAN.jpg",
+      SERVICE_VE: "assets/SERVICE_VE.jpg",
+      STEP_1: "assets/STEP_1.jpg",
+      STEP_2: "assets/STEP_2.jpg",
+      STEP_3: "assets/STEP_3.jpg",
+      STEP_4: "assets/STEP_4.jpg",
+      CUSTOMER_1: "assets/CUSTOMER_1.jpg",
+      CUSTOMER_2: "assets/CUSTOMER_2.jpg",
+      CUSTOMER_3: "assets/CUSTOMER_3.jpg",
+      CUSTOMER_4: "assets/CUSTOMER_4.png",
+      CUSTOMER_5: "assets/CUSTOMER_5.jpg",
+      CUSTOMER_6: "assets/CUSTOMER_6.jpg"
+    };
+
+    /* 3. KHAI BÁO DANH SÁCH 6 ĐÁNH GIÁ KHÁCH HÀNG */
+    const REVIEWS = [
+      {
+        slot: "CUSTOMER_1",
+        image: "assets/CUSTOMER_1.jpg",
+        quote: "Lần đầu đi nặn gốm mà ưng ý quá chừng. Anh chị hướng dẫn siêu nhiệt tình, từ tạo hình đến vẽ đều được chỉ dẫn tỉ mỉ. Nhất định sẽ quay lại!"
+      },
+      {
+        slot: "CUSTOMER_2",
+        image: "assets/CUSTOMER_2.jpg",
+        quote: "Không gian yên tĩnh, nhạc nhẹ nhàng, cảm giác thư giãn cực kỳ sau tuần làm việc bận rộn. Cốc mình làm mang về dùng mỗi ngày đều thấy vui."
+      },
+      {
+        slot: "CUSTOMER_3",
+        image: "assets/CUSTOMER_3.jpg",
+        quote: "Đi cùng người yêu vào dịp cuối tuần, hai đứa có thêm một kỷ niệm đáng nhớ. Đất sét mịn, men màu đa dạng, thành phẩm nung xong rất đẹp."
+      },
+      {
+        slot: "CUSTOMER_4",
+        image: "assets/CUSTOMER_4.png",
+        quote: "Workshop chỉn chu từng góc nhỏ, dụng cụ sạch sẽ, trà bánh ngon. Mình chưa từng làm đồ thủ công mà vẫn hoàn thành được chiếc bát xinh xắn."
+      },
+      {
+        slot: "CUSTOMER_5",
+        image: "assets/CUSTOMER_5.jpg",
+        quote: "Trải nghiệm vẽ gốm cùng nhóm bạn rất vui, ai cũng có sản phẩm mang về khoe. Giá cả hợp lý so với chất lượng và sự tận tâm của studio."
+      },
+      {
+        slot: "CUSTOMER_6",
+        image: "assets/CUSTOMER_6.jpg",
+        quote: "Một nơi tuyệt vời để trốn phố thị ồn ào. Vừa được sáng tạo vừa được trò chuyện cùng các bạn nghệ nhân tâm huyết. Sẽ giới thiệu cho bạn bè."
+      }
+    ];
+
+    /* 4. KHAI BÁO TOÀN BỘ CHỮ HIỂN THỊ (ĐÚNG CHÍNH TẢ & DẤU) */
+    const TEXT = {
+      menu: {
+        home: "Trang chủ",
+        services: "Dịch vụ",
+        blog: "Blog",
+        booking: "Đặt lịch"
+      },
+      highlights: [
+        { line1: "Trải nghiệm", line2: "sáng tạo" },
+        { line1: "Không gian", line2: "thư giãn" },
+        { line1: "Hướng dẫn", line2: "tận tình" },
+        { line1: "Sản phẩm", line2: "độc nhất" }
+      ],
+      about: {
+        title: "Về Gốm Ký",
+        desc: "Gốm Ký là xưởng nghệ thuật thủ công tại Hà Nội chuyên về trải nghiệm làm gốm và vẽ gốm trong không gian ấm cúng, mộc mạc. Chúng mình tin rằng mỗi sản phẩm gốm không chỉ là một món đồ, mà còn là câu chuyện, cảm xúc và dấu ấn riêng của bạn.",
+        btn: "Tìm hiểu thêm"
+      },
+      services: {
+        sectionTitle: "DỊCH VỤ TẠI GỐM KÝ",
+        items: [
+          {
+            title: "Nặn gốm",
+            subtitle: "Tạo hình từ đất sét",
+            btn: "Xem chi tiết"
+          },
+          {
+            title: "Vẽ gốm",
+            subtitle: "Tô màu trên sản phẩm có sẵn",
+            btn: "Xem chi tiết"
+          }
+        ]
+      },
+      journey: {
+        sectionTitle: "HÀNH TRÌNH TẠO NÊN MÓN GỐM CỦA RIÊNG BẠN",
+        steps: [
+          { num: "1", title: "Nặn/Chọn sản phẩm" },
+          { num: "2", title: "Vẽ & tô màu" },
+          { num: "3", title: "Nung & tráng men" },
+          { num: "4", title: "Cá nhân hoá", badge: "Tùy chọn" }
+        ]
+      },
+      testimonials: {
+        badge: "KHÁCH HÀNG NÓI GÌ",
+        sectionTitle: "Cảm nhận từ khách hàng",
+        subtitle: "Những khoảnh khắc được chia sẻ sau buổi trải nghiệm tại Gốm Ký",
+        btnBlog: "Đọc thêm trên blog"
+      }
+    };
+
+    /* 5. HÀM NẠP VĂN BẢN TỪ OBJECT TEXT VÀO DOM */
+    function applyTextContent() {
+      document.querySelectorAll('[data-text]').forEach(el => {
+        const path = el.getAttribute('data-text').split('.');
+        let val = TEXT;
+        for (const key of path) {
+          if (val && val[key] !== undefined) {
+            val = val[key];
+          } else {
+            val = null;
+            break;
+          }
+        }
+        if (typeof val === 'string') {
+          el.textContent = val;
+        }
+      });
+    }
+
+    /* 6. HÀM THIẾT LẬP LIÊN KẾT NỘI BỘ VỚI TARGET THEO PREVIEW */
+    function applyLinks() {
+      document.querySelectorAll('a[data-link]').forEach(a => {
+        const linkKey = a.getAttribute('data-link');
+        if (LINKS[linkKey]) {
+          a.href = LINKS[linkKey];
+          a.target = PREVIEW ? "_self" : "_top";
+        }
+      });
+    }
+
+    /* 7. HÀM QUẢN LÝ VÀ QUÉT SLOT ẢNH */
+    function initImageSlots() {
+      document.querySelectorAll('.image-slot-container img').forEach(img => {
+        img.addEventListener('load', () => {
+          const parentServiceCard = img.closest('.service-card');
+          if (parentServiceCard) {
+            parentServiceCard.classList.remove('is-placeholder');
+          }
+          sendHeight();
+        });
+      });
+    }
+
+    /* Render placeholder chuẩn tỷ lệ và màu #E9DDCB */
+    function renderPlaceholder(container, slotName) {
+      container.classList.add('is-placeholder');
+      container.innerHTML = `
+        <div class="slot-placeholder">
+          <span class="slot-tag">${slotName}</span>
+        </div>
+      `;
+      const parentServiceCard = container.closest('.service-card');
+      if (parentServiceCard) {
+        parentServiceCard.classList.add('is-placeholder');
+      }
+      sendHeight();
+    }
+
+    /* 8. ĐỒNG BỘ CHIỀU CAO CHO KHUNG CHA (GOOGLE SITES IFRAME) */
+    function sendHeight() {
+      if (window.parent) {
+        window.parent.postMessage({
+          type: 'resize',
+          height: document.documentElement.scrollHeight
+        }, '*');
+      }
+    }
+
+    /* 9. XỬ LÝ CHẾ ĐỘ HIỂN THỊ (EMBEDDED vs STANDALONE) */
+    function initDisplayMode() {
+      if (EMBEDDED) {
+        document.body.classList.add('is-embedded');
+      }
+    }
+
+    /* 10. XỬ LÝ NÚT LIÊN HỆ NHANH (ZALO & FACEBOOK) */
+    function initContactButtons() {
+      const isZaloPlaceholder = !CONTACT.zalo || 
+                                CONTACT.zalo.includes("SỐ_ZALO_CỦA_TÔI") || 
+                                CONTACT.zalo.trim() === "" || 
+                                CONTACT.zalo === "https://zalo.me/";
+
+      // 1. Zalo
+      const fixedZalo = document.getElementById('fixedBtnZalo');
+      const navZalo = document.getElementById('navBtnZalo');
+
+      if (isZaloPlaceholder) {
+        if (fixedZalo) fixedZalo.style.display = 'none';
+        if (navZalo) navZalo.style.display = 'none';
+      } else {
+        if (fixedZalo) fixedZalo.href = CONTACT.zalo;
+        if (navZalo) navZalo.href = CONTACT.zalo;
+      }
+
+      // 2. Facebook
+      const fixedFb = document.getElementById('fixedBtnFacebook');
+      const navFb = document.getElementById('navBtnFacebook');
+
+      if (CONTACT.facebook) {
+        if (fixedFb) fixedFb.href = CONTACT.facebook;
+        if (navFb) navFb.href = CONTACT.facebook;
+      }
+    }
+
+    /* 11. THANH SỐ LIỆU (STATS BAR - 2 CỘT CÓ ICON ĐẶC SVG) */
+    function renderStatsBar() {
+      const container = document.getElementById('statsBarContainer');
+      if (!container || !Array.isArray(STATS) || STATS.length === 0) return;
+
+      const ICONS = {
+        people: `<svg viewBox="0 0 24 24" fill="var(--color-primary, #8E3B1F)"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>`,
+        star: `<svg viewBox="0 0 24 24" fill="var(--color-gold, #F5B63B)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+      };
+
+      container.innerHTML = STATS.map((item, index) => {
+        return `
+          <div class="stats-col">
+            <div class="stats-icon-wrap">${ICONS[item.icon] || ''}</div>
+            <div class="stats-text-wrap">
+              <div class="stats-number-wrap">
+                <span class="stats-counter" id="statsCount${index}" data-target="${item.value}">0</span>
+                <span class="stats-suffix">${item.suffix || ''}</span>
+              </div>
+              <div class="stats-label">${item.label || ''}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    let statsHasAnimated = false;
+    function animateStatsNumbers() {
+      if (statsHasAnimated) return;
+      statsHasAnimated = true;
+
+      const counters = document.querySelectorAll('.stats-counter');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'), 10) || 0;
+        if (prefersReducedMotion) {
+          counter.textContent = target.toLocaleString('vi-VN');
+          return;
+        }
+
+        const duration = 1800; // 1.8s
+        const startTime = performance.now();
+
+        function updateNumber(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // easeOutCubic: 1 - (1 - t)^3
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          const currentVal = Math.floor(easeProgress * target);
+
+          counter.textContent = currentVal.toLocaleString('vi-VN');
+
+          if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+          } else {
+            counter.textContent = target.toLocaleString('vi-VN');
+          }
+        }
+
+        requestAnimationFrame(updateNumber);
+      });
+    }
+
+    function initStatsTrigger() {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        animateStatsNumbers();
+        return;
+      }
+
+      if (EMBEDDED) {
+        // EMBEDDED = true: đếm sau khi tải 0.6s
+        setTimeout(() => {
+          animateStatsNumbers();
+        }, 600);
+      } else {
+        // EMBEDDED = false: đếm khi dải vào màn hình
+        const statsSection = document.getElementById('statsBarSection');
+        if (!statsSection) {
+          animateStatsNumbers();
+          return;
+        }
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                animateStatsNumbers();
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.15 });
+          observer.observe(statsSection);
+        } else {
+          animateStatsNumbers();
+        }
+      }
+    }
+
+    /* 12. FADE-UP KHI CUỘN (.reveal) */
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        reveals.forEach(el => el.classList.add('is-revealed'));
+        return;
+      }
+
+      if (EMBEDDED) {
+        // EMBEDDED = true: hiện lần lượt ngay khi tải, mỗi khối trễ thêm 0.15s (tối đa 2s)
+        reveals.forEach((el, index) => {
+          const delay = Math.min(index * 150, 2000);
+          setTimeout(() => {
+            el.classList.add('is-revealed');
+            sendHeight();
+          }, delay);
+        });
+      } else {
+        // EMBEDDED = false: dùng IntersectionObserver, hiện khi cuộn tới 15% khối
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                obs.unobserve(entry.target);
+                sendHeight();
+              }
+            });
+          }, { threshold: 0.15 });
+
+          reveals.forEach(el => observer.observe(el));
+        } else {
+          reveals.forEach(el => el.classList.add('is-revealed'));
+        }
+      }
+    }
+
+    /* 13. CẢM NHẬN KHÁCH HÀNG (MARQUEE 6 REVIEWS CUỘN VÔ TẬN) */
+    function renderReviewsMarquee() {
+      const track = document.getElementById('marqueeTrack');
+      if (!track || !Array.isArray(REVIEWS) || REVIEWS.length === 0) return;
+
+      function createCardHTML(item) {
+        return `
+          <div class="marquee-card">
+            <div class="marquee-photo-box" data-slot="${item.slot}">
+              <img src="${item.image}" alt="Khách hàng Gốm Ký"
+                   onerror="if (!this.dataset.fallbackDone) { this.dataset.fallbackDone = '1'; this.src = this.src.endsWith('.jpg') ? this.src.replace('.jpg', '.png') : this.src.replace('.png', '.jpg'); } else { const box = this.closest('.marquee-photo-box'); if (box) box.style.display = 'none'; }">
+            </div>
+            <div class="marquee-star-row">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="marquee-quote">"${item.quote}"</p>
+          </div>
+        `;
+      }
+
+      // Nhân đôi danh sách card bằng HTML để chạy liền mạch không giật
+      track.innerHTML = [...REVIEWS, ...REVIEWS].map(createCardHTML).join('');
+    }
+
+    /* 14. VỀ GỐM KÝ: TRÌNH CHIẾU TỰ ĐỘNG 3 ẢNH (SLIDESHOW) */
+    async function initAboutSlideshow() {
+      const container = document.getElementById('aboutSliderWrap');
+      const slidesContainer = document.getElementById('aboutSlidesContainer');
+      const dotsContainer = document.getElementById('aboutSliderDots');
+      const prevBtn = document.getElementById('aboutSlidePrev');
+      const nextBtn = document.getElementById('aboutSlideNext');
+
+      if (!container || !slidesContainer) return;
+
+      const SLOTS = ['ABOUT_IMG', 'ABOUT_IMG_2', 'ABOUT_IMG_3'];
+      const EXTENSIONS = ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.PNG', '.JPG', '.JPEG', '.WEBP', '.SVG'];
+
+      function checkImageExists(url) {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve(url);
+          img.onerror = () => resolve(null);
+          img.src = url;
+        });
+      }
+
+      async function findValidSlotImage(slotName) {
+        for (const ext of EXTENSIONS) {
+          const testUrl = `assets/${slotName}${ext}`;
+          const found = await checkImageExists(testUrl);
+          if (found) return { slot: slotName, url: found };
+        }
+        return null;
+      }
+
+      const checkResults = await Promise.all(SLOTS.map(s => findValidSlotImage(s)));
+      const validImages = checkResults.filter(Boolean);
+
+      // Nếu không có ảnh nào -> Hiện placeholder
+      if (validImages.length === 0) {
+        container.innerHTML = `
+          <div class="slot-placeholder" style="width:100%; height:100%; border-radius:20px;">
+            <span class="slot-tag">Về Gốm Ký</span>
+          </div>
+        `;
+        return;
+      }
+
+      // Tạo các slide ảnh
+      slidesContainer.innerHTML = validImages.map((item, idx) => `
+        <div class="about-slide ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
+          <img src="${item.url}" alt="Về Gốm Ký">
+        </div>
+      `).join('');
+
+      // Nếu chỉ có 1 ảnh -> Ẩn chấm và mũi tên
+      if (validImages.length === 1) {
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (nextBtn) nextBtn.style.display = 'none';
+        return;
+      }
+
+      // Có >= 2 ảnh: Tạo dots và bật chuyển tự động
+      if (dotsContainer) {
+        dotsContainer.innerHTML = validImages.map((_, idx) => `
+          <button class="about-dot ${idx === 0 ? 'is-active' : ''}" data-index="${idx}" aria-label="Xem ảnh ${idx + 1}" type="button"></button>
+        `).join('');
+      }
+
+      let currentSlide = 0;
+      let slideTimer = null;
+      const slides = slidesContainer.querySelectorAll('.about-slide');
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.about-dot') : [];
+
+      function goToSlide(index) {
+        slides[currentSlide].classList.remove('is-active');
+        if (dots[currentSlide]) dots[currentSlide].classList.remove('is-active');
+
+        // Bỏ rồi kích hoạt lại Ken Burns animation trên ảnh mới
+        const nextImg = slides[index].querySelector('img');
+        if (nextImg) {
+          nextImg.style.animation = 'none';
+          void nextImg.offsetWidth;
+          nextImg.style.animation = '';
+        }
+
+        currentSlide = index;
+        slides[currentSlide].classList.add('is-active');
+        if (dots[currentSlide]) dots[currentSlide].classList.add('is-active');
+      }
+
+      function nextSlide() {
+        const nextIndex = (currentSlide + 1) % validImages.length;
+        goToSlide(nextIndex);
+      }
+
+      function prevSlide() {
+        const prevIndex = (currentSlide - 1 + validImages.length) % validImages.length;
+        goToSlide(prevIndex);
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        slideTimer = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoPlay() {
+        if (slideTimer) {
+          clearInterval(slideTimer);
+          slideTimer = null;
+        }
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
+      if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+          startAutoPlay();
+        });
+      });
+
+      // Tự dừng khi hover và chạy lại khi chuột rời khỏi
+      container.addEventListener('mouseenter', stopAutoPlay);
+      container.addEventListener('mouseleave', startAutoPlay);
+
+      // Tự dừng khi tab ẩn (document.hidden)
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopAutoPlay();
+        } else {
+          startAutoPlay();
+        }
+      });
+
+      startAutoPlay();
+    }
+
+    /* HÀM XỬ LÝ LỖI ẢNH HERO (HIỆN KHUNG GIỮ CHỖ BE NHẠT VÀ TỰ ĐỘNG ẨN VÙNG BẤM) */
+    function handleHeroImageError(img) {
+      const wrap = document.getElementById('heroImgWrap');
+      if (!wrap) return;
+      wrap.innerHTML = '<div class="hero-slot-placeholder"><span class="slot-tag">HERO_BG</span></div>';
+      sendHeight();
+    }
+
+    /* HÀM ÁP DỤNG TOẠ ĐỘ VÙNG BẤM CHO NÚT TRONG ẢNH HERO */
+    function applyClickAreas() {
+      const heroClick = document.getElementById('heroClickArea');
+      if (heroClick && typeof CLICK_AREAS !== 'undefined' && CLICK_AREAS.hero) {
+        heroClick.style.left = CLICK_AREAS.hero.left + '%';
+        heroClick.style.top = CLICK_AREAS.hero.top + '%';
+        heroClick.style.width = CLICK_AREAS.hero.width + '%';
+        heroClick.style.height = CLICK_AREAS.hero.height + '%';
+      }
+    }
+
+    /* CHẾ ĐỘ DEBUG MODE CHO VÙNG BẤM (?debug=1 hoặc #debug) */
+    function initDebugMode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('debug') === '1' || window.location.hash === '#debug') {
+        document.body.classList.add('is-debug');
+      }
+    }
+
+    /* CẬP NHẬT CHIỀU CAO THANH ĐIỀU HƯỚNG VÀO BIẾN CSS --nav-height */
+    function updateNavHeight() {
+      const header = document.getElementById('siteHeader');
+      if (header) {
+        const h = header.offsetHeight;
+        document.documentElement.style.setProperty('--nav-height', h + 'px');
+      }
+    }
+
+    /* 15. GOOGLE ANALYTICS 4 SỰ KIỆN */
+    function initGAEvents() {
+      function sendGA(eventName, eventParams) {
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', eventName, eventParams);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      // 1. click_dat_lich: hero (vùng bấm trong suốt đè lên nút trong ảnh)
+      const heroClick = document.getElementById('heroClickArea');
+      if (heroClick) {
+        heroClick.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'hero' });
+        });
+      }
+
+      // 1. click_dat_lich: menu & nút trên navbar
+      const navBooking = document.getElementById('navBtnBooking');
+      if (navBooking) {
+        navBooking.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'menu' });
+        });
+      }
+      const menuBooking = document.querySelector('.nav-menu-list a[data-link="booking"]');
+      if (menuBooking) {
+        menuBooking.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'menu' });
+        });
+      }
+
+      // 2. click_xem_chi_tiet: nan_gom
+      const nanCardBtn = document.querySelector('.service-card[data-service-card="SERVICE_NAN"] .btn-secondary');
+      if (nanCardBtn) {
+        nanCardBtn.addEventListener('click', () => {
+          sendGA('click_xem_chi_tiet', { dich_vu: 'nan_gom' });
+        });
+      }
+
+      // 2. click_xem_chi_tiet: ve_gom
+      const veCardBtn = document.querySelector('.service-card[data-service-card="SERVICE_VE"] .btn-secondary');
+      if (veCardBtn) {
+        veCardBtn.addEventListener('click', () => {
+          sendGA('click_xem_chi_tiet', { dich_vu: 've_gom' });
+        });
+      }
+
+      // 3. click_facebook: các vị trí
+      const fixedFb = document.getElementById('fixedBtnFacebook');
+      if (fixedFb) {
+        fixedFb.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'floating' });
+        });
+      }
+
+      const navFb = document.getElementById('navBtnFacebook');
+      if (navFb) {
+        navFb.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'menu' });
+        });
+      }
+
+      document.querySelectorAll('footer a[href*="facebook.com"]').forEach(link => {
+        link.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'footer' });
+        });
+      });
+    }
+
+    /* 15.1. KHỞI TẠO VÀ ĐIỀU KHIỂN CHÂN TRANG DÙNG CHUNG */
+    function initUnifiedFooter() {
+      // 1. Cập nhật link & thông tin từ FOOTER object
+      const fbBtn = document.getElementById('footerSocialFacebook');
+      if (fbBtn && FOOTER.facebook) fbBtn.href = FOOTER.facebook;
+
+      const fanpageLink = document.getElementById('footerFanpageLink');
+      if (fanpageLink && FOOTER.facebook) fanpageLink.href = FOOTER.facebook;
+
+      const hotlineLink = document.getElementById('footerHotlineLink');
+      if (hotlineLink && FOOTER.hotline) {
+        hotlineLink.href = 'tel:' + FOOTER.hotline;
+        hotlineLink.textContent = 'Hotline: ' + FOOTER.hotline;
+      }
+
+      const emailLink = document.getElementById('footerEmailLink');
+      if (emailLink && FOOTER.email) {
+        emailLink.href = 'mailto:' + FOOTER.email;
+        emailLink.textContent = FOOTER.email;
+      }
+
+      const hoursEl = document.getElementById('footerHoursText');
+      if (hoursEl && FOOTER.hours) hoursEl.textContent = FOOTER.hours;
+
+      // Nút Zalo chỉ hiện khi FOOTER.zalo có link
+      const zaloBtn = document.getElementById('footerSocialZalo');
+      if (zaloBtn) {
+        if (FOOTER.zalo && FOOTER.zalo.trim() !== '') {
+          zaloBtn.href = FOOTER.zalo;
+          zaloBtn.style.display = 'inline-flex';
+        } else {
+          zaloBtn.style.display = 'none';
+        }
+      }
+
+      // 2. Tính toán trạng thái mở/đóng cửa theo giờ Việt Nam (9:00 - 21:00)
+      function updateStoreStatus() {
+        const badge = document.getElementById('footerStatusBadge');
+        if (!badge) return;
+        try {
+          const now = new Date();
+          const formatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Ho_Chi_Minh',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false
+          });
+          const parts = formatter.formatToParts(now);
+          let hour = 0, minute = 0;
+          parts.forEach(p => {
+            if (p.type === 'hour') hour = parseInt(p.value, 10);
+            if (p.type === 'minute') minute = parseInt(p.value, 10);
+          });
+          const totalMinutes = hour * 60 + minute;
+          // Mở cửa từ 9:00 (540 phút) đến 21:00 (1260 phút)
+          const isOpen = totalMinutes >= 540 && totalMinutes < 1260;
+          if (isOpen) {
+            badge.className = 'footer-status-badge status-open';
+            badge.innerHTML = '<span class="status-dot status-dot-open"></span><span>Đang mở cửa</span>';
+          } else {
+            badge.className = 'footer-status-badge status-closed';
+            badge.innerHTML = '<span class="status-dot status-dot-closed"></span><span>Đã đóng cửa</span>';
+          }
+        } catch (e) {
+          console.error('Error updating store status:', e);
+        }
+      }
+      updateStoreStatus();
+      setInterval(updateStoreStatus, 60000);
+
+      // 3. Nút cuộn lên đầu trang (Back to top)
+      const backToTopBtn = document.getElementById('btnBackToTop');
+      if (backToTopBtn) {
+        const isEmbeddedMode = (typeof EMBEDDED !== 'undefined' && EMBEDDED === true);
+        if (isEmbeddedMode) {
+          backToTopBtn.classList.remove('is-fixed');
+          backToTopBtn.classList.add('is-embedded-inline');
+        } else {
+          backToTopBtn.classList.add('is-fixed');
+          backToTopBtn.classList.remove('is-embedded-inline');
+
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+              backToTopBtn.classList.add('is-visible');
+            } else {
+              backToTopBtn.classList.remove('is-visible');
+            }
+          }, { passive: true });
+        }
+
+        backToTopBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    }
+
+    /* 15.2. ĐIỀU HƯỚNG MENU TRÊN THIẾT BỊ DI ĐỘNG (MOBILE NAV) */
+    function initMobileNav() {
+      const toggleBtn = document.getElementById('navToggleBtn');
+      const centerMenu = document.querySelector('.nav-center-menu');
+      if (!toggleBtn || !centerMenu) return;
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleBtn.classList.toggle('is-active');
+        centerMenu.classList.toggle('is-open');
+        sendHeight();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggleBtn.contains(e.target) && !centerMenu.contains(e.target)) {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        }
+      });
+
+      centerMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        });
+      });
+    }
+
+    /* 16. KHỞI CHẠY KHI TẢI TRANG */
+    window.addEventListener('DOMContentLoaded', () => {
+      updateNavHeight();
+      initMobileNav();
+      applyTextContent();
+      applyLinks();
+      initDisplayMode();
+      applyClickAreas();
+      initDebugMode();
+      initContactButtons();
+      renderStatsBar();
+      initStatsTrigger();
+      initScrollReveal();
+      renderReviewsMarquee();
+      initAboutSlideshow();
+      initImageSlots();
+      initUnifiedFooter();
+      initGAEvents();
+      sendHeight();
+    });
+
+    window.addEventListener('load', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+    window.addEventListener('resize', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+
+    // Lắng nghe thay đổi kích thước DOM để gửi lại chiều cao tự động
+    if (typeof ResizeObserver !== 'undefined') {
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+    }
+  </script>
+</body>
+</html>

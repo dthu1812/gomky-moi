@@ -1,0 +1,3896 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Gốm Ký – Chuyện của đất, của tay và của bạn</title>
+
+  <!-- Google Fonts: Duy nhất "Be Vietnam Pro" (500, 600, 700, 800) & fallback "Poppins" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================= */
+    /* 0. HỆ THỐNG BIẾN THIẾT KẾ: BẢNG MÀU CHỦ ĐẠO NÂU - VÀNG - BE (THEO FOOTER)  */
+    /* ========================================================================= */
+    :root {
+      /* NHÓM NÂU: Nâu gốm thủ công, đất nung, nâu ấm sang trọng */
+      --color-primary: #8E3B1F;        /* Nâu đỏ đất nung đặc trưng */
+      --color-brown-dark: #3B2418;     /* Nâu đậm đất nung (nền footer, tiêu đề đậm) */
+      --color-brown-medium: #5A3422;   /* Nâu ấm gốm (nửa dưới footer, nút back-to-top) */
+      --color-btn-hover: #732D15;      /* Nâu nút hover */
+      --color-text: #3A2A22;           /* Chữ thân bài nâu cà phê đậm */
+      --color-muted: #6B5345;          /* Nâu xám đất cho phụ đề */
+      --color-tag-brown: #5A3422;      /* Nền tag nâu phân mục */
+
+      /* NHÓM VÀNG: Vàng mật ong, vàng hoàng kim từ chân trang */
+      --color-gold: #F5B63B;           /* Vàng hoàng kim ấm áp chuẩn footer */
+      --color-gold-hover: #E09E22;     /* Vàng đậm hơn khi hover */
+      --color-gold-soft: rgba(245, 182, 59, 0.16);  /* Nền vàng nhạt */
+      --color-gold-border: rgba(245, 182, 59, 0.45);/* Viền vàng mờ */
+      --color-star: #F5B63B;           /* Vàng sao đánh giá */
+      --color-accent-orange: #F5B63B;  /* Đồng bộ hoạ tiết lá và icon sang vàng ấm */
+      --color-dark-orange: #8E3B1F;    /* Chuyển cam đậm sang nâu đỏ đất nung */
+
+      /* NHÓM BE: Nền be kem gốm mộc mạc, thanh lịch */
+      --color-bg: #FDF6EC;             /* Nền trang be kem ấm */
+      --color-bg-alt: #FBEFE0;         /* Nền be kem phụ */
+      --color-menu: #E9DDCB;           /* Thanh menu be gốm */
+      --color-card-bg: #FBEFE0;        /* Nền card kem nhạt */
+      --color-icon-circle: #F5E5D0;    /* Vòng icon be vàng ấm */
+      --color-cream-light: #FFF9F2;    /* Be kem sáng ngà */
+      --color-cream-text: #FFF3E2;     /* Chữ kem ngà sáng footer */
+      --color-popup-bg: #FDF6EC;       /* Nền be kem popup */
+      --color-popup-title: #3B2418;    /* Nâu đậm tiêu đề popup */
+      --color-line: rgba(245, 182, 59, 0.3); /* Viền phân cách mờ */
+
+      --font-main: 'Be Vietnam Pro', 'Poppins', Arial, sans-serif;
+      --container-max-width: 1320px;
+
+      /* Biến giao diện thanh điều hướng mới */
+      --nav-bg: #5E3A2A;
+      --nav-text: #FFFFFF;
+      --nav-text-dim: rgba(255, 255, 255, 0.86);
+      --nav-height: 120px;
+    }
+
+    /* Thiết lập nền tảng: HỖ TRỢ ĐA MÀN HÌNH (DESKTOP & MOBILE RESPONSIVE) */
+    html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 0;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+    }
+
+    h1, h2, h3, h4, p {
+      margin: 0;
+    }
+
+    /* Khung chứa nội dung trung tâm: Tối đa 1320px căn giữa */
+    .page-container {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    /* ========================================================================= */
+    /* 1. KHỐI DÙNG CHUNG: NÚT BẤM (BUTTONS)                                     */
+    /* ========================================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      font-family: var(--font-main);
+      border: none;
+      outline: none;
+      transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 999px;
+      box-shadow: 0 6px 16px rgba(142, 59, 31, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(142, 59, 31, 0.32);
+    }
+
+    .btn-secondary {
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(58, 42, 34, 0.12);
+    }
+
+    .btn-secondary:hover {
+      background-color: #FDF6EC;
+      color: var(--color-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(58, 42, 34, 0.18);
+    }
+
+    .btn-arrow {
+      stroke-width: 2.5px;
+      transition: transform 0.25s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ========================================================================= */
+    /* 2. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   */
+    /* ========================================================================= */
+    .site-header {
+      width: 100%;
+      height: 120px;
+      background-color: var(--nav-bg, #5E3A2A);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      box-sizing: border-box;
+    }
+
+    .nav-inner-wide {
+      width: 100%;
+      height: 120px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      gap: 24px;
+    }
+
+    /* 1. LOGO: Khung bo góc 16px, 104x96px, nền #FFF7EE, padding 4px */
+    .nav-logo-box {
+      width: 104px;
+      height: 96px;
+      background-color: #FFF7EE;
+      border-radius: 16px;
+      padding: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .nav-logo-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* 2. MENU CĂN GIỮA: Chữ 22px 700, gap 48px, active trắng + gạch 3px */
+    .nav-center-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      display: inline-block;
+    }
+
+    .nav-link {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--nav-text-dim, rgba(255, 255, 255, 0.86));
+      padding: 10px 0;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      color: #FFFFFF;
+    }
+
+    .nav-link:hover::after {
+      opacity: 1;
+    }
+
+    /* Mục đang chọn: chữ trắng, gạch chân trắng dày 3px, cách chữ 8px, bo tròn */
+    .nav-link.active {
+      color: #FFFFFF !important;
+      text-shadow: none;
+    }
+
+    .nav-link.active::after {
+      opacity: 1;
+      background-color: #FFFFFF;
+    }
+
+    /* 3. NÚT BÊN PHẢI */
+    .nav-right-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-btn-booking {
+      background-color: #FFF7EE;
+      color: var(--nav-bg, #5E3A2A);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .nav-btn-booking:hover {
+      background-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Nút Zalo / Facebook trên thanh khi EMBEDDED = true */
+    .nav-contact-quick {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.is-embedded .nav-contact-quick {
+      display: flex;
+    }
+
+    .contact-btn-mini {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      flex-shrink: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+    }
+
+    .contact-btn-mini:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-btn-mini .zalo-text {
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Nút hamburger mở menu mobile */
+    .nav-toggle-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      outline: none;
+    }
+
+    .nav-toggle-btn .bar {
+      width: 20px;
+      height: 2px;
+      background-color: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .nav-toggle-btn.is-active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar {
+      background-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========================================================================= */
+    /* 3. QUẢN LÝ SLOT ẢNH & PLACEHOLDER                                         */
+    /* ========================================================================= */
+    .image-slot-container {
+      position: relative;
+      background-color: var(--color-menu);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-slot-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .slot-placeholder {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-menu);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-primary);
+      border: 2px dashed rgba(142, 59, 31, 0.35);
+      border-radius: inherit;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .slot-placeholder .slot-tag {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: rgba(253, 246, 236, 0.85);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(142, 59, 31, 0.2);
+    }
+
+    /* ========================================================================= */
+    /* B. BANNER ĐẦU TRANG BLOG (~340px, ẢNH NỀN BLOG_HERO, KHÔNG Ô TÌM KIẾM)    */
+    /* ========================================================================= */
+    .blog-hero-banner {
+      width: 100%;
+      height: 340px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(58, 42, 34, 0.1);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner-bg-slot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .banner-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(253, 246, 236, 0.55) 0%,
+        rgba(253, 246, 236, 0.35) 50%,
+        rgba(253, 246, 236, 0.65) 100%
+      );
+      z-index: 2;
+    }
+
+    .blog-banner-content {
+      position: relative;
+      z-index: 4;
+      padding: 36px 56px;
+      width: 860px;
+      max-width: 90%;
+      background: rgba(253, 246, 236, 0.92);
+      border-radius: 22px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(245, 182, 59, 0.4);
+      box-shadow: 0 10px 32px rgba(42, 26, 18, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .blog-banner-title {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.18;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .blog-banner-subtitle {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .banner-leaf-deco {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      opacity: 0.55;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .banner-leaf-deco.top-left {
+      top: 14px;
+      left: 20px;
+    }
+
+    .banner-leaf-deco.bottom-right {
+      bottom: 14px;
+      right: 20px;
+      transform: rotate(180deg);
+    }
+
+    /* ========================================================================= */
+    /* VÙNG 2 CỘT CHÍNH: CỘT TRÁI ~920px & THANH BÊN ~340px                      */
+    /* ========================================================================= */
+    .blog-main-layout {
+      display: flex;
+      gap: 44px;
+      align-items: flex-start;
+      margin-top: 48px;
+    }
+
+    .blog-left-col {
+      width: 920px;
+      flex-shrink: 0;
+    }
+
+    .blog-sidebar {
+      width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* ========================================================================= */
+    /* LƯỚI XEN KẼ (CHU KỲ 3 BÀI: 1 THẺ NGANG + 2 THẺ NHỎ)                       */
+    /* ========================================================================= */
+    .blog-cycle-group {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    /* Thẻ ngang rộng full cột ~920px, cao ~330px */
+    .blog-card-horizontal {
+      width: 100%;
+      min-height: 330px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.06);
+      display: flex;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    }
+
+    .blog-card-horizontal:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(58, 42, 34, 0.12);
+    }
+
+    .blog-card-horizontal.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .card-h-img-box {
+      width: 55%;
+      height: auto;
+      min-height: 330px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--color-menu);
+    }
+
+    .card-h-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card-horizontal:hover .card-h-img-box img {
+      transform: scale(1.05);
+    }
+
+    .card-h-content {
+      width: 45%;
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-h-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1.35;
+      margin: 10px 0 12px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .blog-card-horizontal:hover .card-h-title {
+      color: var(--color-primary);
+    }
+
+    .card-h-desc {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--color-muted);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    /* Hàng chứa 2 thẻ nhỏ cạnh nhau */
+    .blog-cards-pair-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      width: 100%;
+    }
+
+    .blog-card-small {
+      background: #FFFFFF;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.06);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      height: 100%;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    }
+
+    .blog-card-small:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(58, 42, 34, 0.12);
+    }
+
+    .card-s-img-box {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--color-menu);
+    }
+
+    .card-s-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px 20px 0 0;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card-small:hover .card-s-img-box img {
+      transform: scale(1.05);
+    }
+
+    .card-s-content {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-s-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-text);
+      line-height: 1.35;
+      margin: 10px 0 12px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 60px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .blog-card-small:hover .card-s-title {
+      color: var(--color-primary);
+    }
+
+    .card-s-desc {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--color-muted);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    /* Các phần tử chung của thẻ */
+    .card-floating-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--color-text);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+    }
+
+    .card-date-meta {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-muted);
+    }
+
+    .card-divider-line {
+      border: none;
+      border-top: 1px solid var(--color-line);
+      margin: 0 0 16px 0;
+    }
+
+    .card-bottom-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 4px;
+    }
+
+    .btn-bookmark-action {
+      background: none;
+      border: none;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-muted);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .btn-bookmark-action svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      transition: all 0.2s ease;
+    }
+
+    .btn-bookmark-action.is-saved {
+      color: var(--color-primary);
+    }
+
+    .btn-bookmark-action.is-saved svg {
+      fill: var(--color-primary);
+    }
+
+    .btn-bookmark-action:hover {
+      color: var(--color-primary);
+    }
+
+    .card-read-more-link {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .card-read-more-link:hover {
+      transform: translateX(4px);
+    }
+
+    /* ========================================================================= */
+    /* KHỐI QUOTE NỀN ĐẬM CHÈN GIỮA LƯỚI (PULL QUOTE BLOCK)                      */
+    /* ========================================================================= */
+    .blog-pull-quote-block {
+      width: 100%;
+      height: 300px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      margin: 36px 0;
+      box-shadow: 0 14px 36px rgba(40, 26, 18, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .quote-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .quote-dark-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(59, 36, 24, 0.88);
+      z-index: 2;
+    }
+
+    .quote-svg-symbol {
+      position: absolute;
+      top: 16px;
+      left: 28px;
+      width: 110px;
+      height: 110px;
+      fill: #F5B63B;
+      opacity: 0.28;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .quote-content-box {
+      position: relative;
+      z-index: 4;
+      padding: 30px 64px;
+      max-width: 820px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quote-text-main {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #FFF3E2;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .quote-short-line {
+      width: 48px;
+      height: 3px;
+      background-color: #F5B63B;
+      border-radius: 2px;
+      margin-bottom: 12px;
+    }
+
+    .quote-source-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .quote-source-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #F5B63B;
+    }
+
+    .quote-read-btn {
+      border: 2px solid #F5B63B;
+      color: #F5B63B;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .quote-read-btn:hover {
+      background: #F5B63B;
+      color: #3B2418;
+    }
+
+    /* ========================================================================= */
+    /* THANH BÊN (SIDEBAR ~340px: BÀI NỔI BẬT & HỘP ĐẶT LỊCH)                    */
+    /* ========================================================================= */
+    .sidebar-widget {
+      background: #FFFFFF;
+      border: 1px solid var(--color-line);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.05);
+    }
+
+    .sidebar-widget-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .sidebar-title-bar {
+      width: 36px;
+      height: 3px;
+      background-color: var(--color-gold);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* Widget 1: Danh sách bài nổi bật (chỉ còn chủ đề, không có phút đọc) */
+    .sidebar-featured-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sidebar-post-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed rgba(245, 182, 59, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .sidebar-post-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .sidebar-post-item:hover {
+      transform: translateX(4px);
+    }
+
+    .sidebar-post-thumb {
+      width: 76px;
+      height: 76px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--color-menu);
+    }
+
+    .sidebar-post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sidebar-post-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-post-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-gold);
+    }
+
+    .sidebar-post-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: color 0.2s ease;
+    }
+
+    .sidebar-post-item:hover .sidebar-post-title {
+      color: var(--color-primary);
+    }
+
+    /* Widget 2: Hộp mời đặt lịch */
+    .sidebar-booking-box {
+      background: linear-gradient(135deg, #FBEFE0 0%, #F5E5D0 100%);
+      border: 1.5px solid rgba(245, 182, 59, 0.5);
+      border-radius: 20px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(58, 42, 34, 0.08);
+    }
+
+    .sidebar-booking-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+    }
+
+    .sidebar-booking-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: #FFFFFF;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    .sidebar-booking-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .sidebar-booking-desc {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .sidebar-booking-btn {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 999px;
+    }
+
+    /* ========================================================================= */
+    /* D. DẢI KÊU GỌI CUỐI TRANG (CTA BANNER TRƯỚC FOOTER)                       */
+    /* ========================================================================= */
+    .blog-cta-section {
+      margin-top: 72px;
+      margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 48px;
+      background: linear-gradient(135deg, #FBEFE0 0%, #F5E5D0 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(245, 182, 59, 0.45);
+      box-shadow: 0 12px 36px rgba(58, 42, 34, 0.08);
+    }
+
+    .blog-cta-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .blog-cta-subtitle {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--color-text);
+      max-width: 680px;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    .blog-cta-btn {
+      font-size: 20px;
+      font-weight: 700;
+      padding: 18px 44px;
+    }
+
+    /* ========================================================================= */
+    /* 4. POPUP BÀI VIẾT: RỘNG 960px, MỤC LỤC & THANH TIẾN TRÌNH ĐỌC             */
+    /* ========================================================================= */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background: linear-gradient(90deg, #F5B63B 0%, #E0632B 100%);
+      z-index: 2200;
+      transition: width 0.1s ease-out;
+      pointer-events: none;
+      display: none;
+    }
+
+    .popup-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(58, 42, 34, 0.65);
+      z-index: 2000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .popup-overlay.is-active {
+      opacity: 1;
+    }
+
+    .popup-modal {
+      position: absolute;
+      width: 960px;
+      background-color: var(--color-popup-bg);
+      border-radius: 24px;
+      border: 1px solid rgba(90, 58, 42, 0.2);
+      box-shadow: 0 25px 70px rgba(42, 26, 18, 0.35);
+      z-index: 2001;
+      display: none;
+      opacity: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.25s ease;
+      overflow: visible;
+      height: auto;
+    }
+
+    .popup-modal.is-active {
+      opacity: 1;
+    }
+
+    /* Nút X tròn trắng góc phải trên ảnh */
+    .popup-close-x-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(58, 42, 34, 0.25);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .popup-close-x-btn:hover {
+      transform: scale(1.08);
+      background-color: #FDF6EC;
+    }
+
+    /* Ảnh hero bài viết full-width tỉ lệ 2:1 */
+    .popup-img-wrapper {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      overflow: hidden;
+      border-radius: 24px 24px 0 0;
+      background-color: var(--color-menu);
+      position: relative;
+    }
+
+    .popup-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .popup-content-body {
+      padding: 40px 0 48px 0;
+    }
+
+    .popup-meta-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .popup-category-badge {
+      background: var(--color-gold);
+      color: var(--color-brown-dark);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 8px;
+    }
+
+    .popup-date-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-muted);
+    }
+
+    .popup-title {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-popup-title);
+      text-align: center;
+      line-height: 1.3;
+      padding: 0 72px;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .popup-intro {
+      font-size: 20px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--color-text);
+      text-align: center;
+      line-height: 1.6;
+      padding: 0 72px;
+      margin-bottom: 24px;
+    }
+
+    .popup-divider {
+      border: none;
+      border-top: 1px solid rgba(90, 58, 42, 0.18);
+      margin: 24px 72px;
+    }
+
+    /* Hộp Mục Lục: TRONG BÀI NÀY */
+    .popup-toc-box {
+      margin: 12px 72px 28px 72px;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-line);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    .popup-toc-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+    }
+
+    .popup-toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .popup-toc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      color: var(--color-text);
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    .popup-toc-item:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .popup-toc-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Thân bài popup */
+    .popup-text {
+      padding: 0 72px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: var(--color-text);
+      text-align: justify;
+    }
+
+    .popup-subtitle {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 32px 0 14px 0;
+      line-height: 1.4;
+      text-align: left;
+      scroll-margin-top: calc(var(--nav-height, 120px) + 20px);
+    }
+
+    .popup-text p {
+      margin-bottom: 18px;
+    }
+
+    .popup-step-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 24px 0;
+    }
+
+    .popup-step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .popup-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .popup-step-desc {
+      flex: 1;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.75;
+      color: var(--color-text);
+    }
+
+    .popup-conclusion {
+      font-size: 19px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--color-text);
+      text-align: center;
+      line-height: 1.65;
+      padding: 0 72px;
+      margin: 24px 0;
+    }
+
+    /* Hàng nút hành động trong Popup (Lưu bài, Chia sẻ) */
+    .popup-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px 72px 0 72px;
+    }
+
+    .popup-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      border: 1px solid rgba(90, 58, 42, 0.25);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(58, 42, 34, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .popup-action-btn:hover {
+      background: var(--color-gold-soft);
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+
+    .popup-action-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    .popup-action-btn.is-saved svg {
+      fill: var(--color-primary);
+      stroke: var(--color-primary);
+    }
+
+    .popup-bottom-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .popup-close-btn {
+      padding: 14px 48px;
+      font-size: 17px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: 1px solid rgba(90, 58, 42, 0.25);
+      background-color: #FFFFFF;
+      color: var(--color-primary);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(58, 42, 34, 0.1);
+      transition: all 0.25s ease;
+    }
+
+    .popup-close-btn:hover {
+      background-color: #FDF6EC;
+      color: var(--color-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(58, 42, 34, 0.16);
+    }
+
+    #popup-height-spacer {
+      height: 0px;
+      transition: height 0.2s ease;
+    }
+
+    /* Toast thông báo sao chép/lưu */
+    .blog-toast-msg {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      background: rgba(40, 26, 18, 0.95);
+      color: #FFF3E2;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .blog-toast-msg.is-visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ========================================================================= */
+    /* CHÂN TRANG DÙNG CHUNG (UNIFIED SITE FOOTER)                               */
+    /* ========================================================================= */
+    .site-footer {
+      width: 100%;
+      background: linear-gradient(180deg, #3B2418 0%, #5A3422 100%);
+      border-top: 1px solid rgba(245, 182, 59, 0.2);
+      border-radius: 28px 28px 0 0;
+      margin-top: 72px;
+      padding: 64px 0 28px 0;
+      color: #FFF3E2;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .footer-inner {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .footer-legal-banner {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(245, 182, 59, 0.35);
+      border-radius: 14px;
+      padding: 18px 28px;
+      margin-bottom: 48px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .footer-legal-icon {
+      width: 22px;
+      height: 22px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+    }
+
+    .footer-legal-text {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #EBD5C0;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-legal-strong {
+      color: #F5B63B;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-grid-3col {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .footer-col-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #FAF7F2;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      border: 2px solid rgba(245, 182, 59, 0.4);
+      flex-shrink: 0;
+    }
+
+    .footer-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .footer-brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 34px;
+      font-weight: 800;
+      color: #FFF3E2;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    .footer-brand-tagline {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F5B63B;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .footer-brand-about {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #EBD5C0;
+      margin: 0 0 24px 0;
+    }
+
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social-btn:hover {
+      background: #F5B63B;
+      border-color: #F5B63B;
+      color: #3B2418;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(245, 182, 59, 0.35);
+    }
+
+    .footer-social-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .footer-social-btn.btn-social-zalo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #F5B63B;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+
+    .footer-title-bar {
+      width: 36px;
+      height: 3px;
+      background-color: #F5B63B;
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav-link {
+      font-size: 17px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.6;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: #F5B63B;
+      transform: translateX(4px);
+    }
+
+    .footer-nav-bullet {
+      width: 14px;
+      height: 14px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+      opacity: 0.85;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-nav-link:hover .footer-nav-bullet {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-contact-icon {
+      width: 20px;
+      height: 20px;
+      color: #F5B63B;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #F5B63B;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-contact-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    a.footer-contact-value:hover {
+      color: #F5B63B;
+      text-decoration: underline;
+    }
+
+    .footer-hours-block {
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 18px;
+    }
+
+    .footer-hours-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F5B63B;
+      margin-bottom: 6px;
+    }
+
+    .footer-hours-time {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      margin-bottom: 12px;
+    }
+
+    .footer-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-status-badge.status-open {
+      background: rgba(74, 222, 128, 0.15);
+      color: #BBF7D0;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .footer-status-badge.status-closed {
+      background: rgba(255, 255, 255, 0.08);
+      color: #D6C3B2;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot-open {
+      background: #4ADE80;
+      box-shadow: 0 0 8px #4ADE80;
+    }
+
+    .status-dot-closed {
+      background: #9CA3AF;
+    }
+
+    .footer-bottom-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 0 24px 0;
+      border: none;
+    }
+
+    .footer-bottom-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-copyright {
+      font-size: 15px;
+      font-weight: 500;
+      color: #D6C3B2;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer-disclaimer {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(214, 195, 178, 0.72);
+      margin: 0;
+    }
+
+    /* Nút cuộn lên đầu trang (Back to top) */
+    .btn-back-to-top {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: #5A3422;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 99;
+      outline: none;
+    }
+
+    .btn-back-to-top:hover {
+      background-color: #F5B63B;
+      color: #3B2418;
+      border-color: #F5B63B;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(245, 182, 59, 0.45);
+    }
+
+    .btn-back-to-top svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn-back-to-top.is-fixed {
+      position: fixed;
+      right: 26px;
+      bottom: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    .btn-back-to-top.is-fixed.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .btn-back-to-top.is-embedded-inline {
+      position: absolute;
+      top: 36px;
+      right: 24px;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    /* ========================================================================= */
+    /* NÚT LIÊN HỆ CỐ ĐỊNH ZALO / FACEBOOK KHI EMBEDDED = false                  */
+    /* ========================================================================= */
+    .quick-contact-fixed {
+      position: fixed;
+      right: 26px;
+      bottom: 90px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    body.is-embedded .quick-contact-fixed {
+      display: none !important;
+    }
+
+    .quick-contact-btn {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .quick-contact-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .quick-contact-btn.btn-zalo {
+      background-color: #0068FF;
+    }
+
+    .quick-contact-btn.btn-facebook {
+      background-color: #1877F2;
+    }
+
+    .quick-contact-label {
+      position: absolute;
+      right: 68px;
+      top: 50%;
+      transform: translateY(-50%) translateX(6px);
+      background: rgba(58, 42, 34, 0.92);
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    .quick-contact-btn:hover .quick-contact-label {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .zalo-text {
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    /* Tôn trọng prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    
+    /* ========================================================================= */
+    /* 12. MOBILE & TABLET RESPONSIVE STYLES (ĐA MÀN HÌNH)                        */
+    /* ========================================================================= */
+
+    /* Tablet & Small Desktop (dưới 992px) */
+    @media (max-width: 992px) {
+      .site-header {
+        height: 72px;
+      }
+
+      .nav-inner-wide {
+        height: 72px;
+        padding: 0 16px;
+        gap: 12px;
+      }
+
+      .nav-logo-box {
+        width: 56px;
+        height: 52px;
+        border-radius: 10px;
+        padding: 2px;
+      }
+
+      .nav-toggle-btn {
+        display: flex;
+      }
+
+      .nav-btn-booking {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 8px 18px;
+      }
+
+      .nav-center-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: #4A2B1D;
+        border-top: 1px solid rgba(245, 182, 59, 0.25);
+        border-bottom: 3px solid #F5B63B;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        padding: 8px 0 16px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-center-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-menu-list {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        display: block;
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link.active {
+        color: #F5B63B !important;
+        background-color: rgba(245, 182, 59, 0.14);
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .page-container {
+        padding: 0 16px;
+      }
+
+      /* Banner Blog */
+      .blog-hero-banner {
+        height: 250px;
+        border-radius: 16px;
+      }
+
+      .blog-banner-content {
+        padding: 20px 18px;
+        width: 95%;
+        border-radius: 16px;
+      }
+
+      .blog-banner-title {
+        font-size: 30px;
+      }
+
+      .blog-banner-subtitle {
+        font-size: 16px;
+      }
+
+      .banner-leaf-deco {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Bố cục 2 cột chính -> Chuyển thành 1 cột */
+      .blog-main-layout {
+        flex-direction: column;
+        gap: 36px;
+        margin-top: 32px;
+      }
+
+      .blog-left-col {
+        width: 100%;
+      }
+
+      .blog-sidebar {
+        width: 100%;
+      }
+
+      /* Thẻ bài viết ngang -> chuyển sang cột dọc */
+      .blog-card-horizontal {
+        min-height: auto;
+        flex-direction: column !important;
+      }
+
+      .card-h-img-box {
+        width: 100%;
+        min-height: 220px;
+        height: 220px;
+      }
+
+      .card-h-content {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .card-h-title {
+        font-size: 22px;
+        -webkit-line-clamp: 2;
+      }
+
+      .card-h-desc {
+        font-size: 15px;
+        -webkit-line-clamp: 3;
+      }
+
+      /* Hàng 2 thẻ nhỏ -> 1 cột trên tablet/mobile */
+      .blog-cards-pair-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .card-s-content {
+        padding: 20px;
+      }
+
+      .card-s-title {
+        font-size: 20px;
+        min-height: auto;
+      }
+
+      /* Khối Quote */
+      .blog-pull-quote-block {
+        height: auto;
+        min-height: 220px;
+        padding: 24px 16px;
+        margin: 24px 0;
+        border-radius: 16px;
+      }
+
+      .quote-content-box {
+        padding: 16px;
+      }
+
+      .quote-text-main {
+        font-size: 20px;
+        -webkit-line-clamp: 5;
+      }
+
+      .quote-svg-symbol {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+      }
+
+      /* Dải CTA cuối trang */
+      .blog-cta-section {
+        padding: 32px 18px;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        border-radius: 18px;
+      }
+
+      .blog-cta-title {
+        font-size: 26px;
+      }
+
+      .blog-cta-subtitle {
+        font-size: 16px;
+        margin-bottom: 22px;
+      }
+
+      .blog-cta-btn {
+        font-size: 17px;
+        padding: 14px 30px;
+      }
+
+      /* Popup bài viết */
+      .popup-modal {
+        width: calc(100% - 32px);
+        max-width: 680px;
+        border-radius: 16px;
+      }
+
+      .popup-img-wrapper {
+        border-radius: 16px 16px 0 0;
+        aspect-ratio: 16 / 9;
+      }
+
+      .popup-img-wrapper img {
+        border-radius: 16px 16px 0 0;
+      }
+
+      .popup-content-body {
+        padding: 24px 0 32px 0;
+      }
+
+      .popup-title {
+        font-size: 24px;
+        padding: 0 20px;
+      }
+
+      .popup-intro {
+        font-size: 16px;
+        padding: 0 20px;
+      }
+
+      .popup-divider {
+        margin: 18px 20px;
+      }
+
+      .popup-toc-box {
+        margin: 12px 20px 20px 20px;
+        padding: 16px;
+      }
+
+      .popup-text {
+        padding: 0 20px;
+        font-size: 16px;
+      }
+
+      .popup-subtitle {
+        font-size: 19px;
+        margin: 24px 0 10px 0;
+      }
+
+      .popup-conclusion {
+        font-size: 16px;
+        padding: 0 20px;
+        margin: 18px 0;
+      }
+
+      .popup-action-row {
+        margin: 20px 20px 0 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    /* Màn hình Mobile (dưới 768px) */
+    @media (max-width: 768px) {
+      .blog-hero-banner {
+        height: 200px;
+      }
+
+      .blog-banner-title {
+        font-size: 24px;
+      }
+
+      .blog-banner-subtitle {
+        font-size: 14px;
+      }
+
+      .popup-close-x-btn {
+        width: 38px;
+        height: 38px;
+        top: 12px;
+        right: 12px;
+      }
+
+      .popup-title {
+        font-size: 20px;
+      }
+
+      .popup-step-item {
+        gap: 10px;
+      }
+
+      .popup-step-desc {
+        font-size: 15px;
+      }
+
+      /* Chân trang Mobile */
+      .site-footer {
+        margin-top: 48px;
+        padding: 36px 0 20px 0;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .footer-inner {
+        padding: 0 16px;
+      }
+
+      .footer-legal-banner {
+        flex-direction: column;
+        padding: 14px 16px;
+        gap: 8px;
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .footer-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 28px;
+      }
+
+      .footer-col-brand {
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-brand-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .footer-brand-about {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .footer-social-row {
+        justify-content: center;
+      }
+
+      .footer-col-title {
+        text-align: center;
+      }
+
+      .footer-title-bar {
+        margin: 0 auto 16px auto;
+      }
+
+      .footer-nav-list {
+        align-items: center;
+      }
+
+      .footer-contact-list {
+        align-items: center;
+      }
+
+      .footer-contact-item {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-hours-block {
+        text-align: center;
+      }
+
+      .btn-back-to-top.is-embedded-inline {
+        top: 18px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Màn hình Mobile nhỏ (dưới 480px) */
+    @media (max-width: 480px) {
+      .nav-btn-booking {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      .popup-modal {
+        width: calc(100% - 20px);
+      }
+
+      .card-h-img-box {
+        height: 180px;
+        min-height: 180px;
+      }
+
+      .quote-text-main {
+        font-size: 17px;
+      }
+
+      .card-h-title {
+        font-size: 19px;
+      }
+
+      .card-s-title {
+        font-size: 18px;
+      }
+
+      .quick-contact-widget {
+        right: 12px;
+        bottom: 18px;
+        gap: 8px;
+      }
+
+      .quick-contact-btn {
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GX7LX2K63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config','G-6GX7LX2K63',{cookie_flags:'SameSite=None;Secure'});
+  </script>
+</head>
+<body>
+
+  <!-- Thanh tiến trình đọc (chỉ tạo/hiện khi EMBEDDED = false và popup mở) -->
+  <div id="readingProgressBar" class="reading-progress-bar"></div>
+
+  <!-- ======================================================================= -->
+  <!-- 1. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   -->
+  <!-- ======================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner-wide">
+      <!-- Cột trái: Khung Logo 104x96px -->
+      <a href="index.html" data-link="home" class="nav-logo-box" aria-label="Gốm Ký - Về trang chủ">
+        <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" class="nav-logo-img" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+      </a>
+
+      <!-- Cột giữa: 4 mục menu 22px bold -->
+      <nav class="nav-center-menu" aria-label="Menu chính">
+        <ul class="nav-menu-list">
+          <li class="nav-item">
+            <a href="index.html" data-link="home" class="nav-link">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="dich-vu.html" data-link="services" class="nav-link">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" data-link="blog" class="nav-link active">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="dat-lich.html" data-link="booking" class="nav-link">Đặt lịch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Cột phải: Nút Đặt lịch ngay + Nút Zalo/FB khi nhúng -->
+      <div class="nav-right-col">
+        <div class="nav-contact-quick" id="navContactQuick">
+          <a id="navBtnZalo" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-zalo" aria-label="Nhắn Zalo" title="Nhắn Zalo">
+            <span class="zalo-text">Zalo</span>
+          </a>
+          <a id="navBtnFacebook" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-facebook" aria-label="Nhắn Fanpage" title="Nhắn Fanpage">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF">
+              <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.74-1.5 1.8-1.5H17.5V2.3c-.6-.08-1.7-.17-3.1-.17-3.2 0-5.4 1.95-5.4 5.5v2.37H6v4h3v9h5v-9z"/>
+            </svg>
+          </a>
+        </div>
+        <a href="dat-lich.html" data-link="booking" class="nav-btn-booking" id="navBtnBooking">Đặt lịch ngay</a>
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Mở menu" type="button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- TOÀN BỘ NỘI DUNG TRANG BLOG (TỐI ĐA 1320px, CĂN GIỮA)                      -->
+  <!-- ======================================================================= -->
+  <main class="page-container">
+
+    <!-- B. BANNER ĐẦU TRANG (~340px, ẢNH NỀN BLOG_HERO, KHÔNG Ô TÌM KIẾM) -->
+    <section class="blog-hero-banner">
+      <!-- Ảnh nền slot BLOG_HERO phủ kín -->
+      <div class="banner-bg-slot image-slot-container" data-slot="BLOG_HERO">
+        <img class="banner-bg-img" data-slot="BLOG_HERO" alt="Banner Blog Gốm Ký">
+      </div>
+
+      <!-- Lớp phủ kem mờ -->
+      <div class="blog-banner-overlay"></div>
+
+      <!-- Hoạ tiết lá cam SVG hai góc -->
+      <svg class="banner-leaf-deco top-left" viewBox="0 0 100 100" fill="none" stroke="#F5B63B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 85 Q45 50 85 15"/>
+        <path d="M42 52 Q30 36 44 28 Q52 40 42 52"/>
+        <path d="M58 38 Q70 24 78 34 Q68 46 58 38"/>
+        <path d="M70 24 Q74 10 84 12 Q85 24 70 24"/>
+        <path d="M28 66 Q15 62 18 50 Q30 54 28 66"/>
+      </svg>
+      <svg class="banner-leaf-deco bottom-right" viewBox="0 0 100 100" fill="none" stroke="#F5B63B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 85 Q45 50 85 15"/>
+        <path d="M42 52 Q30 36 44 28 Q52 40 42 52"/>
+        <path d="M58 38 Q70 24 78 34 Q68 46 58 38"/>
+        <path d="M70 24 Q74 10 84 12 Q85 24 70 24"/>
+        <path d="M28 66 Q15 62 18 50 Q30 54 28 66"/>
+      </svg>
+
+      <!-- Nội dung Banner: H1 & phụ đề -->
+      <div class="blog-banner-content">
+        <h1 class="blog-banner-title" data-text="banner.title">Blog Gốm Ký</h1>
+        <p class="blog-banner-subtitle" data-text="banner.subtitle">Chuyện của đất, của tay và của bạn</p>
+      </div>
+    </section>
+
+    <!-- VÙNG 2 CỘT CHÍNH (CỘT TRÁI ~920px & THANH BÊN ~340px) -->
+    <div class="blog-main-layout">
+
+      <!-- CỘT TRÁI: LƯỚI XEN KẼ VÀ KHỐI QUOTE CHÈN GIỮA -->
+      <section class="blog-left-col">
+        <div id="blogGridContainer">
+          <!-- Render lưới 6 bài viết xen kẽ & khối quote từ JS -->
+        </div>
+      </section>
+
+      <!-- THANH BÊN (SIDEBAR ~340px) -->
+      <aside class="blog-sidebar">
+
+        <!-- Widget 1: Bài nổi bật (chỉ còn chủ đề, không có phút đọc) -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title" data-text="sidebar.featuredTitle">BÀI NỔI BẬT</h3>
+          <div class="sidebar-title-bar"></div>
+          <div class="sidebar-featured-list" id="sidebarFeaturedList">
+            <!-- Render từ JS -->
+          </div>
+        </div>
+
+        <!-- Widget 2: Hộp mời đặt lịch -->
+        <div class="sidebar-booking-box">
+          <div class="sidebar-booking-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h4 class="sidebar-booking-title" data-text="sidebar.bookingTitle">TRẢI NGHIỆM GỐM THỦ CÔNG</h4>
+          <p class="sidebar-booking-desc" data-text="sidebar.bookingDesc">Tự tay tạo nên tác phẩm gốm độc bản và thư giãn trong không gian ấm cúng tại xưởng Gốm Ký.</p>
+          <a href="dat-lich.html" data-link="booking" class="btn btn-primary sidebar-booking-btn" data-text="sidebar.bookingBtn">Đặt lịch trải nghiệm ngay →</a>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- D. DẢI KÊU GỌI CUỐI TRANG -->
+    <section class="blog-cta-section">
+      <h2 class="blog-cta-title" data-text="cta.title">Sẵn sàng chạm tay vào đất sét?</h2>
+      <p class="blog-cta-subtitle" data-text="cta.subtitle">Hãy dành một buổi để cùng Gốm Ký lắng nghe đất kể chuyện và lưu giữ kỷ niệm của riêng bạn.</p>
+      <a href="dat-lich.html" data-link="booking" class="btn btn-primary blog-cta-btn">
+        <span data-text="cta.btn">Đặt lịch trải nghiệm ngay →</span>
+        <svg class="btn-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- CHÂN TRANG DÙNG CHUNG (UNIFIED SITE FOOTER)                               -->
+  <!-- ======================================================================= -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-inner">
+
+      <!-- Nút cuộn lên đầu trang (Back to top) -->
+      <button type="button" class="btn-back-to-top" id="btnBackToTop" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+        <svg viewBox="0 0 24 24">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+
+      <!-- 1. BẢNG THÔNG BÁO PHÁP LÝ QUAN TRỌNG -->
+      <div class="footer-legal-banner">
+        <svg class="footer-legal-icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.8L20.2 19H3.8L12 5.8zM11 10h2v4h-2v-4zm0 6h2v2h-2v-2z"/>
+        </svg>
+        <p class="footer-legal-text">
+          <strong class="footer-legal-strong">THÔNG BÁO PHÁP LÝ QUAN TRỌNG:</strong>
+          ĐỀ TÀI PHỤC VỤ CHO HỌC PHẦN MARKETING SỐ CỦA SINH VIÊN, KHÔNG CÓ XUNG ĐỘT VỀ NỘI DUNG CŨNG NHƯ TRANH CHẤP VỚI CÁC THƯƠNG HIỆU, MỤC TIÊU PHI LỢI NHUẬN.
+        </p>
+      </div>
+
+      <!-- 2. HÀNG 3 CỘT (Tỉ lệ 1.4 : 1 : 1.2) -->
+      <div class="footer-grid-3col">
+        <!-- CỘT 1: THƯƠNG HIỆU -->
+        <div class="footer-col-brand">
+          <div class="footer-brand-header">
+            <div class="footer-logo-badge">
+              <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+            </div>
+            <div class="footer-brand-meta">
+              <h3 class="footer-brand-name">GỐM KÝ</h3>
+              <span class="footer-brand-tagline">Workshop làm gốm thủ công tại Hà Nội</span>
+            </div>
+          </div>
+          <p class="footer-brand-about">Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.</p>
+          <div class="footer-social-row">
+            <!-- Nút Facebook SVG -->
+            <a href="https://www.facebook.com/share/1DQc5YnPNU/" target="_blank" rel="noopener" class="footer-social-btn" id="footerSocialFacebook" aria-label="Fanpage Facebook Gốm Ký" title="Facebook Gốm Ký">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+              </svg>
+            </a>
+            <!-- Nút Zalo (chỉ hiển thị nếu FOOTER.zalo khác rỗng) -->
+            <a href="#" target="_blank" rel="noopener" class="footer-social-btn btn-social-zalo" id="footerSocialZalo" aria-label="Zalo Gốm Ký" title="Zalo Gốm Ký" style="display: none;">
+              <span>Zalo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CỘT 2: KHÁM PHÁ -->
+        <div class="footer-col-nav">
+          <h4 class="footer-col-title">KHÁM PHÁ</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="index.html" data-link="home" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Trang chủ</span>
+              </a>
+            </li>
+            <li>
+              <a href="dich-vu.html" data-link="services" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Dịch vụ</span>
+              </a>
+            </li>
+            <li>
+              <a href="blog.html" data-link="blog" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="dat-lich.html" data-link="booking" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Đặt lịch</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CỘT 3: LIÊN HỆ -->
+        <div class="footer-col-contact">
+          <h4 class="footer-col-title">LIÊN HỆ</h4>
+          <div class="footer-title-bar"></div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <a href="tel:0913006989" id="footerHotlineLink" class="footer-contact-value">Hotline: 0913006989</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <a href="mailto:gomkypottery@gmail.com" id="footerEmailLink" class="footer-contact-value">gomkypottery@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=79+H%E1%BB%93+T%C3%B9ng+M%E1%BA%ADu%2C+H%C3%A0+N%E1%BB%99i" target="_blank" rel="noopener" class="footer-contact-value">Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </div>
+              <a href="https://www.facebook.com/share/1DQc5YnPNU/" id="footerFanpageLink" target="_blank" rel="noopener" class="footer-contact-value">Gốm Ký - Workshop Làm Gốm</a>
+            </div>
+          </div>
+
+          <div class="footer-hours-block">
+            <div class="footer-hours-label">GIỜ HOẠT ĐỘNG</div>
+            <div class="footer-hours-time" id="footerHoursText">Thứ 2 - Chủ nhật: 9:00 - 21:00</div>
+            <div class="footer-status-badge status-open" id="footerStatusBadge">
+              <span class="status-dot status-dot-open"></span>
+              <span>Đang mở cửa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="footer-bottom-divider">
+      <div class="footer-bottom-content">
+        <p class="footer-copyright">© 2026 Gốm Ký. Chạm đất bằng tay, để gốm kể thay lời bạn.</p>
+        <p class="footer-disclaimer">Dự án học thuật · Phi thương mại · Marketing số</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- NÚT LIÊN HỆ CỐ ĐỊNH ZALO / FACEBOOK -->
+  <div class="quick-contact-fixed" id="quickContactFixed">
+    <a id="fixedBtnZalo" href="#" target="_blank" rel="noopener" class="quick-contact-btn btn-zalo" aria-label="Nhắn Zalo">
+      <span class="zalo-text">Zalo</span>
+      <span class="quick-contact-label">Nhắn Zalo</span>
+    </a>
+    <a id="fixedBtnFacebook" href="https://www.facebook.com/share/1DQc5YnPNU/" target="_blank" rel="noopener" class="quick-contact-btn btn-facebook" aria-label="Nhắn Fanpage">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="#FFFFFF">
+        <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.74-1.5 1.8-1.5H17.5V2.3c-.6-.08-1.7-.17-3.1-.17-3.2 0-5.4 1.95-5.4 5.5v2.37H6v4h3v9h5v-9z"/>
+      </svg>
+      <span class="quick-contact-label">Nhắn Fanpage</span>
+    </a>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- 4. POPUP BÀI VIẾT (RỘNG 960px, MỤC LỤC, LƯU BÀI, CHIA SẺ)                 -->
+  <!-- ======================================================================= -->
+  <div id="blog-popup-overlay" class="popup-overlay"></div>
+
+  <div id="blog-popup-modal" class="popup-modal" role="dialog" aria-modal="true">
+    <!-- Nút X tròn trắng góc phải trên ảnh -->
+    <button type="button" id="popup-close-x" class="popup-close-x-btn" aria-label="Đóng bài viết">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3A2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Ảnh BLOG_n full-width tỉ lệ 2:1 -->
+    <div class="popup-img-wrapper image-slot-container" id="popup-img-container">
+      <img id="popup-img" alt="Ảnh bài viết blog" class="popup-hero-img">
+    </div>
+
+    <!-- Nội dung bài viết -->
+    <div class="popup-content-body">
+      <!-- Nhãn chủ đề và ngày -->
+      <div class="popup-meta-header">
+        <span id="popup-category" class="popup-category-badge"></span>
+        <span id="popup-date" class="popup-date-text"></span>
+      </div>
+
+      <!-- Tiêu đề IN HOA (32px, 800) -->
+      <h2 id="popup-title" class="popup-title"></h2>
+
+      <!-- Câu mở đầu in nghiêng đậm -->
+      <p id="popup-intro" class="popup-intro"></p>
+
+      <hr class="popup-divider">
+
+      <!-- Hộp Mục Lục: TRONG BÀI NÀY (chèn khi bài có >= 2 tiêu đề phụ) -->
+      <div id="popup-toc-container"></div>
+
+      <!-- Thân bài và tiêu đề phụ -->
+      <div id="popup-main-content" class="popup-text"></div>
+
+      <hr class="popup-divider">
+
+      <!-- Câu kết in nghiêng -->
+      <p id="popup-conclusion" class="popup-conclusion"></p>
+
+      <!-- Hàng nút Lưu bài & Chia sẻ -->
+      <div class="popup-action-row">
+        <button type="button" id="popupSaveBtn" class="popup-action-btn">
+          <svg viewBox="0 0 24 24">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span id="popupSaveText">Lưu bài</span>
+        </button>
+
+        <button type="button" id="popupShareBtn" class="popup-action-btn">
+          <svg viewBox="0 0 24 24">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span>Chia sẻ</span>
+        </button>
+      </div>
+
+      <!-- Nút "Đóng" ở cuối -->
+      <div class="popup-bottom-action">
+        <button type="button" id="popup-close-bottom" class="btn btn-secondary popup-close-btn">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup-height-spacer"></div>
+  <div id="blogToast" class="blog-toast-msg"></div>
+
+  <!-- ======================================================================= -->
+  <!-- JAVASCRIPT: LOGIC LƯỚI XEN KẼ, QUOTE, POPUP, ANALYTICS                    -->
+  <!-- ======================================================================= -->
+  <script>
+    /* ========================================================================= */
+    /* 1. KHAI BÁO HẰNG SỐ & DỮ LIỆU BÀI VIẾT                                    */
+    /* ========================================================================= */
+    const PULL_QUOTE_POST = 1; // id bài viết trích dẫn quote chèn giữa lưới
+
+    const BLOG_POSTS = [
+      {
+        id: 1,
+        slot: "BLOG_1",
+        title: "5 lý do khiến workshop làm gốm trở thành trải nghiệm được yêu thích",
+        date: "12/10/2026",
+        category: "Trải nghiệm",
+        intro: "Giữa nhịp sống tất bật nơi phố thị, những buổi trải nghiệm làm gốm thủ công đang trở thành điểm hẹn thân quen cho những ai tìm kiếm sự bình yên và niềm vui sáng tạo dung dị.",
+        subheadings: [
+          {
+            subtitle: "Chạm tay vào đất để tìm lại sự thư thái",
+            text: "Cảm giác mát mịn của đất sét dưới từng đầu ngón tay mang đến sự thư giãn kỳ diệu cho tâm trí. Khi tập trung xoay từng vòng đất, mọi âu lo thường nhật dường như tạm gác lại phía sau cánh cửa xưởng gốm. Bạn được thực sự lắng nghe nhịp điệu của chính mình trong từng hơi thở êm dịu."
+          },
+          {
+            subtitle: "Tự do sáng tạo nên món đồ độc nhất",
+            text: "Không có bất kỳ khuôn mẫu cứng nhắc nào giới hạn trí tưởng tượng của bạn trong buổi làm gốm. Từng chiếc bát nhỏ, chiếc cốc uống nước hay đĩa đựng phụ kiện đều mang đậm cá tính riêng của người tạo ra. Đó là món đồ độc bản không thể tìm thấy ở bất kỳ nơi nào khác."
+          },
+          {
+            subtitle: "Kết nối chân thành cùng người thân thương",
+            text: "Cùng nhau ngồi quanh bàn xoay, lấm lem chút bùn đất lại trở thành khoảnh khắc gắn kết tuyệt vời giữa bạn bè và người thân. Những tiếng cười giòn giã bên sản phẩm méo mó đáng yêu sẽ biến thành kỷ niệm ngọt ngào khó quên."
+          },
+          {
+            subtitle: "Niềm háo hức chờ đợi thành phẩm sau nung",
+            text: "Trải nghiệm làm gốm không kết thúc khi bạn rời bàn nặn mà còn kéo dài qua những ngày đợi chờ món đồ ra lò. Khi đón nhận sản phẩm đã được tráng men sáng bóng, cảm giác nâng niu trên tay thật ấm áp và trọn vẹn."
+          }
+        ],
+        conclusion: "Làm gốm không chỉ là tạo ra một vật phẩm, mà là hành trình gom nhặt an yên và niềm vui thuần khiết cho tâm hồn bạn."
+      },
+      {
+        id: 2,
+        slot: "BLOG_2",
+        title: "Hướng dẫn nặn gốm cơ bản cho người mới bắt đầu",
+        date: "10/10/2026",
+        category: "Hướng dẫn",
+        intro: "Nếu đây là lần đầu tiên bạn bước vào thế giới gốm thủ công, những bước tạo hình cơ bản dưới đây sẽ giúp bạn tự tin làm quen và sáng tạo cùng đất sét.",
+        subheadings: [
+          {
+            subtitle: "Các bước tạo hình sản phẩm đầu tay",
+            text: "Tạo hình gốm bằng tay là phương pháp mộc mạc nhất giúp bạn cảm nhận rõ nét độ đàn hồi và sự mềm mại của đất sét:",
+            steps: [
+              { num: "1", title: "Nhào đất thật đều tay", desc: "Việc nhào nặn kỹ lưỡng giúp khối đất đồng nhất và loại bỏ hoàn toàn bọt khí bên trong trước khi tạo dáng." },
+              { num: "2", title: "Định hình khối cầu cơ bản", desc: "Dùng hai lòng bàn tay lăn tròn khối đất sét thành hình cầu mịn màng để làm điểm tựa ban đầu." },
+              { num: "3", title: "Dùng ngón tay ấn tạo lòng", desc: "Nhẹ nhàng ấn ngón tay cái vào tâm khối đất để mở rộng độ sâu cho chiếc cốc hoặc chiếc bát nhỏ." },
+              { num: "4", title: "Vuốt đều thành gốm", desc: "Dùng các ngón tay nắn đều từ đáy lên miệng để thành gốm có độ dày đồng đều và cân đối." },
+              { num: "5", title: "Gọt tỉa và làm mịn bề mặt", desc: "Sử dụng miếng mút ẩm hoặc que gỗ miết nhẹ để làm phẳng các vết nứt và bo tròn viền miệng sản phẩm." }
+            ]
+          },
+          {
+            subtitle: "Lưu ý nhỏ giúp sản phẩm bền đẹp",
+            text: "Trong quá trình vuốt tạo hình, hãy luôn giữ tay có độ ẩm vừa phải để tránh đất bị khô nứt. Khi thành gốm đạt độ dày vừa vặn, sản phẩm sẽ ổn định hơn trong quá trình hong khô tự nhiên."
+          }
+        ],
+        conclusion: "Hãy kiên nhẫn với từng cử động của bàn tay, bạn sẽ thấy đất sét luôn lắng nghe và phản hồi đầy dịu dàng."
+      },
+      {
+        id: 3,
+        slot: "BLOG_3",
+        title: "Ý tưởng vẽ gốm dễ thương dành cho mọi lứa tuổi",
+        date: "08/10/2026",
+        category: "Sáng tạo",
+        intro: "Vẽ gốm là khoảng thời gian êm ả để bạn thoải mái phối màu và gửi gắm những hình vẽ ngộ nghĩnh, biến sản phẩm mộc mạc thành tác phẩm nghệ thuật nhỏ xinh.",
+        subheadings: [
+          {
+            subtitle: "Hoạ tiết thiên nhiên và cỏ cây hoa lá",
+            text: "Những cành lá nhỏ uốn lượn hay bông cúc giản dị luôn mang lại cảm giác tươi mới cho sản phẩm gốm. Bạn chỉ cần vài nét chấm phá thanh mảnh quanh miệng đĩa hoặc thân cốc là đã đủ tạo nên vẻ duyên dáng tự nhiên."
+          },
+          {
+            subtitle: "Những chú mèo con và thú cưng tinh nghịch",
+            text: "Gương mặt tròn trĩnh của một chú mèo nhỏ lấp ló nơi đáy bát luôn khiến ai nhìn thấy cũng mỉm cười ấm áp. Bạn có thể chấm thêm đôi râu mảnh và đôi tai nhọn đáng yêu để thổi hồn sinh động vào chiếc cốc thường ngày."
+          },
+          {
+            subtitle: "Chữ cái đầu tên và dấu ấn cá nhân",
+            text: "Viết chữ cái đầu trong tên của bạn hoặc người thân thương lên quai cốc là cách giản dị để đánh dấu kỷ niệm. Sự kết hợp giữa nét chữ thanh thoát cùng một ngôi sao hay trái tim nhỏ nhắn tạo nên món quà vô cùng ý nghĩa."
+          },
+          {
+            subtitle: "Phối màu pastel êm dịu ngọt ngào",
+            text: "Sắc hồng phấn, xanh mint mát mắt hay vàng bơ dịu dàng luôn là lựa chọn hoàn hảo cho những ai thích phong cách nhẹ nhàng. Khi phối các mảng màu pastel cạnh nhau, chiếc gốm sẽ toát lên nét đẹp tinh tế và trong trẻo."
+          }
+        ],
+        conclusion: "Không cần nét vẽ hoa mỹ hay cầu kỳ, sự chân thành trong từng vệt màu chính là điều làm nên vẻ đẹp kỳ diệu."
+      },
+      {
+        id: 4,
+        slot: "BLOG_4",
+        title: "Một ngày tại xưởng Gốm Ký có gì đặc biệt?",
+        date: "05/10/2026",
+        category: "Chuyện xưởng",
+        intro: "Đặt chân vào xưởng Gốm Ký tại Hà Nội, bạn sẽ ngay lập tức cảm nhận bầu không khí mộc mạc, ấm cúng và tách biệt hoàn toàn với nhịp sống hối hả ngoài kia.",
+        subheadings: [
+          {
+            subtitle: "Không gian ngập tràn sắc gốm và ánh sáng",
+            text: "Xưởng đón bạn bằng những dãy bàn gỗ mộc, mùi thơm dịu nhẹ của đất sét ẩm và ánh nắng len qua khung cửa sổ. Xung quanh là những kệ gốm mộc đang đợi nung cùng những dải màu vẽ rực rỡ, sẵn sàng cho những ý tưởng bay bổng."
+          },
+          {
+            subtitle: "Trải nghiệm nặn gốm và vẽ màu trọn vẹn",
+            text: "Tại đây, bạn có thể tự tay nhào nặn đất từ bàn xoay hoặc thỏa sức pha màu trang trí lên những phôi gốm có sẵn. Dưới sự hướng dẫn tận tình, từng thao tác tưởng chừng phức tạp đều trở nên dễ dàng và đầy hứng khởi."
+          },
+          {
+            subtitle: "Khoảnh khắc gắn kết và tái tạo năng lượng",
+            text: "Tiếng bàn xoay rì rào hòa cùng tiếng trò chuyện thì thầm tạo nên một giai điệu bình yên đến lạ. Nhiều người tìm đến xưởng như một chốn nghỉ chân để thả lỏng tinh thần sau chuỗi ngày làm việc căng thẳng."
+          },
+          {
+            subtitle: "Nâng niu từng sản phẩm được nung và tráng men",
+            text: "Mỗi món đồ bạn làm ra đều được xưởng cẩn thận hong khô, đưa vào lò nung nhiệt độ cao và phủ lớp men bảo vệ. Nhìn sản phẩm hoàn thiện bóng mịn, bạn sẽ cảm nhận trọn vẹn niềm vui khi hoàn thành một tác phẩm của riêng mình."
+          }
+        ],
+        conclusion: "Một ngày ở xưởng gốm trôi qua thật êm đềm, để lại trong lòng bạn cảm giác an nhiên và những kỷ niệm khó phai."
+      },
+      {
+        id: 5,
+        slot: "BLOG_5",
+        title: "Câu chuyện khách hàng: Chiếc cốc mang dấu ấn riêng",
+        date: "01/10/2026",
+        category: "Câu chuyện",
+        intro: "Mỗi vị khách ghé thăm xưởng gốm đều mang theo một câu chuyện nhỏ, và đất sét chính là nơi lưu giữ trọn vẹn những tâm tư chân thành nhất.",
+        subheadings: [
+          {
+            subtitle: "Ý tưởng về món quà kỷ niệm giản dị",
+            text: "Trong một buổi chiều mát lành, có một vị khách ghé xưởng với mong muốn tự tay tạo nên một món quà tặng bạn thân nhân dịp đặc biệt. Thay vì chọn mua những món đồ đúc sẵn, vị khách muốn gửi gắm thời gian và sự kiên nhẫn vào từng thớ đất."
+          },
+          {
+            subtitle: "Đôi bàn tay nắn nót từng đường cong",
+            text: "Dù ban đầu còn nhiều bỡ ngỡ khi ngồi bên bàn xoay, vị khách đã chăm chú nắn từng mép cốc sao cho thật ngay ngắn. Chiếc quai cốc được uốn cong mềm mại, gắn kết khéo léo với thân gốm bằng một lớp hồ đất mịn màng."
+          },
+          {
+            subtitle: "Nét vẽ vụng về nhưng đong đầy cảm xúc",
+            text: "Trên thân cốc, vị khách tỉ mỉ vẽ hình một nhành hoa cúc nhỏ cùng dòng chữ viết tắt thân thương của hai người. Những đường cọ có thể chưa thật tròn trịa, nhưng ánh lên nét rạng ngời và sự tỉ mỉ của người trao tặng."
+          },
+          {
+            subtitle: "Món quà ấm áp sau chuỗi ngày chờ đợi",
+            text: "Ngày trở lại xưởng nhận chiếc cốc đã được nung chín và phủ men trong trẻo, nụ cười rạng rỡ nở trên gương mặt vị khách. Cầm chiếc cốc ấm áp trong lòng bàn tay, người ấy bảo rằng món đồ này sẽ luôn nhắc nhở về một tình bạn bền chặt."
+          }
+        ],
+        conclusion: "Gốm thủ công trở nên vô giá bởi nó cất giữ trong mình tình cảm và dấu ấn độc bản của người làm ra."
+      },
+      {
+        id: 6,
+        slot: "BLOG_6",
+        title: "Cách bảo quản sản phẩm gốm sau khi nung",
+        date: "28/09/2026",
+        category: "Mẹo hay",
+        intro: "Sản phẩm gốm thủ công sau khi hoàn thiện mang vẻ đẹp tinh tế nhưng cũng cần sự nâng niu, chăm sóc đúng cách để luôn bền đẹp theo năm tháng.",
+        subheadings: [
+          {
+            subtitle: "Các bước chăm sóc và vệ sinh đồ gốm an toàn",
+            text: "Để giữ cho lớp men gốm luôn sáng bóng và tránh những hư hại không đáng có, bạn có thể thực hiện theo các bước bảo quản giản dị sau:",
+            steps: [
+              { num: "1", title: "Để sản phẩm thích nghi nhiệt độ tự nhiên", desc: "Khi mới mang đồ gốm về, hãy đặt nơi thoáng mát để phôi gốm và lớp men ổn định hoàn toàn với môi trường xung quanh." },
+              { num: "2", title: "Rửa nhẹ tay bằng nước ấm", desc: "Sử dụng miếng bọt biển mềm cùng nước ấm loãng để làm sạch bụi bẩn, tránh dùng cọ sắt hay vật cứng làm trầy xước bề mặt men." },
+              { num: "3", title: "Tránh thay đổi nhiệt độ đột ngột", desc: "Không nên đổ ngay nước sôi vào đồ gốm đang lạnh hoặc đặt sản phẩm nóng lên bề mặt ướt vì sự chênh lệch nhiệt có thể gây nứt men." },
+              { num: "4", title: "Lau khô và hong ráo hoàn toàn", desc: "Sau khi vệ sinh, hãy dùng khăn vải mềm lau khô rồi để sản phẩm ở nơi khô ráo, tránh úp kín khi bên trong còn hơi ẩm." },
+              { num: "5", title: "Cất giữ cẩn thận và tránh va chạm", desc: "Sắp xếp đồ gốm ở vị trí bằng phẳng, lót thêm miếng đệm mềm giữa các vật dụng nếu xếp chồng để hạn chế sứt mẻ viền miệng." }
+            ]
+          },
+          {
+            subtitle: "Lời khuyên an toàn khi sử dụng",
+            text: "Vì mỗi dòng men và kỹ thuật nung có những đặc tính riêng biệt, xưởng luôn khuyến khích bạn trao đổi trực tiếp với người hướng dẫn tại xưởng để biết rõ sản phẩm của mình có phù hợp dùng với thực phẩm, lò vi sóng hay máy rửa bát hay không."
+          }
+        ],
+        conclusion: "Nâng niu từng chiếc gốm bằng sự dịu dàng cũng là cách chúng ta gìn giữ những niềm vui giản dị trong cuộc sống."
+      }
+    ];
+
+    /* ========================================================================= */
+    /* 2. CẤU HÌNH ĐIỀU HƯỚNG, CHÂN TRANG & OBJECT TEXT                          */
+    /* ========================================================================= */
+    const EMBEDDED = (window.self !== window.top);
+    const PREVIEW = true;
+    const LINKS = {
+      home: "index.html",
+      services: "dich-vu.html",
+      blog: "blog.html",
+      booking: "dat-lich.html"
+    };
+
+    const FOOTER = {
+      name: "GỐM KÝ",
+      tagline: "Workshop làm gốm thủ công tại Hà Nội",
+      about: "Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.",
+      hotline: "0913006989",
+      email: "gomkypottery@gmail.com",
+      address: "Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội",
+      hours: "Thứ 2 - Chủ nhật: 9:00 - 21:00",
+      facebook: "https://www.facebook.com/share/1DQc5YnPNU/",
+      zalo: ""
+    };
+
+    const TEXT = {
+      menu: {
+        home: "Trang chủ",
+        services: "Dịch vụ",
+        blog: "Blog",
+        booking: "Đặt lịch"
+      },
+      banner: {
+        title: "Blog Gốm Ký",
+        subtitle: "Chuyện của đất, của tay và của bạn"
+      },
+      sidebar: {
+        featuredTitle: "BÀI NỔI BẬT",
+        bookingTitle: "TRẢI NGHIỆM GỐM THỦ CÔNG",
+        bookingDesc: "Tự tay tạo nên tác phẩm gốm độc bản và thư giãn trong không gian ấm cúng tại xưởng Gốm Ký.",
+        bookingBtn: "Đặt lịch trải nghiệm ngay →"
+      },
+      cta: {
+        title: "Sẵn sàng chạm tay vào đất sét?",
+        subtitle: "Hãy dành một buổi để cùng Gốm Ký lắng nghe đất kể chuyện và lưu giữ kỷ niệm của riêng bạn.",
+        btn: "Đặt lịch trải nghiệm ngay →"
+      }
+    };
+
+    const IMAGES = {
+      LOGO_ICON: "assets/LOGO_ICON.png",
+      BLOG_HERO: "assets/BLOG_HERO.png",
+      BLOG_1: "assets/BLOG_1.png",
+      BLOG_2: "assets/BLOG_2.png",
+      BLOG_3: "assets/BLOG_3.png",
+      BLOG_4: "assets/BLOG_4.png",
+      BLOG_5: "assets/BLOG_5.png",
+      BLOG_6: "assets/BLOG_6.png"
+    };
+
+    const EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp'];
+
+    /* Trạng thái bài viết đã lưu */
+    let savedPostIds = [];
+    try {
+      savedPostIds = JSON.parse(localStorage.getItem('gomky_saved_posts') || '[]');
+    } catch (e) {
+      savedPostIds = [];
+    }
+
+    /* ========================================================================= */
+    /* 3. QUẢN LÝ SLOT ẢNH & THỬ LẦN LƯỢT ĐUÔI MỞ RỘNG                           */
+    /* ========================================================================= */
+    function setupSlotImage(imgElement, slotName) {
+      if (!imgElement) return;
+
+      const defaultSrc = IMAGES[slotName] || `assets/${slotName}.png`;
+      let currentExtIndex = 0;
+
+      for (let i = 0; i < EXTENSIONS.length; i++) {
+        if (defaultSrc.toLowerCase().endsWith('.' + EXTENSIONS[i])) {
+          currentExtIndex = i;
+          break;
+        }
+      }
+
+      imgElement.style.display = 'block';
+      imgElement.src = defaultSrc;
+      imgElement.alt = slotName;
+
+      imgElement.onerror = function() {
+        currentExtIndex++;
+        if (currentExtIndex < EXTENSIONS.length) {
+          imgElement.src = `assets/${slotName}.${EXTENSIONS[currentExtIndex]}`;
+        } else {
+          imgElement.onerror = null;
+          renderSlotPlaceholder(imgElement, slotName);
+        }
+      };
+
+      imgElement.onload = function() {
+        const container = imgElement.closest('.image-slot-container') || imgElement.parentElement;
+        if (container) {
+          container.classList.remove('is-placeholder');
+          const oldPh = container.querySelector('.slot-placeholder');
+          if (oldPh) oldPh.remove();
+        }
+        sendHeight();
+      };
+    }
+
+    function renderSlotPlaceholder(imgElement, slotName) {
+      const container = imgElement.closest('.image-slot-container') || imgElement.parentElement;
+      if (!container) return;
+
+      imgElement.style.display = 'none';
+      let placeholder = container.querySelector('.slot-placeholder');
+      if (!placeholder) {
+        placeholder = document.createElement('div');
+        placeholder.className = 'slot-placeholder';
+        placeholder.innerHTML = `<span class="slot-tag">${slotName}</span>`;
+        container.appendChild(placeholder);
+      }
+      container.classList.add('is-placeholder');
+      sendHeight();
+    }
+
+    /* Cắt trích dẫn ở ranh giới từ khoảng 160 ký tự */
+    function getExcerpt(text, maxLength = 160) {
+      if (!text) return '';
+      if (text.length <= maxLength) return text;
+      const trimmed = text.substr(0, maxLength);
+      const lastSpace = trimmed.lastIndexOf(' ');
+      return (lastSpace > 0 ? trimmed.substr(0, lastSpace) : trimmed) + '...';
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('blogToast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('is-visible');
+      setTimeout(() => {
+        toast.classList.remove('is-visible');
+      }, 2500);
+    }
+
+    /* ========================================================================= */
+    /* 4. RENDER LƯỚI BÀI VIẾT XEN KẼ (CHU KỲ 3 BÀI) & KHỐI QUOTE                */
+    /* ========================================================================= */
+    function renderAlternatingGrid() {
+      const container = document.getElementById('blogGridContainer');
+      if (!container) return;
+
+      // Hiển thị toàn bộ 6 bài viết theo chu kỳ 3 bài
+      const posts = BLOG_POSTS;
+      let html = '';
+      const pullQuotePost = BLOG_POSTS.find(p => p.id === PULL_QUOTE_POST);
+
+      for (let i = 0; i < posts.length; i += 3) {
+        const cycleIndex = Math.floor(i / 3);
+        const isReverse = (cycleIndex % 2 === 1); // Chu kỳ 0: ảnh trái, chu kỳ 1: ảnh phải
+
+        // 1. Thẻ ngang rộng
+        const p1 = posts[i];
+        if (p1) {
+          const isP1Saved = savedPostIds.includes(p1.id);
+          html += `
+            <div class="blog-cycle-group">
+              <article class="blog-card-horizontal ${isReverse ? 'reverse' : ''}" data-post-id="${p1.id}">
+                <div class="card-h-img-box" data-post-id="${p1.id}">
+                  <span class="card-floating-badge">${p1.category}</span>
+                  <img src="assets/${p1.slot}.png" alt="${p1.title}" onerror="this.onerror=null; this.src='assets/${p1.slot}.jpg';">
+                </div>
+                <div class="card-h-content">
+                  <div>
+                    <span class="card-date-meta">${p1.date}</span>
+                    <h3 class="card-h-title" data-post-id="${p1.id}">${p1.title}</h3>
+                    <p class="card-h-desc">${getExcerpt(p1.intro, 160)}</p>
+                  </div>
+                  <div>
+                    <hr class="card-divider-line">
+                    <div class="card-bottom-row">
+                      <button type="button" class="btn-bookmark-action ${isP1Saved ? 'is-saved' : ''}" data-post-id="${p1.id}">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        <span>${isP1Saved ? 'Đã lưu' : 'Lưu bài'}</span>
+                      </button>
+                      <span class="card-read-more-link" data-post-id="${p1.id}">ĐỌC TIẾP →</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+          `;
+
+          // 2. Hai thẻ nhỏ tiếp theo
+          const p2 = posts[i + 1];
+          const p3 = posts[i + 2];
+          if (p2 || p3) {
+            html += `<div class="blog-cards-pair-row">`;
+            [p2, p3].forEach(p => {
+              if (!p) return;
+              const isSaved = savedPostIds.includes(p.id);
+              html += `
+                <article class="blog-card-small" data-post-id="${p.id}">
+                  <div class="card-s-img-box" data-post-id="${p.id}">
+                    <span class="card-floating-badge">${p.category}</span>
+                    <img src="assets/${p.slot}.png" alt="${p.title}" onerror="this.onerror=null; this.src='assets/${p.slot}.jpg';">
+                  </div>
+                  <div class="card-s-content">
+                    <span class="card-date-meta">${p.date}</span>
+                    <h3 class="card-s-title" data-post-id="${p.id}">${p.title}</h3>
+                    <p class="card-s-desc">${getExcerpt(p.intro, 160)}</p>
+                    <hr class="card-divider-line">
+                    <div class="card-bottom-row">
+                      <button type="button" class="btn-bookmark-action ${isSaved ? 'is-saved' : ''}" data-post-id="${p.id}">
+                        <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        <span>${isSaved ? 'Đã lưu' : 'Lưu bài'}</span>
+                      </button>
+                      <span class="card-read-more-link" data-post-id="${p.id}">ĐỌC TIẾP →</span>
+                    </div>
+                  </div>
+                </article>
+              `;
+            });
+            html += `</div>`;
+          }
+
+          html += `</div>`; // Đóng blog-cycle-group
+        }
+
+        // 3. Khối Quote nền đậm: Chèn ngay sau nhóm 3 bài đầu tiên
+        if (cycleIndex === 0 && pullQuotePost) {
+          const quoteText = pullQuotePost.conclusion || pullQuotePost.intro;
+          html += `
+            <div class="blog-pull-quote-block">
+              <img class="quote-bg-img" src="assets/${pullQuotePost.slot}.png" alt="${pullQuotePost.title}" onerror="this.onerror=null; this.src='assets/${pullQuotePost.slot}.jpg';">
+              <div class="quote-dark-overlay"></div>
+              <svg class="quote-svg-symbol" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <div class="quote-content-box">
+                <p class="quote-text-main">“${quoteText}”</p>
+                <div class="quote-short-line"></div>
+                <div class="quote-source-row">
+                  <span class="quote-source-title">Từ bài: ${pullQuotePost.title}</span>
+                  <button type="button" class="quote-read-btn" data-post-id="${pullQuotePost.id}">Đọc bài này →</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      container.innerHTML = html;
+
+      // Gắn sự kiện mở popup khi bấm ảnh, tiêu đề, hoặc Đọc tiếp
+      container.querySelectorAll('[data-post-id]').forEach(el => {
+        const postId = parseInt(el.getAttribute('data-post-id'), 10);
+
+        if (el.classList.contains('card-h-img-box') || el.classList.contains('card-s-img-box') ||
+            el.classList.contains('card-h-title') || el.classList.contains('card-s-title') ||
+            el.classList.contains('card-read-more-link') || el.classList.contains('quote-read-btn')) {
+          el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (el.classList.contains('quote-read-btn')) {
+              const qp = BLOG_POSTS.find(p => p.id === postId);
+              if (qp) sendGA('bam_quote_blog', { tieu_de: qp.title });
+            }
+            openPostPopupById(postId, e.pageY || e.clientY);
+          });
+        }
+
+        // Nút Lưu bài
+        if (el.classList.contains('btn-bookmark-action')) {
+          el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleSavePost(postId);
+          });
+        }
+      });
+
+      sendHeight();
+    }
+
+    /* Lưu bài viết / Bỏ lưu với LocalStorage */
+    function toggleSavePost(postId) {
+      const idx = savedPostIds.indexOf(postId);
+      const post = BLOG_POSTS.find(p => p.id === postId);
+      let isSaved = false;
+      if (idx > -1) {
+        savedPostIds.splice(idx, 1);
+        isSaved = false;
+        showToast('Đã bỏ lưu bài viết');
+      } else {
+        savedPostIds.push(postId);
+        isSaved = true;
+        showToast('Đã lưu bài viết vào danh sách của bạn');
+      }
+
+      try {
+        localStorage.setItem('gomky_saved_posts', JSON.stringify(savedPostIds));
+      } catch (e) {}
+
+      if (post) {
+        sendGA('luu_bai', { tieu_de: post.title, trang_thai: isSaved ? 'luu' : 'bo_luu' });
+      }
+
+      // Cập nhật lại giao diện các nút bookmark đang hiển thị
+      document.querySelectorAll(`.btn-bookmark-action[data-post-id="${postId}"]`).forEach(btn => {
+        btn.classList.toggle('is-saved', isSaved);
+        const span = btn.querySelector('span');
+        if (span) span.textContent = isSaved ? 'Đã lưu' : 'Lưu bài';
+      });
+
+      const popupSaveBtn = document.getElementById('popupSaveBtn');
+      const popupSaveText = document.getElementById('popupSaveText');
+      if (popupSaveBtn && popupSaveBtn.getAttribute('data-post-id') === String(postId)) {
+        popupSaveBtn.classList.toggle('is-saved', isSaved);
+        if (popupSaveText) popupSaveText.textContent = isSaved ? 'Đã lưu' : 'Lưu bài';
+      }
+    }
+
+    /* ========================================================================= */
+    /* 5. THANH BÊN (SIDEBAR)                                                    */
+    /* ========================================================================= */
+    function initSidebarFeatured() {
+      const sidebarFeatured = document.getElementById('sidebarFeaturedList');
+      if (!sidebarFeatured) return;
+
+      const featuredList = [1, 2, 4].map(id => BLOG_POSTS.find(p => p.id === id)).filter(Boolean);
+      sidebarFeatured.innerHTML = featuredList.map(post => `
+        <div class="sidebar-post-item" data-post-id="${post.id}">
+          <div class="sidebar-post-thumb">
+            <img src="assets/${post.slot}.png" alt="${post.title}" onerror="this.onerror=null; this.src='assets/${post.slot}.jpg';">
+          </div>
+          <div class="sidebar-post-info">
+            <span class="sidebar-post-category">${post.category}</span>
+            <h4 class="sidebar-post-title">${post.title}</h4>
+          </div>
+        </div>
+      `).join('');
+
+      sidebarFeatured.querySelectorAll('.sidebar-post-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          const postId = parseInt(item.getAttribute('data-post-id'), 10);
+          openPostPopupById(postId, e.pageY || e.clientY);
+        });
+      });
+    }
+
+    /* ========================================================================= */
+    /* 6. POPUP BÀI VIẾT: MỤC LỤC & THANH TIẾN TRÌNH ĐỌC                         */
+    /* ========================================================================= */
+    let currentOpenPost = null;
+    let progressScrollHandler = null;
+
+    function openPostPopupById(postId, clickY = 200) {
+      const post = BLOG_POSTS.find(p => p.id === postId);
+      if (!post) return;
+      currentOpenPost = post;
+
+      // Nạp thông tin popup
+      const imgEl = document.getElementById('popup-img');
+      const imgContainer = document.getElementById('popup-img-container');
+      imgContainer.setAttribute('data-slot', post.slot);
+      setupSlotImage(imgEl, post.slot);
+
+      document.getElementById('popup-category').textContent = post.category;
+      document.getElementById('popup-date').textContent = post.date;
+      document.getElementById('popup-title').textContent = post.title;
+      document.getElementById('popup-intro').textContent = post.intro;
+
+      // Xây dựng Mục Lục: Nếu bài có >= 2 tiêu đề phụ thì hiển thị hộp
+      const tocContainer = document.getElementById('popup-toc-container');
+      if (post.subheadings && post.subheadings.length >= 2) {
+        tocContainer.innerHTML = `
+          <div class="popup-toc-box">
+            <div class="popup-toc-title">TRONG BÀI NÀY</div>
+            <ul class="popup-toc-list">
+              ${post.subheadings.map((sub, sIdx) => `
+                <li class="popup-toc-item" data-sub-idx="${sIdx}">
+                  <span class="popup-toc-num">${sIdx + 1}</span>
+                  <span>${sub.subtitle}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        `;
+        tocContainer.style.display = 'block';
+
+        // Gắn sự kiện cuộn mượt tới tiêu đề phụ
+        tocContainer.querySelectorAll('.popup-toc-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const sIdx = item.getAttribute('data-sub-idx');
+            const targetHeader = document.getElementById(`popup-sub-${post.id}-${sIdx}`);
+            if (targetHeader) {
+              sendGA('bam_muc_luc', { tieu_de: post.title });
+              targetHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      } else {
+        tocContainer.innerHTML = '';
+        tocContainer.style.display = 'none';
+      }
+
+      // Nạp thân bài và gán ID cho từng tiêu đề phụ
+      const mainContentEl = document.getElementById('popup-main-content');
+      mainContentEl.innerHTML = post.subheadings.map((sub, sIdx) => {
+        let stepsHtml = '';
+        if (sub.steps && sub.steps.length > 0) {
+          stepsHtml = `
+            <ul class="popup-step-list">
+              ${sub.steps.map(step => `
+                <li class="popup-step-item">
+                  <span class="popup-step-num">${step.num}</span>
+                  <div class="popup-step-desc">
+                    <strong>${step.title}:</strong> ${step.desc}
+                  </div>
+                </li>
+              `).join('')}
+            </ul>
+          `;
+        }
+        return `
+          <div class="popup-section">
+            <h4 class="popup-subtitle" id="popup-sub-${post.id}-${sIdx}">${sub.subtitle}</h4>
+            <p>${sub.text}</p>
+            ${stepsHtml}
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('popup-conclusion').textContent = post.conclusion;
+
+      // Nút Lưu bài trong Popup
+      const popupSaveBtn = document.getElementById('popupSaveBtn');
+      const popupSaveText = document.getElementById('popupSaveText');
+      if (popupSaveBtn) {
+        popupSaveBtn.setAttribute('data-post-id', post.id);
+        const isSaved = savedPostIds.includes(post.id);
+        popupSaveBtn.classList.toggle('is-saved', isSaved);
+        if (popupSaveText) popupSaveText.textContent = isSaved ? 'Đã lưu' : 'Lưu bài';
+        popupSaveBtn.onclick = () => toggleSavePost(post.id);
+      }
+
+      // Nút Chia sẻ trong Popup
+      const popupShareBtn = document.getElementById('popupShareBtn');
+      if (popupShareBtn) {
+        popupShareBtn.onclick = () => {
+          sendGA('chia_se_bai', { tieu_de: post.title });
+          const shareUrl = window.location.href.split('#')[0] + '#post-' + post.id;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareUrl).then(() => {
+              showToast('Đã sao chép liên kết bài viết vào bộ nhớ tạm!');
+            }).catch(() => {
+              showToast('Liên kết: ' + shareUrl);
+            });
+          } else {
+            showToast('Liên kết: ' + shareUrl);
+          }
+        };
+      }
+
+      // Gửi GA mở bài
+      sendGA('mo_bai_blog', { tieu_de: post.title });
+
+      // Định vị popup theo toạ độ bấm (cách đỉnh = toạ độ Y trừ 80px, tối thiểu 20px)
+      const overlay = document.getElementById('blog-popup-overlay');
+      const popup = document.getElementById('blog-popup-modal');
+      const spacer = document.getElementById('popup-height-spacer');
+
+      overlay.style.display = 'block';
+      popup.style.display = 'block';
+
+      const targetTop = Math.max(20, clickY - 80);
+      popup.style.top = targetTop + 'px';
+      popup.style.left = '50%';
+      popup.style.transform = 'translateX(-50%)';
+
+      const popupHeight = popup.offsetHeight;
+      const neededDocHeight = targetTop + popupHeight + 40;
+      const currentDocHeightWithoutSpacer = document.documentElement.scrollHeight - (spacer.offsetHeight || 0);
+
+      if (neededDocHeight > currentDocHeightWithoutSpacer) {
+        spacer.style.height = (neededDocHeight - currentDocHeightWithoutSpacer) + 'px';
+      } else {
+        spacer.style.height = '0px';
+      }
+
+      const totalDocHeight = Math.max(document.documentElement.scrollHeight, neededDocHeight);
+      overlay.style.height = totalDocHeight + 'px';
+
+      requestAnimationFrame(() => {
+        overlay.classList.add('is-active');
+        popup.classList.add('is-active');
+        sendHeight();
+      });
+
+      // Kích hoạt thanh tiến trình đọc nếu EMBEDDED = false
+      if (!EMBEDDED) {
+        const progressBar = document.getElementById('readingProgressBar');
+        if (progressBar) {
+          progressBar.style.display = 'block';
+          progressBar.style.width = '0%';
+
+          progressScrollHandler = () => {
+            const mainContent = document.getElementById('popup-main-content');
+            if (!mainContent) return;
+            const rect = mainContent.getBoundingClientRect();
+            const top = window.scrollY + rect.top;
+            const height = rect.height;
+            const current = window.scrollY + (window.innerHeight * 0.5) - top;
+            const pct = Math.max(0, Math.min(100, (current / height) * 100));
+            progressBar.style.width = pct + '%';
+          };
+          window.addEventListener('scroll', progressScrollHandler, { passive: true });
+        }
+      }
+    }
+
+    function closePostPopup() {
+      const overlay = document.getElementById('blog-popup-overlay');
+      const popup = document.getElementById('blog-popup-modal');
+      const spacer = document.getElementById('popup-height-spacer');
+      const progressBar = document.getElementById('readingProgressBar');
+
+      overlay.classList.remove('is-active');
+      popup.classList.remove('is-active');
+
+      if (progressScrollHandler) {
+        window.removeEventListener('scroll', progressScrollHandler);
+        progressScrollHandler = null;
+      }
+      if (progressBar) {
+        progressBar.style.display = 'none';
+        progressBar.style.width = '0%';
+      }
+
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+        spacer.style.height = '0px';
+        currentOpenPost = null;
+        sendHeight();
+      }, 250);
+    }
+
+    function initPopupListeners() {
+      // 1. Nút X tròn trắng góc phải trên ảnh
+      const closeX = document.getElementById('popup-close-x');
+      if (closeX) closeX.addEventListener('click', closePostPopup);
+
+      // 2. Nút "Đóng" cuối popup
+      const closeBottom = document.getElementById('popup-close-bottom');
+      if (closeBottom) closeBottom.addEventListener('click', closePostPopup);
+
+      // 3. Bấm vào lớp phủ tối
+      const overlay = document.getElementById('blog-popup-overlay');
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closePostPopup();
+        });
+      }
+
+      // 4. Phím Esc
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') closePostPopup();
+      });
+    }
+
+    /* ========================================================================= */
+    /* 7. HÀM THIẾT LẬP LIÊN KẾT NỘI BỘ VÀ TEXT TĨNH                            */
+    /* ========================================================================= */
+    function applyTextContent() {
+      document.querySelectorAll('[data-text]').forEach(el => {
+        const path = el.getAttribute('data-text').split('.');
+        let val = TEXT;
+        for (const key of path) {
+          if (val && val[key] !== undefined) {
+            val = val[key];
+          } else {
+            val = null;
+            break;
+          }
+        }
+        if (typeof val === 'string') {
+          el.textContent = val;
+        }
+      });
+    }
+
+    function applyLinks() {
+      document.querySelectorAll('a[data-link]').forEach(a => {
+        const linkKey = a.getAttribute('data-link');
+        if (LINKS[linkKey]) {
+          a.href = LINKS[linkKey];
+          a.target = PREVIEW ? "_self" : "_top";
+        }
+      });
+    }
+
+    /* ========================================================================= */
+    /* 8. ĐỒNG BỘ CHIỀU CAO CHO KHUNG CHA (GOOGLE SITES IFRAME)                  */
+    /* ========================================================================= */
+    function sendHeight() {
+      if (window.parent) {
+        window.parent.postMessage({
+          type: 'resize',
+          height: document.documentElement.scrollHeight
+        }, '*');
+      }
+    }
+
+    /* ========================================================================= */
+    /* 9. KHỞI TẠO CHÂN TRANG & NÚT LIÊN HỆ                                      */
+    /* ========================================================================= */
+    function initUnifiedFooter() {
+      const fbBtn = document.getElementById('footerSocialFacebook');
+      if (fbBtn && FOOTER.facebook) fbBtn.href = FOOTER.facebook;
+
+      const fanpageLink = document.getElementById('footerFanpageLink');
+      if (fanpageLink && FOOTER.facebook) fanpageLink.href = FOOTER.facebook;
+
+      const fixedFb = document.getElementById('fixedBtnFacebook');
+      if (fixedFb && FOOTER.facebook) fixedFb.href = FOOTER.facebook;
+
+      const hotlineLink = document.getElementById('footerHotlineLink');
+      if (hotlineLink && FOOTER.hotline) {
+        hotlineLink.href = 'tel:' + FOOTER.hotline;
+        hotlineLink.textContent = 'Hotline: ' + FOOTER.hotline;
+      }
+
+      const emailLink = document.getElementById('footerEmailLink');
+      if (emailLink && FOOTER.email) {
+        emailLink.href = 'mailto:' + FOOTER.email;
+        emailLink.textContent = FOOTER.email;
+      }
+
+      const hoursEl = document.getElementById('footerHoursText');
+      if (hoursEl && FOOTER.hours) hoursEl.textContent = FOOTER.hours;
+
+      const zaloBtn = document.getElementById('footerSocialZalo');
+      const fixedZalo = document.getElementById('fixedBtnZalo');
+      if (FOOTER.zalo && FOOTER.zalo.trim() !== '') {
+        if (zaloBtn) { zaloBtn.href = FOOTER.zalo; zaloBtn.style.display = 'inline-flex'; }
+        if (fixedZalo) { fixedZalo.href = FOOTER.zalo; fixedZalo.style.display = 'flex'; }
+      } else {
+        if (zaloBtn) zaloBtn.style.display = 'none';
+        if (fixedZalo) fixedZalo.style.display = 'none';
+      }
+
+      // Giờ hoạt động 9:00 - 21:00
+      function updateStoreStatus() {
+        const badge = document.getElementById('footerStatusBadge');
+        if (!badge) return;
+        try {
+          const now = new Date();
+          const formatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Ho_Chi_Minh',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false
+          });
+          const parts = formatter.formatToParts(now);
+          let hour = 0, minute = 0;
+          parts.forEach(p => {
+            if (p.type === 'hour') hour = parseInt(p.value, 10);
+            if (p.type === 'minute') minute = parseInt(p.value, 10);
+          });
+          const totalMinutes = hour * 60 + minute;
+          const isOpen = totalMinutes >= 540 && totalMinutes < 1260;
+          if (isOpen) {
+            badge.className = 'footer-status-badge status-open';
+            badge.innerHTML = '<span class="status-dot status-dot-open"></span><span>Đang mở cửa</span>';
+          } else {
+            badge.className = 'footer-status-badge status-closed';
+            badge.innerHTML = '<span class="status-dot status-dot-closed"></span><span>Đã đóng cửa</span>';
+          }
+        } catch (e) {}
+      }
+      updateStoreStatus();
+      setInterval(updateStoreStatus, 60000);
+
+      // Nút Back to top
+      const backToTopBtn = document.getElementById('btnBackToTop');
+      if (backToTopBtn) {
+        if (EMBEDDED) {
+          backToTopBtn.classList.remove('is-fixed');
+          backToTopBtn.classList.add('is-embedded-inline');
+        } else {
+          backToTopBtn.classList.add('is-fixed');
+          backToTopBtn.classList.remove('is-embedded-inline');
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+              backToTopBtn.classList.add('is-visible');
+            } else {
+              backToTopBtn.classList.remove('is-visible');
+            }
+          }, { passive: true });
+        }
+
+        backToTopBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      if (EMBEDDED) {
+        document.body.classList.add('is-embedded');
+      }
+    }
+
+    /* CẬP NHẬT CHIỀU CAO THANH ĐIỀU HƯỚNG VÀO BIẾN CSS --nav-height */
+    function updateNavHeight() {
+      const header = document.getElementById('siteHeader');
+      if (header) {
+        const h = header.offsetHeight;
+        document.documentElement.style.setProperty('--nav-height', h + 'px');
+      }
+    }
+
+    /* KHỞI TẠO MENU MOBILE (HAMBURGER DRAWER) */
+    function initMobileNav() {
+      const toggleBtn = document.getElementById('navToggleBtn');
+      const centerMenu = document.querySelector('.nav-center-menu');
+      if (!toggleBtn || !centerMenu) return;
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleBtn.classList.toggle('is-active');
+        centerMenu.classList.toggle('is-open');
+        sendHeight();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggleBtn.contains(e.target) && !centerMenu.contains(e.target)) {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        }
+      });
+
+      centerMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        });
+      });
+    }
+
+    /* XỬ LÝ NÚT LIÊN HỆ TRÊN THANH ĐIỀU HƯỚNG */
+    function initContactButtons() {
+      const navZalo = document.getElementById('navBtnZalo');
+      const navFb = document.getElementById('navBtnFacebook');
+      if (navZalo) {
+        if (FOOTER.zalo && FOOTER.zalo.trim() !== '') {
+          navZalo.href = FOOTER.zalo;
+        } else {
+          navZalo.style.display = 'none';
+        }
+      }
+      if (navFb && FOOTER.facebook) {
+        navFb.href = FOOTER.facebook;
+      }
+    }
+
+    /* ========================================================================= */
+    /* 10. GOOGLE ANALYTICS SỰ KIỆN                                              */
+    /* ========================================================================= */
+    function sendGA(eventName, eventParams = {}) {
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, eventParams);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function initGAEvents() {
+      // click_dat_lich: menu, sidebar, cuoi_blog
+      const navBooking = document.getElementById('navBtnBooking');
+      if (navBooking) {
+        navBooking.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'menu' });
+        });
+      }
+
+      document.querySelectorAll('a[data-link="booking"]').forEach(link => {
+        link.addEventListener('click', () => {
+          let pos = 'menu';
+          if (link.closest('.sidebar-booking-box')) pos = 'sidebar';
+          if (link.closest('.blog-cta-section')) pos = 'cuoi_blog';
+          sendGA('click_dat_lich', { vi_tri: pos });
+        });
+      });
+
+      // click_facebook: footer, fixed, nav
+      const fbFooter = document.getElementById('footerSocialFacebook');
+      if (fbFooter) fbFooter.addEventListener('click', () => sendGA('click_facebook', { vi_tri: 'footer' }));
+
+      const fbFixed = document.getElementById('fixedBtnFacebook');
+      if (fbFixed) fbFixed.addEventListener('click', () => sendGA('click_facebook', { vi_tri: 'fixed' }));
+
+      const fbNav = document.getElementById('navBtnFacebook');
+      if (fbNav) fbNav.addEventListener('click', () => sendGA('click_facebook', { vi_tri: 'menu' }));
+    }
+
+    /* ========================================================================= */
+    /* 11. KHỞI CHẠY TRANG KHI TẢI XONG                                          */
+    /* ========================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      initMobileNav();
+      updateNavHeight();
+      initContactButtons();
+
+      // 1. Gắn ảnh logo và banner hero
+      const logoImg = document.querySelector('.nav-logo-img');
+      if (logoImg) setupSlotImage(logoImg, 'LOGO_ICON');
+
+      const heroImg = document.querySelector('.banner-bg-img');
+      if (heroImg) setupSlotImage(heroImg, 'BLOG_HERO');
+
+      // 2. Khởi tạo thanh bên (Bài nổi bật)
+      initSidebarFeatured();
+
+      // 3. Render lưới xen kẽ & quote
+      renderAlternatingGrid();
+
+      // 4. Gắn lắng nghe sự kiện đóng popup
+      initPopupListeners();
+
+      // 5. Nạp text và liên kết
+      applyTextContent();
+      applyLinks();
+
+      // 6. Khởi tạo chân trang
+      initUnifiedFooter();
+
+      // 7. Kích hoạt đo lường GA
+      initGAEvents();
+
+      // 8. Gửi chiều cao
+      sendHeight();
+    });
+
+    window.addEventListener('load', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+    window.addEventListener('resize', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+
+    if (typeof ResizeObserver !== 'undefined') {
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+    }
+  </script>
+</body>
+</html>

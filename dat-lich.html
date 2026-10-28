@@ -1,0 +1,3416 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt lịch trải nghiệm – Gốm Ký</title>
+
+  <!-- Google Fonts: "Be Vietnam Pro" (500, 600, 700, 800) & "Playfair Display" (700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================= */
+    /* ========================================================================= */
+    /* 0. HỆ THỐNG BIẾN THIẾT KẾ: BẢNG MÀU CHỦ ĐẠO NÂU - VÀNG - BE (THEO FOOTER)  */
+    /* ========================================================================= */
+    :root {
+      /* NHÓM NÂU: Nâu gốm thủ công, đất nung, nâu ấm sang trọng */
+      --color-primary: #8E3B1F;        /* Nâu đỏ đất nung đặc trưng */
+      --color-brown-dark: #3B2418;     /* Nâu đậm đất nung (nền footer, tiêu đề đậm) */
+      --color-brown-medium: #5A3422;   /* Nâu ấm gốm (nửa dưới footer, nút back-to-top) */
+      --color-btn-hover: #732D15;      /* Nâu nút hover */
+      --color-text: #3A2A22;           /* Chữ thân bài nâu cà phê đậm */
+      --color-muted: #6B5345;          /* Nâu xám đất cho phụ đề */
+      --color-tag-brown: #5A3422;      /* Nền tag nâu phân mục */
+
+      /* NHÓM VÀNG: Vàng mật ong, vàng hoàng kim từ chân trang */
+      --color-gold: #F5B63B;           /* Vàng hoàng kim ấm áp chuẩn footer */
+      --color-gold-hover: #E09E22;     /* Vàng đậm hơn khi hover */
+      --color-gold-soft: rgba(245, 182, 59, 0.16);  /* Nền vàng nhạt */
+      --color-gold-border: rgba(245, 182, 59, 0.45);/* Viền vàng mờ */
+      --color-star: #F5B63B;           /* Vàng sao đánh giá */
+      --color-accent-orange: #F5B63B;  /* Đồng bộ hoạ tiết lá và icon sang vàng ấm */
+      --color-dark-orange: #8E3B1F;    /* Chuyển cam đậm sang nâu đỏ đất nung */
+
+      /* NHÓM BE: Nền be kem gốm mộc mạc, thanh lịch */
+      --color-bg: #FDF6EC;             /* Nền trang be kem ấm */
+      --color-menu: #E9DDCB;           /* Thanh menu be gốm */
+      --color-card-bg: #FBEFE0;        /* Nền card kem nhạt */
+      --color-icon-circle: #F5E5D0;    /* Vòng icon be vàng ấm */
+      --color-cream-light: #FFF9F2;    /* Be kem sáng ngà */
+      --color-cream-text: #FFF3E2;     /* Chữ kem ngà sáng footer */
+      --color-line: rgba(245, 182, 59, 0.3); /* Viền phân cách mờ */
+
+      --font-main: 'Be Vietnam Pro', Arial, sans-serif;
+      --font-serif: 'Playfair Display', 'Be Vietnam Pro', serif;
+      --container-max-width: 1200px;
+
+      /* Biến giao diện thanh điều hướng mới */
+      --nav-bg: #5E3A2A;
+      --nav-text: #FFFFFF;
+      --nav-text-dim: rgba(255, 255, 255, 0.86);
+      --nav-height: 120px;
+    }
+
+    /* Thiết lập nền tảng: HỖ TRỢ ĐA MÀN HÌNH (DESKTOP & MOBILE RESPONSIVE) */
+    html {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 0;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+    }
+
+    h1, h2, h3, h4, p {
+      margin: 0;
+    }
+
+    /* Khung chứa nội dung trung tâm tối đa 1200px (co giãn theo màn hình) */
+    .page-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    /* ========================================================================= */
+    /* 1. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   */
+    /* ========================================================================= */
+    .site-header {
+      width: 100%;
+      height: 120px;
+      background-color: var(--nav-bg, #5E3A2A);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+      box-sizing: border-box;
+    }
+
+    .nav-inner-wide {
+      width: 100%;
+      height: 120px;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      gap: 24px;
+    }
+
+    /* 1. LOGO: Khung bo góc 16px, 104x96px, nền #FFF7EE, padding 4px */
+    .nav-logo-box {
+      width: 104px;
+      height: 96px;
+      background-color: #FFF7EE;
+      border-radius: 16px;
+      padding: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .nav-logo-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* 2. MENU CĂN GIỮA: Chữ 22px 700, gap 48px, active trắng + gạch 3px */
+    .nav-center-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      display: inline-block;
+    }
+
+    .nav-link {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--nav-text-dim, rgba(255, 255, 255, 0.86));
+      padding: 10px 0;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+      pointer-events: none;
+    }
+
+    .nav-link:hover {
+      color: #FFFFFF;
+    }
+
+    .nav-link:hover::after {
+      opacity: 1;
+    }
+
+    /* Mục đang chọn: chữ trắng, gạch chân trắng dày 3px, cách chữ 8px, bo tròn */
+    .nav-link.active {
+      color: #FFFFFF !important;
+      text-shadow: none;
+    }
+
+    .nav-link.active::after {
+      opacity: 1;
+      background-color: #FFFFFF;
+    }
+
+    /* 3. NÚT BÊN PHẢI */
+    .nav-right-col {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-btn-booking {
+      background-color: #FFF7EE;
+      color: var(--nav-bg, #5E3A2A);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .nav-btn-booking:hover {
+      background-color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Dạng viền trắng trên trang Đặt lịch: nền trong suốt, viền 2px #FFFFFF, chữ #FFFFFF */
+    .nav-btn-booking.btn-outline-white {
+      background-color: transparent !important;
+      border: 2px solid #FFFFFF !important;
+      color: #FFFFFF !important;
+      box-shadow: none !important;
+    }
+
+    .nav-btn-booking.btn-outline-white:hover {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Nút Zalo / Facebook trên thanh khi EMBEDDED = true */
+    .nav-contact-quick {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.is-embedded .nav-contact-quick {
+      display: flex;
+    }
+
+    .contact-btn-mini {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      flex-shrink: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+    }
+
+    .contact-btn-mini:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-btn-mini .zalo-text {
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    /* Nút hamburger mở menu mobile */
+    .nav-toggle-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+      outline: none;
+    }
+
+    .nav-toggle-btn .bar {
+      width: 20px;
+      height: 2px;
+      background-color: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .nav-toggle-btn.is-active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar {
+      background-color: #F5B63B;
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle-btn.is-active .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========================================================================= */
+    /* 2. BỐ CỤC TRANG ĐẶT LỊCH (HAI CỘT: TRÁI ~340px, PHẢI ~510px, CÁCH 28px)  */
+    /* ========================================================================= */
+    .booking-layout {
+      width: 878px; /* 340px + 28px + 510px */
+      margin: 44px auto 80px auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    /* ------------------------------------------------------------------------- */
+    /* CỘT TRÁI (~340px)                                                         */
+    /* ------------------------------------------------------------------------- */
+    .col-left {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Hộp cột trái chung (nền trắng, viền #EADBC8, bo 16px, padding 20px) */
+    .info-card {
+      background-color: #FFFFFF;
+      border: 1px solid #EADBC8;
+      border-radius: 16px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Hộp 1: Cam kết phản hồi trong 30 phút */
+    .card-commitment {
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .card-commitment-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card-commitment-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      stroke: var(--color-gold, #F5B63B);
+    }
+
+    .card-commitment-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2A1A12;
+      line-height: 1.35;
+    }
+
+    .card-commitment-desc {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* Danh sách 3 dòng (không nằm trong hộp, nền trang kem) */
+    .perks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 4px 2px;
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+
+    .perk-tick {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      stroke: var(--color-gold, #F5B63B);
+    }
+
+    .perk-strong {
+      font-weight: 700;
+      color: #2A1A12;
+    }
+
+    /* Hộp địa điểm */
+    .location-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .location-badge {
+      background-color: #FEF5E7;
+      color: #5A3422;
+      border: 1px solid rgba(245, 182, 59, 0.55);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    .location-address {
+      font-size: 17px;
+      font-weight: 700;
+      color: #2A1A12;
+      line-height: 1.35;
+    }
+
+    .location-desc {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* Hộp MỚI "Cần tư vấn thêm?" */
+    .consult-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2A1A12;
+      margin-bottom: 8px;
+    }
+
+    .consult-desc {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .btn-facebook {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(142, 59, 31, 0.2);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-facebook:hover {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(142, 59, 31, 0.3);
+      color: #FFFFFF;
+    }
+
+    /* ------------------------------------------------------------------------- */
+    /* CỘT PHẢI: KHUNG FORM (~510px)                                            */
+    /* ------------------------------------------------------------------------- */
+    .col-right {
+      width: 510px;
+      background-color: #FFFFFF;
+      border: 1px solid #EADBC8;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(58, 42, 34, 0.05);
+      padding: 32px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* Họa tiết lá cam nhẹ nhàng ở góc khung form (đồng bộ index.html) */
+    .form-leaf-deco {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      width: 54px;
+      height: 54px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .form-heading {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 32px;
+      color: #2A1A12;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .form-subdesc {
+      font-size: 16px;
+      font-weight: 500;
+      color: #6B5547;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    /* Khối trường nhập */
+    .form-group {
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .form-label {
+      font-size: 17px;
+      font-weight: 700;
+      color: #2A1A12;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .req-mark {
+      color: #C0392B;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .label-optional {
+      font-size: 14px;
+      font-weight: 500;
+      color: #6B5547;
+    }
+
+    /* Ô input, select, textarea */
+    .form-control {
+      width: 100%;
+      height: 46px;
+      background-color: #F8F2EA;
+      border: 1.5px solid #E3D3C0;
+      border-radius: 10px;
+      padding: 0 14px;
+      font-family: var(--font-main);
+      font-size: 16px;
+      font-weight: 500;
+      color: #2A1A12;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: #8A7466;
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .form-control:focus {
+      border-color: var(--color-gold, #F5B63B);
+      box-shadow: 0 0 0 3px rgba(245, 182, 59, 0.2);
+      background-color: #FFFFFF;
+    }
+
+    /* Style cho select với icon mũi tên SVG */
+    select.form-control {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B5547' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 38px;
+    }
+
+    select.form-control option {
+      background-color: #FFFFFF;
+      color: #2A1A12;
+      font-size: 16px;
+      padding: 8px;
+    }
+
+    /* Textarea */
+    textarea.form-control {
+      height: 96px;
+      padding: 10px 14px;
+      resize: vertical;
+      min-height: 80px;
+      max-height: 220px;
+      line-height: 1.5;
+    }
+
+    /* Gợi ý nhỏ dưới ô */
+    .field-hint {
+      font-size: 14px;
+      font-weight: 500;
+      color: #6B5547;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* Thông báo lỗi dưới ô */
+    .field-error {
+      font-size: 14px;
+      font-weight: 600;
+      color: #B03A2E;
+      margin-top: 5px;
+      display: none;
+      line-height: 1.35;
+    }
+
+    /* Trạng thái lỗi của ô */
+    .has-error .form-control {
+      border-color: #B03A2E;
+      background-color: #FFF6F6;
+    }
+
+    .has-error .field-error {
+      display: block;
+    }
+
+    /* Bẫy chống spam: ẩn hoàn toàn */
+    .honeypot-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Thông báo trạng thái form (lỗi chưa cấu hình hoặc lỗi kết nối) */
+    .form-status-alert {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .form-status-alert.alert-error {
+      display: block;
+      background-color: #FDF0ED;
+      color: #B03A2E;
+      border: 1px solid rgba(176, 58, 46, 0.3);
+    }
+
+    .form-status-alert a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* Nút gửi form */
+    .btn-submit {
+      width: 100%;
+      height: 52px;
+      background: linear-gradient(135deg, #8E3B1F 0%, #5A3422 100%);
+      color: #FFF3E2;
+      font-family: var(--font-main);
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: 1.5px solid rgba(245, 182, 59, 0.55);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(58, 42, 34, 0.35), 0 0 10px rgba(245, 182, 59, 0.2);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: linear-gradient(135deg, #A44525 0%, #6E3E28 100%);
+      border-color: #F5B63B;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(58, 42, 34, 0.45), 0 0 16px rgba(245, 182, 59, 0.35);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.75;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ------------------------------------------------------------------------- */
+    /* MÀN HÌNH THÀNH CÔNG VỚI HIỆU ỨNG CON DẤU TRIỆN ĐÓNG XUỐNG                 */
+    /* ------------------------------------------------------------------------- */
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 24px 16px 36px 16px;
+    }
+
+    .success-shake-wrap {
+      display: block;
+      width: 100%;
+    }
+
+    /* 1. Khung chứa con dấu triện (cố định chiều cao ~230px để bố cục không nhảy) */
+    .stamp-stage-container {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      margin: 0 auto 12px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    /* Dấu mực triện */
+    .stamp-mark-wrap {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      mix-blend-mode: multiply;
+      opacity: 0.92;
+      transform: rotate(-8deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .stamp-svg {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+
+    /* Khi đang chạy animation: dấu mực xuất hiện tức thì lúc 0.5s */
+    .stamp-stage-container.is-animating .stamp-mark-wrap {
+      opacity: 0;
+      animation: inkImpact 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+    }
+
+    @keyframes inkImpact {
+      0% {
+        opacity: 0;
+        transform: scale(1.06) rotate(-8deg);
+        filter: blur(2px);
+      }
+      25% {
+        opacity: 0.95;
+        transform: scale(1.03) rotate(-8deg);
+        filter: blur(0.8px);
+      }
+      100% {
+        opacity: 0.92;
+        transform: scale(1) rotate(-8deg);
+        filter: blur(0px);
+      }
+    }
+
+    /* 2. Cán dấu gỗ hạ xuống và nảy lên */
+    .stamp-handle-wrap {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 90px;
+      height: 170px;
+      transform: translate(-50%, -260px) rotate(-8deg);
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .stamp-handle-svg {
+      width: 90px;
+      height: 170px;
+      filter: drop-shadow(0 14px 18px rgba(58, 42, 34, 0.35));
+    }
+
+    .stamp-stage-container.is-animating .stamp-handle-wrap {
+      animation: handleStamping 1.2s cubic-bezier(0.5, 0, 0.8, 0.4) forwards;
+    }
+
+    @keyframes handleStamping {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -240px) rotate(-10deg);
+      }
+      15% {
+        opacity: 1;
+      }
+      41.6% { /* 0.5s of 1.2s: chạm mặt giấy */
+        transform: translate(-50%, 0px) rotate(-6deg);
+      }
+      45.8% { /* 0.55s: lún xuống 6px */
+        transform: translate(-50%, 6px) rotate(-4deg);
+      }
+      54.1% { /* 0.65s: nảy nhẹ */
+        transform: translate(-50%, -10px) rotate(-5deg);
+        opacity: 1;
+      }
+      91.6% { /* 1.1s: nhấc lên và mờ dần */
+        transform: translate(-30%, -240px) rotate(-16deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-30%, -240px) rotate(-16deg);
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* 3. Vòng sóng tròn mờ lan toả (Shockwave) */
+    .stamp-shockwave {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid #B8321E;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .stamp-stage-container.is-animating .stamp-shockwave {
+      animation: shockwaveRipple 0.7s cubic-bezier(0.1, 0.7, 0.3, 1) 0.5s forwards;
+    }
+
+    @keyframes shockwaveRipple {
+      0% {
+        transform: scale(0.65);
+        opacity: 0.75;
+        border-width: 4px;
+      }
+      60% {
+        opacity: 0.35;
+      }
+      100% {
+        transform: scale(2.1);
+        opacity: 0;
+        border-width: 1px;
+      }
+    }
+
+    /* 4. Hạt bụi mực/đất văng ra (10 hạt) */
+    .stamp-particles {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .particle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    .stamp-stage-container.is-animating .particle {
+      animation: particleFly 0.65s cubic-bezier(0.1, 0.8, 0.3, 1) 0.5s forwards;
+    }
+
+    @keyframes particleFly {
+      0% {
+        transform: translate(0, 0) scale(1.2);
+        opacity: 0.95;
+      }
+      60% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.2);
+        opacity: 0;
+      }
+    }
+
+    /* 5. Khung thông báo rung nhẹ khi chạm dấu */
+    .success-shake-wrap.is-shaking {
+      animation: containerShake 0.32s ease-in-out forwards;
+    }
+
+    @keyframes containerShake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-2px); }
+      80% { transform: translateX(2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .success-badge {
+      display: inline-block;
+      background-color: #FEF5E7;
+      color: #5A3422;
+      border: 1px solid rgba(245, 182, 59, 0.55);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .success-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: #2A1A12;
+      margin-bottom: 16px;
+    }
+
+    /* Hàng 3 chip tóm tắt dữ liệu khách đặt */
+    .booking-summary-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 20px auto;
+      max-width: 480px;
+    }
+
+    .summary-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FBF4E8;
+      border: 1px solid #E6CEBA;
+      color: #3B2418;
+      font-family: var(--font-main);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(58, 42, 34, 0.05);
+    }
+
+    .summary-chip-icon {
+      width: 16px;
+      height: 16px;
+      stroke: #8E3B1F;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .success-card {
+      background-color: #F8F4EE;
+      border: 1px solid #EADBC8;
+      border-radius: 16px;
+      padding: 22px 28px;
+      margin: 0 auto 28px auto;
+      max-width: 440px;
+      box-shadow: 0 4px 16px rgba(58, 42, 34, 0.05);
+    }
+
+    .success-message {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .success-email-highlight {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* 6. Trượt hiện các thành phần chữ từ 0.9s đến 1.6s */
+    .success-box.has-animation .success-badge {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: textSlideUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+    }
+
+    .success-box.has-animation .success-title {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: textSlideUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 1.05s forwards;
+    }
+
+    .success-box.has-animation .booking-summary-chips {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: textSlideUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s forwards;
+    }
+
+    .success-box.has-animation .success-card {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: textSlideUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 1.35s forwards;
+    }
+
+    .success-box.has-animation .btn-reset {
+      opacity: 0;
+      transform: scale(0.95);
+      animation: btnBounceIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) 1.55s forwards;
+    }
+
+    @keyframes textSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes btnBounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      70% {
+        transform: scale(1.04);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Tôn trọng prefers-reduced-motion: hiện ngay trạng thái cuối */
+    @media (prefers-reduced-motion: reduce) {
+      .stamp-handle-wrap,
+      .stamp-shockwave,
+      .stamp-particles {
+        display: none !important;
+        animation: none !important;
+      }
+      .stamp-stage-container.is-animating .stamp-mark-wrap,
+      .stamp-mark-wrap {
+        opacity: 0.92 !important;
+        transform: scale(1) rotate(-8deg) !important;
+        filter: none !important;
+        animation: none !important;
+      }
+      .success-shake-wrap.is-shaking {
+        animation: none !important;
+      }
+      .success-box.has-animation .success-badge,
+      .success-box.has-animation .success-title,
+      .success-box.has-animation .booking-summary-chips,
+      .success-box.has-animation .success-card,
+      .success-box.has-animation .btn-reset {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+
+    .btn-reset {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: var(--color-primary);
+      color: #FFFFFF;
+      font-family: var(--font-main);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 14px 34px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(142, 59, 31, 0.22);
+      transition: all 0.25s ease;
+    }
+
+    .btn-reset:hover {
+      background-color: var(--color-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(142, 59, 31, 0.3);
+    }
+
+    /* ========================================================================= */
+    /* KHỐI DÙNG CHUNG: CHÂN TRANG MỚI (UNIFIED SITE FOOTER)                     */
+    /* Gradient #3B2418 -> #5A3422, bo góc trên 28px, cách trên 72px            */
+    /* ========================================================================= */
+    .site-footer {
+      width: 100%;
+      background: linear-gradient(180deg, #3B2418 0%, #5A3422 100%);
+      border-top: 1px solid rgba(245, 182, 59, 0.2);
+      border-radius: 28px 28px 0 0;
+      margin-top: 72px;
+      padding: 64px 0 28px 0;
+      color: #FFF3E2;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .footer-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* --- BẢNG THÔNG BÁO PHÁP LÝ QUAN TRỌNG --- */
+    .footer-legal-banner {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(245, 182, 59, 0.35);
+      border-radius: 14px;
+      padding: 18px 28px;
+      margin-bottom: 48px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .footer-legal-icon {
+      width: 22px;
+      height: 22px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+    }
+
+    .footer-legal-text {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #EBD5C0;
+      margin: 0;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-legal-strong {
+      color: #F5B63B;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- HÀNG 3 CỘT (Tỉ lệ 1.4 : 1 : 1.2, gap 56px) --- */
+    .footer-grid-3col {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    /* --- CỘT 1: THƯƠNG HIỆU --- */
+    .footer-col-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #FAF7F2;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      border: 2px solid rgba(245, 182, 59, 0.4);
+      flex-shrink: 0;
+    }
+
+    .footer-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .footer-brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 34px;
+      font-weight: 800;
+      color: #FFF3E2;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    .footer-brand-tagline {
+      font-size: 16px;
+      font-weight: 600;
+      color: #F5B63B;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .footer-brand-about {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.8;
+      color: #EBD5C0;
+      margin: 0 0 24px 0;
+    }
+
+    /* Cụm nút mạng xã hội tròn 48px */
+    .footer-social-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      text-decoration: none;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .footer-social-btn:hover {
+      background: #F5B63B;
+      border-color: #F5B63B;
+      color: #3B2418;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(245, 182, 59, 0.35);
+    }
+
+    .footer-social-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    .footer-social-btn.btn-social-zalo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- TIÊU ĐỀ CHUNG CHO CỘT 2 & 3 --- */
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #F5B63B;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+
+    .footer-title-bar {
+      width: 36px;
+      height: 3px;
+      background-color: #F5B63B;
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+
+    /* --- CỘT 2: KHÁM PHÁ --- */
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-nav-link {
+      font-size: 17px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1.6;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: #F5B63B;
+      transform: translateX(4px);
+    }
+
+    .footer-nav-bullet {
+      width: 14px;
+      height: 14px;
+      fill: #F5B63B;
+      flex-shrink: 0;
+      opacity: 0.85;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-nav-link:hover .footer-nav-bullet {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    /* --- CỘT 3: LIÊN HỆ & GIỜ HOẠT ĐỘNG --- */
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-contact-icon {
+      width: 20px;
+      height: 20px;
+      color: #F5B63B;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #F5B63B;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-contact-value {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    a.footer-contact-value:hover {
+      color: #F5B63B;
+      text-decoration: underline;
+    }
+
+    /* Giờ hoạt động & Huy hiệu trạng thái */
+    .footer-hours-block {
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-top: 18px;
+    }
+
+    .footer-hours-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F5B63B;
+      margin-bottom: 6px;
+    }
+
+    .footer-hours-time {
+      font-size: 16px;
+      font-weight: 500;
+      color: #EBD5C0;
+      margin-bottom: 12px;
+    }
+
+    .footer-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-status-badge.status-open {
+      background: rgba(74, 222, 128, 0.15);
+      color: #BBF7D0;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .footer-status-badge.status-closed {
+      background: rgba(255, 255, 255, 0.08);
+      color: #D6C3B2;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot-open {
+      background: #4ADE80;
+      box-shadow: 0 0 8px #4ADE80;
+      animation: pulseGlow 1.8s infinite;
+    }
+
+    .status-dot-closed {
+      background: #9CA3AF;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 6px #4ADE80;
+      }
+      50% {
+        transform: scale(1.25);
+        opacity: 0.75;
+        box-shadow: 0 0 12px #4ADE80;
+      }
+    }
+
+    /* --- ĐÁY FOOTER: ĐƯỜNG KẺ & BẢN QUYỀN --- */
+    .footer-bottom-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 0 24px 0;
+      border: none;
+    }
+
+    .footer-bottom-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-copyright {
+      font-size: 15px;
+      font-weight: 500;
+      color: #D6C3B2;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer-disclaimer {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(214, 195, 178, 0.72);
+      margin: 0;
+    }
+
+    /* --- NÚT CUỘN LÊN ĐẦU TRANG (BACK TO TOP) --- */
+    .btn-back-to-top {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: #5A3422;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF3E2;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+      z-index: 99;
+      outline: none;
+    }
+
+    .btn-back-to-top:hover {
+      background-color: #F5B63B;
+      color: #3B2418;
+      border-color: #F5B63B;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(245, 182, 59, 0.45);
+    }
+
+    .btn-back-to-top svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .btn-back-to-top.is-fixed {
+      position: fixed;
+      right: 26px;
+      bottom: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    .btn-back-to-top.is-fixed.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .btn-back-to-top.is-embedded-inline {
+      position: absolute;
+      top: 36px;
+      right: 24px;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .site-footer,
+      .site-footer.reveal,
+      .btn-back-to-top,
+      .status-dot-open {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    
+    /* ========================================================================= */
+    /* 12. MOBILE & TABLET RESPONSIVE STYLES (ĐA MÀN HÌNH)                        */
+    /* ========================================================================= */
+
+    /* Tablet & Small Desktop (dưới 992px) */
+    @media (max-width: 992px) {
+      .site-header {
+        height: 72px;
+      }
+
+      .nav-inner-wide {
+        height: 72px;
+        padding: 0 16px;
+        gap: 12px;
+      }
+
+      .nav-logo-box {
+        width: 56px;
+        height: 52px;
+        border-radius: 10px;
+        padding: 2px;
+      }
+
+      .nav-toggle-btn {
+        display: flex;
+      }
+
+      .nav-btn-booking {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 8px 18px;
+      }
+
+      .nav-center-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: #4A2B1D;
+        border-top: 1px solid rgba(245, 182, 59, 0.25);
+        border-bottom: 3px solid #F5B63B;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+        padding: 8px 0 16px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-center-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-menu-list {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        display: block;
+        width: 100%;
+        padding: 13px 20px;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link.active {
+        color: #F5B63B !important;
+        background-color: rgba(245, 182, 59, 0.14);
+      }
+
+      .nav-link::after {
+        display: none;
+      }
+
+      .page-container {
+        padding: 0 16px;
+      }
+
+      /* Bố cục trang đặt lịch: Xếp dọc 1 cột, form lên trước, thông tin cam kết xuống dưới */
+      .booking-layout {
+        width: 100%;
+        max-width: 560px;
+        flex-direction: column;
+        margin: 24px auto 48px auto;
+        gap: 24px;
+      }
+
+      .col-right {
+        width: 100%;
+        order: 1;
+        padding: 28px 22px;
+      }
+
+      .col-left {
+        width: 100%;
+        order: 2;
+      }
+
+      .form-heading {
+        font-size: 28px;
+      }
+
+      .stamp-stage-container {
+        transform: scale(0.92);
+        transform-origin: center center;
+      }
+    }
+
+    /* Màn hình Mobile (dưới 768px) */
+    @media (max-width: 768px) {
+      .booking-layout {
+        margin: 16px auto 36px auto;
+      }
+
+      .col-right {
+        padding: 22px 16px;
+        border-radius: 16px;
+      }
+
+      .form-heading {
+        font-size: 24px;
+      }
+
+      .form-subdesc {
+        font-size: 14.5px;
+        margin-bottom: 20px;
+      }
+
+      .form-leaf-deco {
+        width: 42px;
+        height: 42px;
+        top: 12px;
+        right: 14px;
+      }
+
+      .stamp-stage-container {
+        transform: scale(0.85);
+      }
+
+      .success-title {
+        font-size: 26px;
+      }
+
+      .summary-chip {
+        font-size: 14px;
+        padding: 5px 12px;
+      }
+
+      .success-card {
+        padding: 16px 18px;
+      }
+
+      /* Chân trang Mobile */
+      .site-footer {
+        margin-top: 48px;
+        padding: 36px 0 20px 0;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .footer-inner {
+        padding: 0 16px;
+      }
+
+      .footer-legal-banner {
+        flex-direction: column;
+        padding: 14px 16px;
+        gap: 8px;
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .footer-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 28px;
+      }
+
+      .footer-col-brand {
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-brand-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .footer-brand-about {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      .footer-social-row {
+        justify-content: center;
+      }
+
+      .footer-col-title {
+        text-align: center;
+      }
+
+      .footer-title-bar {
+        margin: 0 auto 16px auto;
+      }
+
+      .footer-nav-list {
+        align-items: center;
+      }
+
+      .footer-contact-list {
+        align-items: center;
+      }
+
+      .footer-contact-item {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .footer-hours-block {
+        text-align: center;
+      }
+
+      .btn-back-to-top.is-embedded-inline {
+        top: 18px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* Màn hình Mobile nhỏ (dưới 480px) */
+    @media (max-width: 480px) {
+      .nav-btn-booking {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      .form-heading {
+        font-size: 22px;
+      }
+
+      .btn-submit {
+        font-size: 16px;
+        height: 48px;
+      }
+
+      .stamp-stage-container {
+        transform: scale(0.78);
+        height: 190px;
+      }
+
+      .success-title {
+        font-size: 23px;
+      }
+
+      .summary-chip {
+        font-size: 13px;
+        padding: 4px 10px;
+      }
+
+      .quick-contact-widget {
+        right: 12px;
+        bottom: 18px;
+        gap: 8px;
+      }
+
+      .quick-contact-btn {
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GX7LX2K63"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6GX7LX2K63',{cookie_flags:'SameSite=None;Secure'});</script>
+</head>
+<body>
+
+  <!-- ======================================================================= -->
+  <!-- 1. KHỐI DÙNG CHUNG: THANH ĐIỀU HƯỚNG MỚI (UNIFIED SITE HEADER - 120px)   -->
+  <!-- ======================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner-wide">
+      <!-- Cột trái: Khung Logo 104x96px -->
+      <a href="index.html" data-link="home" class="nav-logo-box" aria-label="Gốm Ký - Về trang chủ">
+        <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" class="nav-logo-img" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+      </a>
+
+      <!-- Cột giữa: 4 mục menu 22px bold -->
+      <nav class="nav-center-menu" aria-label="Menu chính">
+        <ul class="nav-menu-list">
+          <li class="nav-item">
+            <a href="index.html" data-link="home" class="nav-link">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="dich-vu.html" data-link="services" class="nav-link">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog.html" data-link="blog" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="dat-lich.html" data-link="booking" class="nav-link active">Đặt lịch</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Cột phải: Nút Đặt lịch ngay (viền trắng) + Nút Zalo/FB khi nhúng -->
+      <div class="nav-right-col">
+        <div class="nav-contact-quick" id="navContactQuick">
+          <a id="navBtnZalo" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-zalo" aria-label="Nhắn Zalo" title="Nhắn Zalo">
+            <span class="zalo-text">Zalo</span>
+          </a>
+          <a id="navBtnFacebook" href="#" target="_blank" rel="noopener" class="contact-btn-mini btn-facebook" aria-label="Nhắn Fanpage" title="Nhắn Fanpage">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#FFFFFF">
+              <path d="M14 13.5h2.5l1-4H14v-2c0-1.03.74-1.5 1.8-1.5H17.5V2.3c-.6-.08-1.7-.17-3.1-.17-3.2 0-5.4 1.95-5.4 5.5v2.37H6v4h3v9h5v-9z"/>
+            </svg>
+          </a>
+        </div>
+        <a href="dat-lich.html" data-link="booking" class="nav-btn-booking btn-outline-white" id="navBtnBooking">Đặt lịch ngay</a>
+        <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Mở menu" type="button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- 2. BỐ CỤC NỘI DUNG ĐẶT LỊCH (BẢN DESKTOP, CĂN GIỮA, KHÔNG FOOTER)       -->
+  <!-- ======================================================================= -->
+  <main class="page-container">
+    <div class="booking-layout">
+
+      <!-- ------------------------------------------------------------------- -->
+      <!-- CỘT TRÁI (~340px)                                                   -->
+      <!-- ------------------------------------------------------------------- -->
+      <aside class="col-left">
+
+        <!-- 1. Hộp Cam kết phản hồi trong 30 phút -->
+        <div class="info-card card-commitment">
+          <div class="card-commitment-header">
+            <!-- Icon đồng hồ SVG nâu đỏ (nét 2.5px) -->
+            <svg class="card-commitment-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <h3 class="card-commitment-title" data-text="leftColumn.box1.title">Cam kết phản hồi trong 30 phút</h3>
+          </div>
+          <p class="card-commitment-desc" data-text="leftColumn.box1.desc">
+            Trong khung giờ hoạt động (9:00 - 21:00 hằng ngày), đội ngũ tư vấn Gốm Ký sẽ phản hồi xác nhận khung giờ, bàn xoay và tư vấn chi tiết trong vòng 30 phút.
+          </p>
+        </div>
+
+        <!-- 2. Danh sách 3 dòng, mỗi dòng có dấu tick SVG nâu đậm (nền trang) -->
+        <div class="perks-list">
+
+          <!-- Dòng 1 -->
+          <div class="perk-item">
+            <svg class="perk-tick" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <span class="perk-strong" data-text="leftColumn.list.0.bold">Trải nghiệm trực quan trước khi đến:</span>
+              <span data-text="leftColumn.list.0.normal"> Bạn có thể nhắn trước qua Fanpage để xem hình ảnh góc ngồi ngắm phổ hoặc catalog mẫu đất, men nung.</span>
+            </div>
+          </div>
+
+          <!-- Dòng 2 -->
+          <div class="perk-item">
+            <svg class="perk-tick" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <span class="perk-strong" data-text="leftColumn.list.1.bold">Ưu đãi cặp đôi & bạn bè:</span>
+              <span data-text="leftColumn.list.1.normal"> Nhận ngay ưu đãi đặc biệt khi đặt gói Gốm Ký Date hoặc rủ nhóm bạn cùng tham gia sáng tạo.</span>
+            </div>
+          </div>
+
+          <!-- Dòng 3 -->
+          <div class="perk-item">
+            <svg class="perk-tick" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div>
+              <span class="perk-strong" data-text="leftColumn.list.2.bold">Kết nối cộng đồng yêu gốm:</span>
+              <span data-text="leftColumn.list.2.normal"> Tác phẩm của bạn sẽ được chụp ảnh lưu niệm và đồng hành cùng cộng đồng đam mê đồ gốm thủ công tại Hà Nội.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. Hộp địa điểm -->
+        <div class="info-card">
+          <div class="location-header">
+            <span class="location-badge" data-text="leftColumn.locationBox.badge">ĐỊA ĐIỂM</span>
+            <span class="location-address" data-text="leftColumn.locationBox.address">TẦNG 7, SỐ 79 HỒ TÙNG MẬU</span>
+          </div>
+          <p class="location-desc" data-text="leftColumn.locationBox.desc">
+            Vị trí thuận tiện, dễ tìm ngay trục đường chính Cầu Giấy - Từ Liêm. Không gian tầng cao thoáng mát, nhiều cây xanh và góc sống ảo ấm áp.
+          </p>
+        </div>
+
+        <!-- 4. Hộp MỚI "Cần tư vấn thêm?" -->
+        <div class="info-card">
+          <h3 class="consult-title" data-text="leftColumn.consultBox.title">Cần tư vấn thêm?</h3>
+          <p class="consult-desc" data-text="leftColumn.consultBox.desc">
+            Nếu bạn cần tư vấn thêm, hãy liên hệ với chúng tôi qua Fanpage Facebook
+          </p>
+          <a id="btn-fanpage" href="#" target="_blank" rel="noopener" class="btn-facebook" data-text="leftColumn.consultBox.btn">
+            Nhắn tin qua Facebook →
+          </a>
+        </div>
+
+      </aside>
+
+      <!-- ------------------------------------------------------------------- -->
+      <!-- CỘT PHẢI: KHUNG FORM (~510px)                                       -->
+      <!-- ------------------------------------------------------------------- -->
+      <section class="col-right">
+
+        <!-- Hoạ tiết nhành lá vàng ấm đặc trưng Gốm Ký -->
+        <svg class="form-leaf-deco" viewBox="0 0 60 60" fill="none" stroke="#F5B63B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 50 Q25 25 50 10"/>
+          <path d="M25 32 Q18 20 28 15 Q34 24 25 32"/>
+          <path d="M36 21 Q44 12 50 18 Q43 27 36 21"/>
+        </svg>
+
+        <!-- Form đặt lịch -->
+        <div id="booking-form-container">
+          <h1 class="form-heading" data-text="form.title">Phiếu đăng ký đặt lịch</h1>
+          <p class="form-subdesc" data-text="form.desc">Vui lòng điền thông tin để chúng tôi chuẩn bị nguyên vật liệu và không gian chu đáo nhất cho bạn.</p>
+
+          <!-- Báo lỗi chung / Trạng thái gửi -->
+          <div id="form-alert" class="form-status-alert"></div>
+
+          <form id="booking-form" novalidate>
+
+            <!-- 1. Họ và tên bạn * -->
+            <div class="form-group" id="group-name">
+              <div class="form-label-row">
+                <label for="field-name" class="form-label">
+                  <span data-text="form.labels.name">Họ và tên bạn</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <input type="text" id="field-name" name="name" class="form-control" placeholder="Ví dụ: Nguyễn Minh Thư" autocomplete="name">
+              <span class="field-hint" data-text="form.hints.name">Để Gốm Ký tiện xưng hô khi liên hệ</span>
+              <span class="field-error" id="error-name" data-text="form.errors.nameRequired">Vui lòng nhập họ và tên của bạn</span>
+            </div>
+
+            <!-- 2. Số điện thoại * -->
+            <div class="form-group" id="group-phone">
+              <div class="form-label-row">
+                <label for="field-phone" class="form-label">
+                  <span data-text="form.labels.phone">Số điện thoại</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <input type="tel" id="field-phone" name="phone" class="form-control" placeholder="Ví dụ: 0987654321" autocomplete="tel">
+              <span class="field-hint" data-text="form.hints.phone">Kênh liên hệ để xác nhận lịch hẹn</span>
+              <span class="field-error" id="error-phone" data-text="form.errors.phoneRequired">Vui lòng nhập số điện thoại hợp lệ (9-11 chữ số)</span>
+            </div>
+
+            <!-- 3. Email * -->
+            <div class="form-group" id="group-email">
+              <div class="form-label-row">
+                <label for="field-email" class="form-label">
+                  <span data-text="form.labels.email">Email</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <input type="email" id="field-email" name="email" class="form-control" placeholder="Ví dụ: ten@gmail.com" autocomplete="email">
+              <span class="field-hint" data-text="form.hints.email">Gốm Ký sẽ gửi email xác nhận đặt lịch vào địa chỉ này</span>
+              <span class="field-error" id="error-email" data-text="form.errors.emailRequired">Vui lòng nhập email đúng định dạng (ví dụ: ten@gmail.com)</span>
+            </div>
+
+            <!-- 4. Ngày mong muốn * -->
+            <div class="form-group" id="group-date">
+              <div class="form-label-row">
+                <label for="field-date" class="form-label">
+                  <span data-text="form.labels.date">Ngày mong muốn</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <input type="date" id="field-date" name="date" class="form-control">
+              <span class="field-error" id="error-date" data-text="form.errors.dateRequired">Vui lòng chọn ngày đặt lịch (từ hôm nay trở đi)</span>
+            </div>
+
+            <!-- 5. Khung giờ * -->
+            <div class="form-group" id="group-time">
+              <div class="form-label-row">
+                <label for="field-time" class="form-label">
+                  <span data-text="form.labels.time">Khung giờ</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <select id="field-time" name="time" class="form-control">
+                <option value="">-- Chọn khung giờ --</option>
+              </select>
+              <span class="field-error" id="error-time" data-text="form.errors.timeRequired">Vui lòng chọn khung giờ</span>
+            </div>
+
+            <!-- 6. Số lượng người * -->
+            <div class="form-group" id="group-guests">
+              <div class="form-label-row">
+                <label for="field-guests" class="form-label">
+                  <span data-text="form.labels.guests">Số lượng người</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <input type="number" id="field-guests" name="guests" class="form-control" value="1" min="1" max="20">
+              <span class="field-error" id="error-guests" data-text="form.errors.guestsRequired">Số lượng người từ 1 đến 20</span>
+            </div>
+
+            <!-- 7. Gói trải nghiệm * -->
+            <div class="form-group" id="group-package">
+              <div class="form-label-row">
+                <label for="field-package" class="form-label">
+                  <span data-text="form.labels.package">Gói trải nghiệm</span>
+                  <span class="req-mark">*</span>
+                </label>
+              </div>
+              <select id="field-package" name="package" class="form-control">
+                <option value="">-- Chọn gói mong muốn --</option>
+              </select>
+              <span class="field-error" id="error-package" data-text="form.errors.packageRequired">Vui lòng chọn gói trải nghiệm</span>
+            </div>
+
+            <!-- 8. Ghi chú thêm (Không bắt buộc) -->
+            <div class="form-group" id="group-note">
+              <div class="form-label-row">
+                <label for="field-note" class="form-label" data-text="form.labels.note">Ghi chú thêm</label>
+                <span class="label-optional" data-text="form.labels.optional">(Không bắt buộc)</span>
+              </div>
+              <textarea id="field-note" name="note" class="form-control" placeholder="Ví dụ: Bạn muốn khắc chữ kỷ niệm ngày cưới, muốn làm sản phẩm cho thú cưng, hoặc có yêu cầu đặc biệt về chỗ ngồi..."></textarea>
+            </div>
+
+            <!-- 9. Ô bẫy chống spam (Honeypot): ẩn hoàn toàn bằng CSS -->
+            <input type="text" name="website" id="field-website" class="honeypot-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <!-- 10. Nút Gửi yêu cầu đặt lịch -->
+            <button type="submit" id="btn-submit" class="btn-submit" data-text="form.submitBtn">
+              Gửi yêu cầu đặt lịch
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Khối thông báo thành công (ẩn mặc định) -->
+        <div id="booking-success-container" class="success-box">
+          <div class="success-shake-wrap" id="successShakeWrap">
+            <!-- Khung con dấu triện đóng xuống (chiều cao cố định ~230px) -->
+            <div class="stamp-stage-container" id="stampStageContainer">
+              <!-- Cán dấu gỗ hạ xuống và nhấc lên -->
+              <div class="stamp-handle-wrap" id="stampHandleWrap">
+                <svg viewBox="0 0 90 170" width="90" height="170" class="stamp-handle-svg" aria-hidden="true">
+                  <ellipse cx="45" cy="24" rx="18" ry="18" fill="#8A5A3B" stroke="#5A3422" stroke-width="2.5"/>
+                  <path d="M 38 14 Q 44 10 50 12" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                  <path d="M 36 40 C 38 70, 36 85, 33 115 L 57 115 C 54 85, 52 70, 54 40 Z" fill="#8A5A3B" stroke="#5A3422" stroke-width="2.5"/>
+                  <path d="M 43 50 Q 44 80 42 105" stroke="#704427" stroke-width="2" fill="none"/>
+                  <path d="M 48 45 Q 49 75 47 110" stroke="#9E6945" stroke-width="2" fill="none"/>
+                  <path d="M 33 115 C 28 128, 14 138, 12 145 L 78 145 C 76 138, 62 128, 57 115 Z" fill="#B5693A" stroke="#5A3422" stroke-width="2.5"/>
+                  <path d="M 7 150 C 7 158, 83 158, 83 150 L 83 156 C 83 164, 7 164, 7 156 Z" fill="#8E3B1F" stroke="#5A3422" stroke-width="2.5"/>
+                  <ellipse cx="45" cy="150" rx="38" ry="11" fill="#B5693A" stroke="#5A3422" stroke-width="3"/>
+                  <ellipse cx="45" cy="149" rx="32" ry="7" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.8"/>
+                </svg>
+              </div>
+
+              <!-- Vòng sóng tròn mờ lan toả khi dấu chạm mặt giấy -->
+              <div class="stamp-shockwave" id="stampShockwave"></div>
+
+              <!-- Hạt bụi mực/đất văng ra khi đóng dấu -->
+              <div class="stamp-particles" id="stampParticles">
+                <span class="particle p-1" style="--dx: -55px; --dy: -45px; background: #B5693A;"></span>
+                <span class="particle p-2" style="--dx: 60px; --dy: -38px; background: #F5B63B;"></span>
+                <span class="particle p-3" style="--dx: -68px; --dy: 28px; background: #B8321E;"></span>
+                <span class="particle p-4" style="--dx: 62px; --dy: 42px; background: #B5693A;"></span>
+                <span class="particle p-5" style="--dx: 74px; --dy: -5px; background: #F5B63B;"></span>
+                <span class="particle p-6" style="--dx: -72px; --dy: -12px; background: #B8321E;"></span>
+                <span class="particle p-7" style="--dx: -12px; --dy: -65px; background: #F5B63B;"></span>
+                <span class="particle p-8" style="--dx: 18px; --dy: 68px; background: #B5693A;"></span>
+                <span class="particle p-9" style="--dx: 45px; --dy: -58px; background: #B8321E;"></span>
+                <span class="particle p-10" style="--dx: -40px; --dy: 58px; background: #F5B63B;"></span>
+              </div>
+
+              <!-- Dấu mực triện thực tế (SVG 220x220, hiển thị 200px) -->
+              <div class="stamp-mark-wrap" id="stampMarkWrap">
+                <svg viewBox="0 0 220 220" width="200" height="200" class="stamp-svg" aria-label="Con dấu xác nhận ĐÃ NHẬN LỊCH Gốm Ký">
+                  <defs>
+                    <filter id="stampInkFilter" x="-10%" y="-10%" width="120%" height="120%">
+                      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise"/>
+                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                      <feMerge>
+                        <feMergeNode in="displaced"/>
+                      </feMerge>
+                    </filter>
+                    <path id="stampTextPath" d="M 110, 21 a 89,89 0 1,1 -0.1,0" fill="none"/>
+                  </defs>
+
+                  <g class="stamp-ink-group" filter="url(#stampInkFilter)" fill="#B8321E" stroke="#B8321E">
+                    <!-- Hai vòng tròn đồng tâm nét 5px và 2.5px -->
+                    <circle cx="110" cy="110" r="102" stroke="#B8321E" stroke-width="5" fill="none"/>
+                    <circle cx="110" cy="110" r="76" stroke="#B8321E" stroke-width="2.5" fill="none"/>
+
+                    <!-- Chữ chạy quanh vòng: GỐM KÝ · WORKSHOP LÀM GỐM · HÀ NỘI · -->
+                    <text font-family="'Be Vietnam Pro', Arial, sans-serif" font-weight="800" font-size="14.2px" letter-spacing="2.2px" fill="#B8321E" stroke="none">
+                      <textPath href="#stampTextPath" startOffset="50%" text-anchor="middle">
+                        GỐM KÝ · WORKSHOP LÀM GỐM · HÀ NỘI ·
+                      </textPath>
+                    </text>
+
+                    <!-- Biểu tượng bình gốm nhỏ giữa dấu (nét dày 3px, cao ~46px) -->
+                    <path d="M 102 46 C 102 50, 105 53, 105 56 C 105 62, 95 66, 95 73 C 95 80, 101 84, 103 85 C 105 86, 115 86, 117 85 C 119 84, 125 80, 125 73 C 125 66, 115 62, 115 56 C 115 53, 118 50, 118 46 Z"
+                          fill="none" stroke="#B8321E" stroke-width="3" stroke-linejoin="round"/>
+                    <ellipse cx="110" cy="45" rx="8" ry="2.2" fill="none" stroke="#B8321E" stroke-width="2.5"/>
+                    <ellipse cx="110" cy="85" rx="7" ry="1.8" fill="none" stroke="#B8321E" stroke-width="2.2"/>
+
+                    <!-- Khung chữ nhật bo góc viền 3px -->
+                    <rect x="46" y="90" width="128" height="46" rx="8" ry="8" fill="none" stroke="#B8321E" stroke-width="3"/>
+
+                    <!-- Chữ ĐÃ NHẬN và LỊCH -->
+                    <text x="110" y="112" text-anchor="middle" font-family="'Be Vietnam Pro', Arial, sans-serif" font-weight="800" font-size="20px" letter-spacing="3px" fill="#B8321E" stroke="none">
+                      ĐÃ NHẬN
+                    </text>
+                    <text x="110" y="129" text-anchor="middle" font-family="'Be Vietnam Pro', Arial, sans-serif" font-weight="800" font-size="16px" letter-spacing="4px" fill="#B8321E" stroke="none">
+                      LỊCH
+                    </text>
+
+                    <!-- Sao nhỏ 4 cánh hai bên khung -->
+                    <path d="M 33 113 Q 33 117 37 117 Q 33 117 33 121 Q 33 117 29 117 Q 33 117 33 113 Z" fill="#B8321E" stroke="none"/>
+                    <path d="M 187 113 Q 187 117 191 117 Q 187 117 187 121 Q 187 117 183 117 Q 187 117 187 113 Z" fill="#B8321E" stroke="none"/>
+
+                    <!-- Dòng ngày đóng dấu theo múi giờ Asia/Ho_Chi_Minh -->
+                    <circle cx="56" cy="151" r="2.2" fill="#B8321E" stroke="none"/>
+                    <text id="stampDateText" x="110" y="156" text-anchor="middle" font-family="'Be Vietnam Pro', Arial, sans-serif" font-weight="700" font-size="18px" letter-spacing="1px" fill="#B8321E" stroke="none">
+                      19.10.2026
+                    </text>
+                    <circle cx="164" cy="151" r="2.2" fill="#B8321E" stroke="none"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Nhãn XÁC NHẬN YÊU CẦU -->
+            <span class="success-badge" id="successBadge">XÁC NHẬN YÊU CẦU</span>
+            <!-- Tiêu đề thành công -->
+            <h2 class="success-title" id="successTitle" data-text="form.successMessage.title">Đã đặt lịch thành công!</h2>
+
+            <!-- Hàng 3 chip tóm tắt: Ngày, Khung giờ, Số người -->
+            <div class="booking-summary-chips" id="bookingSummaryChips">
+              <!-- Nạp động qua JS -->
+            </div>
+
+            <!-- Khối thông báo chi tiết (giữ nguyên câu cảm ơn và lưu ý thư mục Spam) -->
+            <div class="success-card" id="successCard">
+              <p class="success-message" id="success-desc">
+                <!-- Được render động bởi JS -->
+              </p>
+            </div>
+
+            <!-- Nút Đặt thêm lịch khác -->
+            <button type="button" id="btn-reset" class="btn-reset" data-text="form.resetBtn">
+              Đặt thêm lịch khác
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================= -->
+  <!-- KHỐI DÙNG CHUNG: CHÂN TRANG MỚI (UNIFIED SITE FOOTER)                     -->
+  <!-- ======================================================================= -->
+  <footer class="site-footer reveal" id="siteFooter">
+    <div class="footer-inner">
+
+      <!-- Nút cuộn lên đầu trang (Back to top) -->
+      <button type="button" class="btn-back-to-top" id="btnBackToTop" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+        <svg viewBox="0 0 24 24">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+
+      <!-- 1. BẢNG THÔNG BÁO PHÁP LÝ QUAN TRỌNG -->
+      <div class="footer-legal-banner">
+        <svg class="footer-legal-icon" viewBox="0 0 24 24">
+          <path d="M12 2L1 21h22L12 2zm0 3.8L20.2 19H3.8L12 5.8zM11 10h2v4h-2v-4zm0 6h2v2h-2v-2z"/>
+        </svg>
+        <p class="footer-legal-text">
+          <strong class="footer-legal-strong">THÔNG BÁO PHÁP LÝ QUAN TRỌNG:</strong>
+          ĐỀ TÀI PHỤC VỤ CHO HỌC PHẦN MARKETING SỐ CỦA SINH VIÊN, KHÔNG CÓ XUNG ĐỘT VỀ NỘI DUNG CŨNG NHƯ TRANH CHẤP VỚI CÁC THƯƠNG HIỆU, MỤC TIÊU PHI LỢI NHUẬN.
+        </p>
+      </div>
+
+      <!-- 2. HÀNG 3 CỘT (Tỉ lệ 1.4 : 1 : 1.2) -->
+      <div class="footer-grid-3col">
+        <!-- CỘT 1: THƯƠNG HIỆU -->
+        <div class="footer-col-brand">
+          <div class="footer-brand-header">
+            <div class="footer-logo-badge">
+              <img src="assets/LOGO_ICON.jpg" alt="Logo Gốm Ký" onerror="this.onerror=null; this.src='assets/LOGO_ICON.png';">
+            </div>
+            <div class="footer-brand-meta">
+              <h3 class="footer-brand-name">GỐM KÝ</h3>
+              <span class="footer-brand-tagline">Workshop làm gốm thủ công tại Hà Nội</span>
+            </div>
+          </div>
+          <p class="footer-brand-about">Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.</p>
+          <div class="footer-social-row">
+            <!-- Nút Facebook SVG -->
+            <a href="https://www.facebook.com/share/1DQc5YnPNU/" target="_blank" rel="noopener" class="footer-social-btn" id="footerSocialFacebook" aria-label="Fanpage Facebook Gốm Ký" title="Facebook Gốm Ký">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+              </svg>
+            </a>
+            <!-- Nút Zalo (chỉ hiển thị nếu FOOTER.zalo khác rỗng) -->
+            <a href="#" target="_blank" rel="noopener" class="footer-social-btn btn-social-zalo" id="footerSocialZalo" aria-label="Zalo Gốm Ký" title="Zalo Gốm Ký" style="display: none;">
+              <span>Zalo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CỘT 2: KHÁM PHÁ -->
+        <div class="footer-col-nav">
+          <h4 class="footer-col-title">KHÁM PHÁ</h4>
+          <div class="footer-title-bar"></div>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="index.html" data-link="home" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Trang chủ</span>
+              </a>
+            </li>
+            <li>
+              <a href="dich-vu.html" data-link="services" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Dịch vụ</span>
+              </a>
+            </li>
+            <li>
+              <a href="blog.html" data-link="blog" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Blog</span>
+              </a>
+            </li>
+            <li>
+              <a href="dat-lich.html" data-link="booking" class="footer-nav-link">
+                <svg class="footer-nav-bullet" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Đặt lịch</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CỘT 3: LIÊN HỆ -->
+        <div class="footer-col-contact">
+          <h4 class="footer-col-title">LIÊN HỆ</h4>
+          <div class="footer-title-bar"></div>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <a href="tel:0913006989" id="footerHotlineLink" class="footer-contact-value">Hotline: 0913006989</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <a href="mailto:gomkypottery@gmail.com" id="footerEmailLink" class="footer-contact-value">gomkypottery@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=79+H%E1%BB%93+T%C3%B9ng+M%E1%BA%ADu%2C+H%C3%A0+N%E1%BB%99i" target="_blank" rel="noopener" class="footer-contact-value">Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội</a>
+            </div>
+            <div class="footer-contact-item">
+              <div class="footer-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </div>
+              <a href="https://www.facebook.com/share/1DQc5YnPNU/" id="footerFanpageLink" target="_blank" rel="noopener" class="footer-contact-value">Gốm Ký - Workshop Làm Gốm</a>
+            </div>
+          </div>
+
+          <!-- Khối Giờ hoạt động & Trạng thái đóng/mở -->
+          <div class="footer-hours-block">
+            <div class="footer-hours-label">GIỜ HOẠT ĐỘNG</div>
+            <div class="footer-hours-time" id="footerHoursText">Thứ 2 - Chủ nhật: 9:00 - 21:00</div>
+            <div class="footer-status-badge status-open" id="footerStatusBadge">
+              <span class="status-dot status-dot-open"></span>
+              <span>Đang mở cửa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ĐƯỜNG PHÂN CÁCH & BẢN QUYỀN -->
+      <hr class="footer-bottom-divider">
+      <div class="footer-bottom-content">
+        <p class="footer-copyright">© 2026 Gốm Ký. Chạm đất bằng tay, để gốm kể thay lời bạn.</p>
+        <p class="footer-disclaimer">Dự án học thuật · Phi thương mại · Marketing số</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================================= -->
+  <!-- JAVASCRIPT: LOGIC ĐẶT LỊCH, CẤU HÌNH, VALIDATION & POSTMESSAGE          -->
+  <!-- ======================================================================= -->
+  <script>
+    /* ======================================================================= */
+    /* A. KHAI BÁO CẤU HÌNH THEO ĐÚNG YÊU CẦU ĐỀ BÀI                           */
+    /* ======================================================================= */
+    const EMBEDDED = (window.self !== window.top);
+    const FOOTER = {
+      name: "GỐM KÝ",
+      tagline: "Workshop làm gốm thủ công tại Hà Nội",
+      about: "Nơi bạn chạm đất bằng tay, để mỗi món gốm là một câu chuyện, một kỷ niệm và dấu ấn riêng của chính bạn.",
+      hotline: "0913006989",
+      email: "gomkypottery@gmail.com",
+      address: "Tầng 7, số 79 Hồ Tùng Mậu, Hà Nội",
+      hours: "Thứ 2 - Chủ nhật: 9:00 - 21:00",
+      facebook: "https://www.facebook.com/share/1DQc5YnPNU/",
+      zalo: ""
+    };
+    const CONFIG = { SCRIPT_URL: "https://script.google.com/macros/s/AKfycbzo7d1Rg5YzNjpfYDOybQ4BvAsUNouV9hcJLZxMHRTwmimVApGbsXXbQhu_STrqksAApw/exec" };
+    const FACEBOOK = FOOTER.facebook;
+    const TIME_SLOTS = ["09:00 - 12:00","12:00 - 15:00","15:00 - 18:00","18:00 - 21:00"];
+    const PACKAGES = [
+      "Gói nặn nhỏ",
+      "Gói nặn vừa",
+      "Gói nặn lớn",
+      "Vẽ gốm sơ nung",
+      "Vẽ gốm men thô",
+      "Chưa biết, cần tư vấn"
+    ];
+
+    const PREVIEW = true;
+    const LINKS = {
+      home: "index.html",
+      services: "dich-vu.html",
+      blog: "blog.html",
+      booking: "dat-lich.html"
+    };
+
+    /* ======================================================================= */
+    /* B. TOÀN BỘ CHỮ HIỂN THỊ TRONG OBJECT TEXT (ĐÚNG CHÍNH TẢ, ĐỦ DẤU)       */
+    /* ======================================================================= */
+    const TEXT = {
+      menu: {
+        home: "Trang chủ",
+        services: "Dịch vụ",
+        blog: "Blog",
+        booking: "Đặt lịch"
+      },
+      leftColumn: {
+        box1: {
+          title: "Cam kết phản hồi trong 30 phút",
+          desc: "Trong khung giờ hoạt động (9:00 - 21:00 hằng ngày), đội ngũ tư vấn Gốm Ký sẽ phản hồi xác nhận khung giờ, bàn xoay và tư vấn chi tiết trong vòng 30 phút."
+        },
+        list: [
+          {
+            bold: "Trải nghiệm trực quan trước khi đến:",
+            normal: " Bạn có thể nhắn trước qua Fanpage để xem hình ảnh góc ngồi ngắm phổ hoặc catalog mẫu đất, men nung."
+          },
+          {
+            bold: "Ưu đãi cặp đôi & bạn bè:",
+            normal: " Nhận ngay ưu đãi đặc biệt khi đặt gói Gốm Ký Date hoặc rủ nhóm bạn cùng tham gia sáng tạo."
+          },
+          {
+            bold: "Kết nối cộng đồng yêu gốm:",
+            normal: " Tác phẩm của bạn sẽ được chụp ảnh lưu niệm và đồng hành cùng cộng đồng đam mê đồ gốm thủ công tại Hà Nội."
+          }
+        ],
+        locationBox: {
+          badge: "ĐỊA ĐIỂM",
+          address: "TẦNG 7, SỐ 79 HỒ TÙNG MẬU",
+          desc: "Vị trí thuận tiện, dễ tìm ngay trục đường chính Cầu Giấy - Từ Liêm. Không gian tầng cao thoáng mát, nhiều cây xanh và góc sống ảo ấm áp."
+        },
+        consultBox: {
+          title: "Cần tư vấn thêm?",
+          desc: "Nếu bạn cần tư vấn thêm, hãy liên hệ với chúng tôi qua Fanpage Facebook",
+          btn: "Nhắn tin qua Facebook →"
+        }
+      },
+      form: {
+        title: "Phiếu đăng ký đặt lịch",
+        desc: "Vui lòng điền thông tin để chúng tôi chuẩn bị nguyên vật liệu và không gian chu đáo nhất cho bạn.",
+        labels: {
+          name: "Họ và tên bạn",
+          phone: "Số điện thoại",
+          email: "Email",
+          date: "Ngày mong muốn",
+          time: "Khung giờ",
+          guests: "Số lượng người",
+          package: "Gói trải nghiệm",
+          note: "Ghi chú thêm",
+          optional: "(Không bắt buộc)"
+        },
+        placeholders: {
+          name: "Ví dụ: Nguyễn Minh Thư",
+          phone: "Ví dụ: 0987654321",
+          email: "Ví dụ: ten@gmail.com",
+          timeDefault: "-- Chọn khung giờ --",
+          packageDefault: "-- Chọn gói mong muốn --",
+          note: "Ví dụ: Bạn muốn khắc chữ kỷ niệm ngày cưới, muốn làm sản phẩm cho thú cưng, hoặc có yêu cầu đặc biệt về chỗ ngồi..."
+        },
+        hints: {
+          name: "Để Gốm Ký tiện xưng hô khi liên hệ",
+          phone: "Kênh liên hệ để xác nhận lịch hẹn",
+          email: "Gốm Ký sẽ gửi email xác nhận đặt lịch vào địa chỉ này"
+        },
+        submitBtn: "Gửi yêu cầu đặt lịch",
+        sendingBtn: "Đang gửi...",
+        resetBtn: "Đặt thêm lịch khác",
+        errors: {
+          nameRequired: "Vui lòng nhập họ và tên của bạn",
+          phoneRequired: "Vui lòng nhập số điện thoại hợp lệ (9-11 chữ số)",
+          emailRequired: "Vui lòng nhập email đúng định dạng (ví dụ: ten@gmail.com)",
+          dateRequired: "Vui lòng chọn ngày đặt lịch (từ hôm nay trở đi)",
+          timeRequired: "Vui lòng chọn khung giờ",
+          guestsRequired: "Số lượng người từ 1 đến 20",
+          packageRequired: "Vui lòng chọn gói trải nghiệm",
+          notConfigured: "Chưa cài địa chỉ nhận đơn",
+          networkError: "Gửi chưa thành công, vui lòng thử lại hoặc nhắn Fanpage"
+        },
+        successMessage: {
+          title: "Đã đặt lịch thành công!",
+          part1: "Cảm ơn bạn! Gốm Ký đã nhận yêu cầu và gửi email xác nhận tới ",
+          part2: ". Chúng mình sẽ phản hồi trong vòng 30 phút (9:00 - 21:00 hằng ngày). Nếu không thấy email, hãy kiểm tra mục Spam."
+        }
+      }
+    };
+
+    /* ======================================================================= */
+    /* C. HÀM NẠP VĂN BẢN TỪ OBJECT TEXT VÀO DOM                               */
+    /* ======================================================================= */
+    function applyTextContent() {
+      document.querySelectorAll('[data-text]').forEach(el => {
+        const path = el.getAttribute('data-text').split('.');
+        let val = TEXT;
+        for (const key of path) {
+          if (val && val[key] !== undefined) {
+            val = val[key];
+          } else {
+            val = null;
+            break;
+          }
+        }
+        if (typeof val === 'string') {
+          el.textContent = val;
+        }
+      });
+    }
+
+    /* ======================================================================= */
+    /* D. HÀM THIẾT LẬP LIÊN KẾT NỘI BỘ VỚI TARGET THEO PREVIEW                */
+    /* ======================================================================= */
+    function applyLinks() {
+      document.querySelectorAll('a[data-link]').forEach(a => {
+        const linkKey = a.getAttribute('data-link');
+        if (LINKS[linkKey]) {
+          a.href = LINKS[linkKey];
+          a.target = PREVIEW ? "_self" : "_top";
+        }
+      });
+
+      // Link Fanpage Facebook luôn mở tab mới
+      const fbBtn = document.getElementById('btn-fanpage');
+      if (fbBtn) {
+        fbBtn.href = FACEBOOK;
+        fbBtn.target = "_blank";
+        fbBtn.rel = "noopener";
+      }
+    }
+
+    /* ======================================================================= */
+    /* E. ĐỒNG BỘ CHIỀU CAO CHO KHUNG CHA (GOOGLE SITES / IFRAME)             */
+    /* ======================================================================= */
+    function sendHeight() {
+      if (window.parent) {
+        window.parent.postMessage({
+          type: 'resize',
+          height: document.documentElement.scrollHeight
+        }, '*');
+      }
+    }
+
+    /* ======================================================================= */
+    /* F. KHỞI TẠO CÁC OPTION TRONG SELECT VÀ MIN DATE                         */
+    /* ======================================================================= */
+    function initFormFields() {
+      // 1. Min date = hôm nay
+      const dateField = document.getElementById('field-date');
+      if (dateField) {
+        const now = new Date();
+        const yyyy = now.getFullYear();
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        dateField.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      // 2. Nạp khung giờ từ TIME_SLOTS
+      const timeSelect = document.getElementById('field-time');
+      if (timeSelect) {
+        timeSelect.innerHTML = `<option value="">${TEXT.form.placeholders.timeDefault}</option>`;
+        TIME_SLOTS.forEach(slot => {
+          const opt = document.createElement('option');
+          opt.value = slot;
+          opt.textContent = slot;
+          timeSelect.appendChild(opt);
+        });
+      }
+
+      // 3. Nạp danh sách gói từ PACKAGES
+      const packageSelect = document.getElementById('field-package');
+      if (packageSelect) {
+        packageSelect.innerHTML = `<option value="">${TEXT.form.placeholders.packageDefault}</option>`;
+        PACKAGES.forEach(pkg => {
+          const opt = document.createElement('option');
+          opt.value = pkg;
+          opt.textContent = pkg;
+          packageSelect.appendChild(opt);
+        });
+      }
+    }
+
+    /* ======================================================================= */
+    /* G. QUẢN LÝ LỖI FORM VÀ TƯƠNG TÁC GÕ                                    */
+    /* ======================================================================= */
+    function clearError(fieldId, groupId) {
+      const group = document.getElementById(groupId);
+      if (group) {
+        group.classList.remove('has-error');
+      }
+      hideFormAlert();
+    }
+
+    function setError(groupId, errorId, message) {
+      const group = document.getElementById(groupId);
+      const errorEl = document.getElementById(errorId);
+      if (group) {
+        group.classList.add('has-error');
+      }
+      if (errorEl && message) {
+        errorEl.textContent = message;
+      }
+    }
+
+    function showFormAlert(htmlContent) {
+      const alertEl = document.getElementById('form-alert');
+      if (alertEl) {
+        alertEl.innerHTML = htmlContent;
+        alertEl.className = 'form-status-alert alert-error';
+        sendHeight();
+      }
+    }
+
+    function hideFormAlert() {
+      const alertEl = document.getElementById('form-alert');
+      if (alertEl) {
+        alertEl.style.display = 'none';
+        alertEl.className = 'form-status-alert';
+      }
+    }
+
+    function setupInputListeners() {
+      const fields = [
+        { id: 'field-name', group: 'group-name' },
+        { id: 'field-phone', group: 'group-phone' },
+        { id: 'field-email', group: 'group-email' },
+        { id: 'field-date', group: 'group-date' },
+        { id: 'field-time', group: 'group-time' },
+        { id: 'field-guests', group: 'group-guests' },
+        { id: 'field-package', group: 'group-package' }
+      ];
+
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (el) {
+          el.addEventListener('input', () => clearError(f.id, f.group));
+          el.addEventListener('change', () => clearError(f.id, f.group));
+        }
+      });
+    }
+
+    /* ======================================================================= */
+    /* H. XỬ LÝ GỬI FORM VÀ PHẢN HỒI                                          */
+    /* ======================================================================= */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      hideFormAlert();
+
+      // Kiểm tra ô bẫy spam: nếu có nội dung, dừng lại ngay
+      const honeypot = document.getElementById('field-website');
+      if (honeypot && honeypot.value.trim() !== '') {
+        return;
+      }
+
+      // Lấy dữ liệu các ô
+      const nameEl = document.getElementById('field-name');
+      const phoneEl = document.getElementById('field-phone');
+      const emailEl = document.getElementById('field-email');
+      const dateEl = document.getElementById('field-date');
+      const timeEl = document.getElementById('field-time');
+      const guestsEl = document.getElementById('field-guests');
+      const packageEl = document.getElementById('field-package');
+      const noteEl = document.getElementById('field-note');
+      const submitBtn = document.getElementById('btn-submit');
+
+      const nameVal = nameEl.value.trim();
+      const phoneVal = phoneEl.value.trim().replace(/[\s.-]/g, '');
+      const emailVal = emailEl.value.trim();
+      const dateVal = dateEl.value;
+      const timeVal = timeEl.value;
+      const guestsVal = parseInt(guestsEl.value, 10);
+      const packageVal = packageEl.value;
+      const noteVal = noteEl ? noteEl.value.trim() : '';
+
+      let isValid = true;
+      let firstErrorEl = null;
+
+      // 1. Kiểm tra Tên
+      if (!nameVal) {
+        setError('group-name', 'error-name', TEXT.form.errors.nameRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = nameEl;
+      }
+
+      // 2. Kiểm tra Số điện thoại (9-11 chữ số)
+      const phoneRegex = /^[0-9]{9,11}$/;
+      if (!phoneVal || !phoneRegex.test(phoneVal)) {
+        setError('group-phone', 'error-phone', TEXT.form.errors.phoneRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = phoneEl;
+      }
+
+      // 3. Kiểm tra Email đúng định dạng
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setError('group-email', 'error-email', TEXT.form.errors.emailRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = emailEl;
+      }
+
+      // 4. Kiểm tra Ngày mong muốn
+      const todayStr = dateEl.min;
+      if (!dateVal || (todayStr && dateVal < todayStr)) {
+        setError('group-date', 'error-date', TEXT.form.errors.dateRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = dateEl;
+      }
+
+      // 5. Kiểm tra Khung giờ
+      if (!timeVal) {
+        setError('group-time', 'error-time', TEXT.form.errors.timeRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = timeEl;
+      }
+
+      // 6. Kiểm tra Số lượng người (1 đến 20)
+      if (isNaN(guestsVal) || guestsVal < 1 || guestsVal > 20) {
+        setError('group-guests', 'error-guests', TEXT.form.errors.guestsRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = guestsEl;
+      }
+
+      // 7. Kiểm tra Gói trải nghiệm
+      if (!packageVal) {
+        setError('group-package', 'error-package', TEXT.form.errors.packageRequired);
+        isValid = false;
+        if (!firstErrorEl) firstErrorEl = packageEl;
+      }
+
+      // Nếu có lỗi, cuộn focus đến ô đầu tiên
+      if (!isValid) {
+        if (firstErrorEl) {
+          firstErrorEl.focus();
+        }
+        sendHeight();
+        return;
+      }
+
+      // Tiến hành gửi yêu cầu
+      submitBtn.disabled = true;
+      submitBtn.textContent = TEXT.form.sendingBtn;
+
+      // Kiểm tra URL Apps Script:
+      // Nếu là chuỗi mẫu mặc định, mô phỏng gửi thành công sau 500ms để trải nghiệm ngay thông báo
+      const isDefaultUrl = !CONFIG.SCRIPT_URL || 
+        CONFIG.SCRIPT_URL === "DÁN_URL_APPS_SCRIPT_VÀO_ĐÂY" || 
+        CONFIG.SCRIPT_URL.indexOf("DÁN_URL") !== -1;
+
+      const bookingDetails = {
+        date: dateVal,
+        time: timeVal,
+        guests: guestsVal
+      };
+
+      if (isDefaultUrl) {
+        setTimeout(() => {
+          showSuccessScreen(emailVal, packageVal, bookingDetails);
+        }, 500);
+        return;
+      }
+
+      const params = new URLSearchParams();
+      params.append("name", nameVal);
+      params.append("phone", phoneVal);
+      params.append("email", emailVal);
+      params.append("date", dateVal);
+      params.append("time", timeVal);
+      params.append("guests", guestsVal);
+      params.append("package", packageVal);
+      params.append("note", noteVal);
+      params.append("submittedAt", new Date().toISOString());
+
+      fetch(CONFIG.SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: params
+      })
+      .then(() => {
+        // Gửi thành công: hiển thị màn hình cảm ơn
+        showSuccessScreen(emailVal, packageVal, bookingDetails);
+      })
+      .catch(() => {
+        // Mất mạng hoặc lỗi mạng: giữ nguyên dữ liệu, hiển thị cảnh báo
+        const errorHtml = `${TEXT.form.errors.networkError} (<a href="${FACEBOOK}" target="_blank" rel="noopener">Fanpage Gốm Ký</a>).`;
+        showFormAlert(errorHtml);
+        submitBtn.disabled = false;
+        submitBtn.textContent = TEXT.form.submitBtn;
+        sendHeight();
+      });
+    }
+
+    /* Lấy ngày hiện tại theo múi giờ Asia/Ho_Chi_Minh bằng Intl.DateTimeFormat (dd.MM.yyyy) */
+    function getVietnamStampDate() {
+      try {
+        const now = new Date();
+        const formatter = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Ho_Chi_Minh',
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+        const parts = formatter.formatToParts(now);
+        let d = '', m = '', y = '';
+        for (const p of parts) {
+          if (p.type === 'day') d = p.value;
+          if (p.type === 'month') m = p.value;
+          if (p.type === 'year') y = p.value;
+        }
+        if (d && m && y) return `${d}.${m}.${y}`;
+      } catch (err) {
+        console.error('Error formatting stamp date:', err);
+      }
+      const now = new Date();
+      return `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`;
+    }
+
+    /* Định dạng ngày hiển thị chip (dd/MM/yyyy) */
+    function formatBookingDateDisplay(dateStr) {
+      if (!dateStr) return '';
+      const parts = dateStr.split('-');
+      if (parts.length === 3 && parts[0].length === 4) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dateStr;
+    }
+
+    /* Render hàng chip tóm tắt đặt lịch (Chỉ ngày, khung giờ, số người - KHÔNG sđt hay email) */
+    function renderSummaryChips(details) {
+      const container = document.getElementById('bookingSummaryChips');
+      if (!container) return;
+      container.innerHTML = '';
+      if (!details) return;
+
+      const chips = [];
+
+      // Chip 1: Ngày đã chọn (dd/MM/yyyy)
+      if (details.date) {
+        const dateFormatted = formatBookingDateDisplay(details.date);
+        if (dateFormatted) {
+          chips.push(`
+            <span class="summary-chip">
+              <svg class="summary-chip-icon" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>${escapeHtml(dateFormatted)}</span>
+            </span>
+          `);
+        }
+      }
+
+      // Chip 2: Khung giờ đã chọn
+      if (details.time && String(details.time).trim() !== '') {
+        chips.push(`
+          <span class="summary-chip">
+            <svg class="summary-chip-icon" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>${escapeHtml(details.time)}</span>
+          </span>
+        `);
+      }
+
+      // Chip 3: Số người ("x người")
+      if (details.guests && !isNaN(details.guests)) {
+        chips.push(`
+          <span class="summary-chip">
+            <svg class="summary-chip-icon" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>${escapeHtml(details.guests)} người</span>
+          </span>
+        `);
+      }
+
+      container.innerHTML = chips.join('');
+    }
+
+    let stampShakeTimer = null;
+    let stampDoneTimer = null;
+
+    /* Hiển thị màn hình thành công và kích hoạt hiệu ứng con dấu triện */
+    function showSuccessScreen(email, packageName, bookingDetails) {
+      // 6. gui_form_dat_lich: khi gửi form thành công, kèm tham số goi là tên gói khách chọn.
+      // TUYỆT ĐỐI KHÔNG gửi họ tên, số điện thoại, email hay ghi chú của khách vào GA.
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'gui_form_dat_lich', {
+            goi: packageName
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      const formBox = document.getElementById('booking-form-container');
+      const successBox = document.getElementById('booking-success-container');
+      const successDesc = document.getElementById('success-desc');
+      const stampDateEl = document.getElementById('stampDateText');
+      const stampStage = document.getElementById('stampStageContainer');
+      const shakeWrap = document.getElementById('successShakeWrap');
+
+      // 1. Cập nhật ngày trên con dấu theo múi giờ Việt Nam
+      if (stampDateEl) {
+        stampDateEl.textContent = getVietnamStampDate();
+      }
+
+      // 2. Render hàng chip tóm tắt
+      renderSummaryChips(bookingDetails || {});
+
+      // 3. Nội dung email xác nhận
+      if (successDesc) {
+        successDesc.innerHTML = `${TEXT.form.successMessage.part1}<strong class="success-email-highlight">${escapeHtml(email || '')}</strong>${TEXT.form.successMessage.part2}`;
+      }
+
+      if (formBox && successBox) {
+        formBox.style.display = 'none';
+        successBox.style.display = 'block';
+
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (stampShakeTimer) clearTimeout(stampShakeTimer);
+        if (stampDoneTimer) clearTimeout(stampDoneTimer);
+
+        if (prefersReducedMotion) {
+          if (stampStage) stampStage.classList.remove('is-animating');
+          successBox.classList.remove('has-animation');
+          if (shakeWrap) shakeWrap.classList.remove('is-shaking');
+
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'hien_dau_da_nhan');
+            }
+          } catch (err) {
+            console.error(err);
+          }
+          sendHeight();
+        } else {
+          // Kích hoạt chuỗi animation
+          if (stampStage) {
+            stampStage.classList.remove('is-animating');
+            void stampStage.offsetWidth; // Reflow để khởi động lại animation
+            stampStage.classList.add('is-animating');
+          }
+          successBox.classList.remove('has-animation');
+          void successBox.offsetWidth;
+          successBox.classList.add('has-animation');
+
+          // Lúc 0.5s: chạm mặt giấy, rung khung nhẹ 0.15s và bắn sự kiện GA
+          stampShakeTimer = setTimeout(() => {
+            if (shakeWrap) {
+              shakeWrap.classList.add('is-shaking');
+              setTimeout(() => {
+                if (shakeWrap) shakeWrap.classList.remove('is-shaking');
+              }, 320);
+            }
+            try {
+              if (typeof gtag === 'function') {
+                gtag('event', 'hien_dau_da_nhan');
+              }
+            } catch (err) {
+              console.error(err);
+            }
+          }, 500);
+
+          // Gửi lại chiều cao iframe sau khi toàn bộ hiệu ứng hoàn thành (2.4s)
+          stampDoneTimer = setTimeout(() => {
+            sendHeight();
+          }, 2400);
+
+          sendHeight();
+        }
+      }
+    }
+
+    /* Nút "Đặt thêm lịch khác": hiện lại form trống và sẵn sàng cho lần đặt tiếp theo */
+    function resetBookingForm() {
+      const form = document.getElementById('booking-form');
+      const formBox = document.getElementById('booking-form-container');
+      const successBox = document.getElementById('booking-success-container');
+      const submitBtn = document.getElementById('btn-submit');
+      const stampStage = document.getElementById('stampStageContainer');
+      const shakeWrap = document.getElementById('successShakeWrap');
+      const chipsContainer = document.getElementById('bookingSummaryChips');
+
+      if (stampShakeTimer) clearTimeout(stampShakeTimer);
+      if (stampDoneTimer) clearTimeout(stampDoneTimer);
+
+      if (stampStage) stampStage.classList.remove('is-animating');
+      if (shakeWrap) shakeWrap.classList.remove('is-shaking');
+      if (successBox) successBox.classList.remove('has-animation');
+      if (chipsContainer) chipsContainer.innerHTML = '';
+
+      if (form) {
+        form.reset();
+        document.getElementById('field-guests').value = '1';
+        document.querySelectorAll('.form-group').forEach(grp => grp.classList.remove('has-error'));
+        hideFormAlert();
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = TEXT.form.submitBtn;
+      }
+
+      if (formBox && successBox) {
+        successBox.style.display = 'none';
+        formBox.style.display = 'block';
+        sendHeight();
+      }
+    }
+
+    /* Hàm bảo vệ chống XSS khi render email vào HTML */
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    /* CẬP NHẬT CHIỀU CAO THANH ĐIỀU HƯỚNG VÀO BIẾN CSS --nav-height */
+    function updateNavHeight() {
+      const header = document.getElementById('siteHeader');
+      if (header) {
+        const h = header.offsetHeight;
+        document.documentElement.style.setProperty('--nav-height', h + 'px');
+      }
+    }
+
+    /* KHỞI TẠO MENU MOBILE (HAMBURGER DRAWER) */
+    function initMobileNav() {
+      const toggleBtn = document.getElementById('navToggleBtn');
+      const centerMenu = document.querySelector('.nav-center-menu');
+      if (!toggleBtn || !centerMenu) return;
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleBtn.classList.toggle('is-active');
+        centerMenu.classList.toggle('is-open');
+        sendHeight();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggleBtn.contains(e.target) && !centerMenu.contains(e.target)) {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        }
+      });
+
+      centerMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          toggleBtn.classList.remove('is-active');
+          centerMenu.classList.remove('is-open');
+          sendHeight();
+        });
+      });
+    }
+
+    /* XỬ LÝ CHẾ ĐỘ HIỂN THỊ (EMBEDDED vs STANDALONE) */
+    function initDisplayMode() {
+      if (EMBEDDED) {
+        document.body.classList.add('is-embedded');
+      }
+    }
+
+    /* XỬ LÝ NÚT LIÊN HỆ TRÊN THANH ĐIỀU HƯỚNG */
+    function initContactButtons() {
+      const navZalo = document.getElementById('navBtnZalo');
+      const navFb = document.getElementById('navBtnFacebook');
+      if (navZalo) {
+        if (FOOTER.zalo && FOOTER.zalo.trim() !== '') {
+          navZalo.href = FOOTER.zalo;
+        } else {
+          navZalo.style.display = 'none';
+        }
+      }
+      if (navFb && FOOTER.facebook) {
+        navFb.href = FOOTER.facebook;
+      }
+    }
+
+    /* ======================================================================= */
+    /* H2. KHỞI TẠO VÀ ĐIỀU KHIỂN CHÂN TRANG DÙNG CHUNG                        */
+    /* ======================================================================= */
+    function initUnifiedFooter() {
+      // 1. Đồng bộ thông tin từ object FOOTER
+      const fbBtn = document.getElementById('footerSocialFacebook');
+      if (fbBtn && FOOTER.facebook) fbBtn.href = FOOTER.facebook;
+
+      const fanpageLink = document.getElementById('footerFanpageLink');
+      if (fanpageLink && FOOTER.facebook) fanpageLink.href = FOOTER.facebook;
+
+      const hotlineLink = document.getElementById('footerHotlineLink');
+      if (hotlineLink && FOOTER.hotline) {
+        hotlineLink.href = 'tel:' + FOOTER.hotline;
+        hotlineLink.textContent = 'Hotline: ' + FOOTER.hotline;
+      }
+
+      const emailLink = document.getElementById('footerEmailLink');
+      if (emailLink && FOOTER.email) {
+        emailLink.href = 'mailto:' + FOOTER.email;
+        emailLink.textContent = FOOTER.email;
+      }
+
+      const hoursEl = document.getElementById('footerHoursText');
+      if (hoursEl && FOOTER.hours) hoursEl.textContent = FOOTER.hours;
+
+      // Nút Zalo chỉ hiện khi FOOTER.zalo có link
+      const zaloBtn = document.getElementById('footerSocialZalo');
+      if (zaloBtn) {
+        if (FOOTER.zalo && FOOTER.zalo.trim() !== '') {
+          zaloBtn.href = FOOTER.zalo;
+          zaloBtn.style.display = 'inline-flex';
+        } else {
+          zaloBtn.style.display = 'none';
+        }
+      }
+
+      // 2. Tính toán trạng thái mở/đóng cửa theo giờ Việt Nam (9:00 - 21:00)
+      function updateStoreStatus() {
+        const badge = document.getElementById('footerStatusBadge');
+        if (!badge) return;
+        try {
+          const now = new Date();
+          const formatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Ho_Chi_Minh',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false
+          });
+          const parts = formatter.formatToParts(now);
+          let hour = 0, minute = 0;
+          parts.forEach(p => {
+            if (p.type === 'hour') hour = parseInt(p.value, 10);
+            if (p.type === 'minute') minute = parseInt(p.value, 10);
+          });
+          const totalMinutes = hour * 60 + minute;
+          // Mở cửa từ 9:00 (540 phút) đến 21:00 (1260 phút)
+          const isOpen = totalMinutes >= 540 && totalMinutes < 1260;
+          if (isOpen) {
+            badge.className = 'footer-status-badge status-open';
+            badge.innerHTML = '<span class="status-dot status-dot-open"></span><span>Đang mở cửa</span>';
+          } else {
+            badge.className = 'footer-status-badge status-closed';
+            badge.innerHTML = '<span class="status-dot status-dot-closed"></span><span>Đã đóng cửa</span>';
+          }
+        } catch (e) {
+          console.error('Error updating store status:', e);
+        }
+      }
+      updateStoreStatus();
+      setInterval(updateStoreStatus, 60000);
+
+      // 3. Nút cuộn lên đầu trang (Back to top)
+      const backToTopBtn = document.getElementById('btnBackToTop');
+      if (backToTopBtn) {
+        const isEmbeddedMode = (typeof EMBEDDED !== 'undefined' && EMBEDDED === true);
+        if (isEmbeddedMode) {
+          backToTopBtn.classList.remove('is-fixed');
+          backToTopBtn.classList.add('is-embedded-inline');
+        } else {
+          backToTopBtn.classList.add('is-fixed');
+          backToTopBtn.classList.remove('is-embedded-inline');
+
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+              backToTopBtn.classList.add('is-visible');
+            } else {
+              backToTopBtn.classList.remove('is-visible');
+            }
+          }, { passive: true });
+        }
+
+        backToTopBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    }
+
+    /* ======================================================================= */
+    /* I. KHỞI CHẠY KHI TẢI TRANG                                             */
+    /* ======================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      initMobileNav();
+      updateNavHeight();
+      initDisplayMode();
+      initContactButtons();
+      applyTextContent();
+      applyLinks();
+      initFormFields();
+      setupInputListeners();
+
+      const bookingForm = document.getElementById('booking-form');
+      if (bookingForm) {
+        bookingForm.addEventListener('submit', handleFormSubmit);
+      }
+
+      const resetBtn = document.getElementById('btn-reset');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', resetBookingForm);
+      }
+
+      initUnifiedFooter();
+
+      initGAEvents();
+
+      // Kiểm tra tham số ?demo=1 để hiển thị trực tiếp màn hình thành công và chạy animation con dấu
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('demo') === '1') {
+        const demoDate = new Date();
+        demoDate.setDate(demoDate.getDate() + 2);
+        const yyyy = demoDate.getFullYear();
+        const mm = String(demoDate.getMonth() + 1).padStart(2, '0');
+        const dd = String(demoDate.getDate()).padStart(2, '0');
+        showSuccessScreen('khachhang.gomky@gmail.com', 'Gói nặn vừa', {
+          date: `${yyyy}-${mm}-${dd}`,
+          time: '09:00 - 12:00',
+          guests: 2
+        });
+      }
+
+      sendHeight();
+    });
+
+    /* ======================================================================= */
+    /* J. GOOGLE ANALYTICS 4 SỰ KIỆN                                            */
+    /* ======================================================================= */
+    let hasTriggeredBatDauForm = false;
+
+    function initGAEvents() {
+      function sendGA(eventName, eventParams) {
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', eventName, eventParams);
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      }
+
+      // 1. click_dat_lich: menu & nav booking
+      const navBooking = document.getElementById('navBtnBooking');
+      if (navBooking) {
+        navBooking.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'menu' });
+        });
+      }
+      const menuBooking = document.querySelector('.nav-menu-list a[data-link="booking"]');
+      if (menuBooking) {
+        menuBooking.addEventListener('click', () => {
+          sendGA('click_dat_lich', { vi_tri: 'menu' });
+        });
+      }
+
+      // 4. click_facebook: nút nhắn tin Facebook cột trái
+      const fanpageBtn = document.getElementById('btn-fanpage');
+      if (fanpageBtn) {
+        fanpageBtn.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'can_tu_van' });
+        });
+      }
+
+      // 4. click_facebook: footer, nav
+      const navFb = document.getElementById('navBtnFacebook');
+      if (navFb) {
+        navFb.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'menu' });
+        });
+      }
+
+      document.querySelectorAll('footer a[href*="facebook.com"]').forEach(link => {
+        link.addEventListener('click', () => {
+          sendGA('click_facebook', { vi_tri: 'footer' });
+        });
+      });
+
+      // 4. click_facebook: link trong cảnh báo lỗi nếu có
+      const alertEl = document.getElementById('form-alert');
+      if (alertEl) {
+        alertEl.addEventListener('click', (e) => {
+          const fbLink = e.target.closest('a[href*="facebook.com"]');
+          if (fbLink) {
+            sendGA('click_facebook', { vi_tri: 'thong_bao_loi' });
+          }
+        });
+      }
+
+      // 5. bat_dau_form: lần đầu khách nhập vào bất kỳ ô nào của form đặt lịch (chỉ gửi 1 lần mỗi lần tải trang)
+      const formEl = document.getElementById('booking-form');
+      if (formEl) {
+        const triggerBatDauForm = () => {
+          if (hasTriggeredBatDauForm) return;
+          hasTriggeredBatDauForm = true;
+          sendGA('bat_dau_form');
+        };
+        formEl.addEventListener('input', triggerBatDauForm);
+        formEl.addEventListener('change', triggerBatDauForm);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+    window.addEventListener('resize', () => {
+      updateNavHeight();
+      sendHeight();
+    });
+
+    // Tự động gửi lại chiều cao khi kích thước trang thay đổi
+    if (typeof ResizeObserver !== 'undefined') {
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+    }
+  </script>
+</body>
+</html>
